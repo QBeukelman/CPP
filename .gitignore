@@ -1,0 +1,18 @@
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# programs
+megaphone
+phone_book
+
+# static library
+*.a
+
+# vscode folder
+.vscode/
+
+# Kernel Module Compile Results
+.DS_Store

@@ -1,12 +1,11 @@
 
 #include "../../includes/include.hpp"
 
-static void	write_tableRowTitles() {
-	std::cout << TABLE_HEADER << "\n";
-}
 
 void	write_greeting() {
-	std::cout << "Phone Book started" << "\n\n";
-	write_tableRowTitles();
+	std::cout << INTRO_MESSAGE << "\n\n";
+	std::cout << TABLE_SCHEMA << "\n\n";
+	std::cout << C_BLUE "add" RESET_COLOR << ADD_MANUAL << "\n";
+	std::cout << C_BLUE "search" RESET_COLOR << SEARCH_MANUAL << "\n";
+	std::cout << C_BLUE "exit" RESET_COLOR << EXIT_MANUAL << "\n\n";
 }
-

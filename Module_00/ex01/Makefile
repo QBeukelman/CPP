@@ -6,7 +6,7 @@
 #    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/11/21 22:59:38 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2024/11/21 23:09:21 by quentinbeuk   ########   odam.nl          #
+#    Updated: 2024/11/23 11:58:08 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ RESET				:= \033[0m
 
 # Compiler
 CC = g++
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CFLAGS = -std=c++98 # -Wall -Werror -Wextra
 
 # Targets
 NAME_EXECUTABLE = phone_book

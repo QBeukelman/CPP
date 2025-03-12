@@ -5,6 +5,9 @@
 #include <iostream>
 #include <string>
 #include <memory>
+#include <cassert>
+
+// #include <gtest/gtest.h>
 
 #define C_YELLOW "\033[1;33m"
 #define C_RED "\x1B[1;31m"
@@ -21,9 +24,14 @@ class Zombie {
 		Zombie(std::string name);
 		~Zombie();
 
+		void				setName(std::string newName);
+		std::string			getName(void) const;
 		void				announce(void);
 		static Zombie*		newZombie(std::string name);
 		static void			randomChump(std::string name);
+		static Zombie*		zombieHorde(int N, std::string name);
 };
+
+void	assert_with_message(bool assertion, const std::string& message);
 
 #endif

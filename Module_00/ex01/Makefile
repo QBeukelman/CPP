@@ -6,7 +6,7 @@
 #    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
 #                                                    +#+                       #
 #    Created: 2024/11/21 22:59:38 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2024/11/23 11:58:08 by quentinbeuk   ########   odam.nl          #
+#    Updated: 2025/03/06 23:19:43 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,4 +82,8 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean
+valgrind: $(NAME_EXECUTABLE)
+	@echo "$(YELLOW)Running Valgrind...$(RESET)"
+	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME_EXECUTABLE)
+
+.PHONY: all clean fclean re valgrind

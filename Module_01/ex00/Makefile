@@ -3,18 +3,20 @@
 CC = g++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-# Targets
-FILENAME = main.cpp
+TARGET = zombie
 
-TARGET = Zombie
+SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+OBJS = $(SRCS:.cpp=.o)
 
 all: $(TARGET)
 
-# Executable
-$(TARGET): $(FILENAME)
-	$(CC) $(CFLAGS) -o $(TARGET) $(FILENAME)
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+
+%.o: %.cpp Zombie.hpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(TARGET)
+	rm -f $(OBJS) $(TARGET)
 
 .PHONY: all clean

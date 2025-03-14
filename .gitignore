@@ -5,8 +5,11 @@
 *.elf
 
 # programs
+a.out
 megaphone
 phone_book
+zombie
+unnecessary_violance
 
 # static library
 *.a

@@ -10,15 +10,8 @@ class Weapon {
 		std::string		type;
 
 	public:
-		// Default Constructor
 		Weapon();
-		// Parameteized Constructor
 		Weapon(const std::string& type);
-		// Copy Constructer
-		Weapon(const Weapon& other);
-		// Copy Assignment Operator
-		Weapon& operator=(const Weapon& other);
-		// Destructor
 		~Weapon();
 		
 		// Member Functions

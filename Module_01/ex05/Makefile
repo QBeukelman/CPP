@@ -6,7 +6,7 @@
 #    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/03/17 21:57:55 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/03/17 22:09:08 by quentinbeuk   ########   odam.nl          #
+#    Updated: 2025/03/17 23:41:30 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,9 @@ CC = g++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 NAME_EXECUTABLE = harl_complains
+UTILS			= ../utils/utils.cpp
 
-SRCS = main.cpp Harl.cpp utils.cpp
+SRCS = main.cpp Harl.cpp $(UTILS)
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME_EXECUTABLE)

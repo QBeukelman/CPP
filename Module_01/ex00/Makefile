@@ -6,7 +6,7 @@
 #    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/03/16 21:11:13 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/03/16 21:11:44 by quentinbeuk   ########   odam.nl          #
+#    Updated: 2025/03/17 23:32:06 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,9 @@ CC = g++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 NAME_EXECUTABLE = zombie
+UTILS			= ../utils/utils.cpp
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp ../utils/utils.cpp $(UTILS)
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME_EXECUTABLE)

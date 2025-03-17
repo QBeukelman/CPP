@@ -1,25 +1,31 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
+#                                                    +#+                       #
+#    Created: 2025/03/17 23:19:04 by quentinbeuk   #+#    #+#                  #
+#    Updated: 2025/03/17 23:33:21 by quentinbeuk   ########   odam.nl          #
+#                                                                              #
+# **************************************************************************** #
 
 # Compiler
 CC = g++
-GTEST_DIR = extern/googletest
-GTEST_LIB = $(GTEST_DIR)/build/lib/libgtest.a
-GTEST_INCLUDE = $(GTEST_DIR)/googletest/include
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-TARGET = zombie
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp testZombie.cpp
-OBJS = $(SRCS:.cpp=.o)
+TARGET			= zombie
+UTILS			= ../utils/utils.cpp
 
+SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp testZombie.cpp $(UTILS)
+OBJS = $(SRCS:.cpp=.o)
 
 # Targets
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
-
-test: $(OBJS) $(TEST_OBJS) $(GTEST_LIB)
-	$(CC) $(CFLAGS) -o test_runner $(OBJS) $(TEST_OBJS) $(GTEST_LIB) -pthread
 
 %.o: %.cpp Zombie.hpp
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@

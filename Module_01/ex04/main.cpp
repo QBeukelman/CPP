@@ -6,13 +6,13 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/16 21:07:07 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/17 21:07:23 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/03/17 23:40:13 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "File.hpp"
 #include "StringProcessor.hpp"
-#include "utils.hpp"
+#include "../utils/utils.hpp"
 
 #define OUT_FILE_SUFFIX ".append"
 

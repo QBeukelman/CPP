@@ -6,7 +6,7 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/17 21:44:43 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/17 21:57:39 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/03/17 23:43:32 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int		main(void) {
 	Harl harl;
 
+	write_line();
 	harl.complain("DEBUG");
 	harl.complain("INFO");
 	harl.complain("WARNING");

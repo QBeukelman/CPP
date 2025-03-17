@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Zombie.hpp                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/03/17 23:20:31 by quentinbeuk   #+#    #+#                 */
+/*   Updated: 2025/03/17 23:20:33 by quentinbeuk   ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
@@ -5,12 +16,7 @@
 #include <iostream>
 #include <string>
 #include <memory>
-
-#define C_YELLOW "\033[1;33m"
-#define C_RED "\x1B[1;31m"
-#define C_BLUE "\033[1;34m"
-#define C_GREEN "\033[1;32m"
-#define RESET_COLOR "\033[0m"
+#include "../utils/utils.hpp"
 
 class Zombie {
 	private:

@@ -6,7 +6,7 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/17 21:22:00 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/17 22:15:00 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/03/17 23:42:46 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	Harl::debug(void) {
 		<< "DEBUG: "
 		<< RESET_COLOR
 		<< DEBUG_MESSAGE
-		<< std::endl; 
+		<< "\n\n"; 
 }
 
 void	Harl::info(void) {
@@ -27,7 +27,7 @@ void	Harl::info(void) {
 	<< "INFO: "
 	<< RESET_COLOR
 	<< INFO_MESSAGE
-	<< std::endl; 
+	<< "\n\n"; 
 }
 
 void	Harl::warning(void) {
@@ -36,7 +36,7 @@ void	Harl::warning(void) {
 	<< "WARNING: "
 	<< RESET_COLOR
 	<< WARNING_MESSAGE
-	<< std::endl; 
+	<< "\n\n"; 
 }
 
 void	Harl::error(void) {
@@ -45,7 +45,7 @@ void	Harl::error(void) {
 	<< "ERROR: "
 	<< RESET_COLOR
 	<< ERROR_MESSAGE
-	<< std::endl; 
+	<< "\n\n"; 
 }
 
 void	Harl::complain(std::string level) {
@@ -55,7 +55,7 @@ void	Harl::complain(std::string level) {
 	} else {
 		std::cout
 			<< C_RED
-			<< "Method not found.\n"
+			<< "Method not found.\n\n"
 			<< RESET_COLOR;
 	}
 }

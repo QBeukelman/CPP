@@ -6,7 +6,7 @@
 /*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/14 14:14:59 by qbeukelm      #+#    #+#                 */
-/*   Updated: 2025/03/16 15:13:18 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/03/17 23:36:31 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 #include "human/HumanA.hpp"
 #include "human/HumanB.hpp"
 
-static void write_line(void) { std::cout << std::endl; }
-static void write_divider(void) { std::cout << std::endl << "---------------------\n\n"; }
-
-int		main(int argc, char **argv) {
+int		main(void) {
 
 	write_line();
 	{

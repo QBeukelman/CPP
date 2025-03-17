@@ -6,7 +6,7 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/17 23:22:09 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/17 23:22:20 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/03/17 23:51:48 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	write_greeting() {
 	std::cout << C_BLUE "exit" RESET_COLOR << EXIT_MANUAL << "\n\n";
 }
 
-static std::string	truncate(std::string str, int width) {
+static std::string	truncate(std::string str, const size_t width) {
 	int		fill_len;
 
 	if (str.length() > width) {
@@ -33,7 +33,7 @@ static std::string	truncate(std::string str, int width) {
 		}
 		return (str);
 	}
-	return str;
+	return (str);
 }
 
 void	write_contact(Contact contact) {

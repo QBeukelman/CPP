@@ -5,18 +5,17 @@
 #                                                      +:+                     #
 #    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
 #                                                    +#+                       #
-#    Created: 2025/03/16 21:11:13 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/03/16 21:11:44 by quentinbeuk   ########   odam.nl          #
+#    Created: 2025/03/16 21:11:50 by quentinbeuk   #+#    #+#                  #
+#    Updated: 2025/03/17 20:56:54 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-# Compiler
 CC = g++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-NAME_EXECUTABLE = zombie
+NAME_EXECUTABLE = string_replace
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS = main.cpp File.cpp StringProcessor.cpp utils.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME_EXECUTABLE)

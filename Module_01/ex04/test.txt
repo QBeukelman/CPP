@@ -1,0 +1,7 @@
+This is the test file for CPP Module_01, ex04.
+
+Here is something to replace [000].
+[000] this should be replaced.
+
+Dont forget [000] this one here.
+And one more for good measure [000].

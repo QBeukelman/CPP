@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/14 16:51:47 by qbeukelm          #+#    #+#             */
-/*   Updated: 2025/03/14 17:43:21 by qbeukelm         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   HumanA.cpp                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/03/14 16:51:47 by qbeukelm      #+#    #+#                 */
+/*   Updated: 2025/03/16 15:10:00 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@
 Weapon defaultWeapon("Default Weapon");
 HumanA::HumanA() : name("Default HumanA"), weapon(defaultWeapon) {}
 
-HumanA::HumanA(std::string name, Weapon weapon) : name(name), weapon(weapon) {}
+HumanA::HumanA(std::string name, Weapon& weapon) : name(name), weapon(weapon) {}
 
-HumanA::~HumanA() {
-	std::cout << "HumanA destroyed\n";
-}
+HumanA::~HumanA() {}
 
 std::string		HumanA::getName(void) const {
 	return (this->name);
@@ -40,8 +38,12 @@ void			HumanA::setWeapon(Weapon& newWeapon) {
 
 void		HumanA::attack() const {
 	std::cout
+		<< C_BLUE
 		<< name
+		<< RESET_COLOR
 		<< " attacks with their "
+		<< C_YELLOW
 		<< weapon.getType()
+		<< RESET_COLOR
 		<< std::endl;
 }

@@ -1,17 +1,11 @@
 
 #include "Weapon.hpp"
 
-Weapon::Weapon() : type("Default") {
-	std::cout << "Default Constructor\n";
-}
+Weapon::Weapon() : type("Default") {}
 
-Weapon::Weapon(const std::string& type) : type(type) {
-	std::cout << "Parameterized Constructor\n";
-}
+Weapon::Weapon(const std::string& type) : type(type) {}
 
-Weapon::~Weapon() {
-	std::cout << "Destructor\n";
-}
+Weapon::~Weapon() {}
 
 void   Weapon::setType(const std::string& newType) {
 	type = newType;

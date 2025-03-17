@@ -1,17 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Weapon.cpp                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/03/17 23:18:37 by quentinbeuk   #+#    #+#                 */
+/*   Updated: 2025/03/17 23:18:40 by quentinbeuk   ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon() : type("Default") {
-	std::cout << "Default Constructor\n";
-}
+Weapon::Weapon() : type("Default") {}
 
-Weapon::Weapon(const std::string& type) : type(type) {
-	std::cout << "Parameterized Constructor\n";
-}
+Weapon::Weapon(const std::string& type) : type(type) {}
 
-Weapon::~Weapon() {
-	std::cout << "Destructor\n";
-}
+Weapon::~Weapon() {}
 
 void   Weapon::setType(const std::string& newType) {
 	type = newType;

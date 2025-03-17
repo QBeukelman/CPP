@@ -1,10 +1,23 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
+#                                                    +#+                       #
+#    Created: 2025/03/17 23:18:55 by quentinbeuk   #+#    #+#                  #
+#    Updated: 2025/03/17 23:34:16 by quentinbeuk   ########   odam.nl          #
+#                                                                              #
+# **************************************************************************** #
+
 # Compiler
 CC = g++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 # Targets
-FILENAME = main.cpp
-TARGET = hi_this_is_brain
+UTILS			= ../utils/utils.cpp
+FILENAME		= main.cpp $(UTILS)
+TARGET			= hi_this_is_brain
 
 all: $(TARGET)
 

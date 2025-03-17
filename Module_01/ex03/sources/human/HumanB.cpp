@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/14 17:11:58 by qbeukelm          #+#    #+#             */
-/*   Updated: 2025/03/14 17:45:55 by qbeukelm         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   HumanB.cpp                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/03/14 17:11:58 by qbeukelm      #+#    #+#                 */
+/*   Updated: 2025/03/16 15:10:08 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ HumanB::HumanB() : name("Default HumanB") {}
 // Weapon is optional, starts as nullptr
 HumanB::HumanB(std::string name) : name(name), weapon(NULL) {}
 
-HumanB::~HumanB() {
-	std::cout << "HumanA destroyed\n";
-}
+HumanB::~HumanB() {}
 
 std::string		HumanB::getName(void) const {
 	return (this->name);
@@ -39,16 +37,21 @@ void			HumanB::setWeapon(Weapon& newWeapon) {
 }
 
 void		HumanB::attack() const {
+	std::cout
+		<< C_BLUE
+		<< name
+		<< RESET_COLOR;
+
 	if (weapon)	{
 		std::cout
-			<< name
 			<< " attacks with their "
+			<< C_YELLOW
 			<< weapon->getType()
+			<< RESET_COLOR
 			<< std::endl;
 	} else {
 		std::cout
-			<< name
-			<< " has no weapon to attack with"
+			<< " has no weapon to attack with..."
 			<< std::endl;
 	}
 };

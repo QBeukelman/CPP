@@ -1,8 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   main.cpp                                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/03/17 23:19:52 by quentinbeuk   #+#    #+#                 */
+/*   Updated: 2025/03/17 23:24:21 by quentinbeuk   ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "Zombie.hpp"
-
-static void write_line(void) { std::cout << std::endl; }
-static void write_divider(void) { std::cout << std::endl << "---------------------" << std::endl << std::endl; }
 
 int main(void) {
 	

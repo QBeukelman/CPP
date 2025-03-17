@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/14 14:14:59 by qbeukelm          #+#    #+#             */
-/*   Updated: 2025/03/14 17:44:55 by qbeukelm         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   main.cpp                                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/03/14 14:14:59 by qbeukelm      #+#    #+#                 */
+/*   Updated: 2025/03/17 23:36:31 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 #include "human/HumanA.hpp"
 #include "human/HumanB.hpp"
 
-int		main(int argc, char **argv) {
+int		main(void) {
+
+	write_line();
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanA bob("Bob", club);
@@ -22,6 +24,8 @@ int		main(int argc, char **argv) {
 		club.setType("some other type of club");
 		bob.attack();
 	}
+
+	write_divider();
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanB jim("Jim");
@@ -30,6 +34,13 @@ int		main(int argc, char **argv) {
 		club.setType("some other type of club");
 		jim.attack();
 	}
+
+	write_divider();
+	{
+		HumanB jim("Jim");
+		jim.attack();
+	}
+	write_line();
 
 	return 0;
 }

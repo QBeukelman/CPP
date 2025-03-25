@@ -5,8 +5,8 @@
 #                                                      +:+                     #
 #    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
 #                                                    +#+                       #
-#    Created: 2025/03/17 23:19:04 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/03/24 21:48:26 by quentinbeuk   ########   odam.nl          #
+#    Created: 2025/03/24 21:47:25 by quentinbeuk   #+#    #+#                  #
+#    Updated: 2025/03/24 22:36:40 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,9 @@ CC = g++
 
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-TARGET			= zombie
-UTILS			= ../utils/utils.cpp
+TARGET			= fixed_point
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp testZombie.cpp $(UTILS)
+SRCS = main.cpp Fixed.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 # Targets
@@ -27,12 +26,10 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
 
-%.o: %.cpp Zombie.hpp
+%.o: %.cpp Fixed.hpp
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-# ! test_runner?
 clean:
-	rm -f $(OBJS) $(TEST_OBJS) $(TARGET) test_runner
-	rm -rf $(GTEST_BUILD_DIR)
+	rm -f $(OBJS) $(TARGET)
 
-.PHONY: all clean test
+.PHONY: all clean

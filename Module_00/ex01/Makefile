@@ -6,7 +6,7 @@
 #    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 22:59:38 by quentinbeuk       #+#    #+#              #
-#    Updated: 2025/03/14 14:08:56 by qbeukelm         ###   ########.fr        #
+#    Updated: 2025/04/04 15:56:27 by qbeukelm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ BLUE				:= \033[34;1m
 RESET				:= \033[0m
 
 # Compiler
-CC = g++
+CC = c++
 CFLAGS = -std=c++98 -Wall -Werror -Wextra
 
 # Targets
-NAME_EXECUTABLE = phone_book
+NAME_EXECUTABLE = phone_book_exc
 
 # Sources
 SOURCES						= phone_book.cpp \
@@ -31,8 +31,6 @@ SOURCES_CONTACT 			= Contact.cpp \
 
 SOURCES_PHONE_BOOK			= PhoneBook.cpp \
 
-SOURCES_WRITER				= writer.cpp \
-
 INC 						= inc
 DIR_OBJ						= obj
 
@@ -40,13 +38,11 @@ DIR_OBJ						= obj
 DIR_SOURCES					= sources
 DIR_SOURCES_CONTACTS		= sources/contact
 DIR_SOURCES_PHONE_BOOK		= sources/phone_book
-DIR_SOURCES_WRITER			= sources/writer
 
 # Object files
 OBJ = $(addprefix $(DIR_OBJ)/, $(SOURCES:.cpp=.o)) \
 	$(addprefix $(DIR_OBJ)/, $(SOURCES_CONTACT:.cpp=.o)) \
-	$(addprefix $(DIR_OBJ)/, $(SOURCES_PHONE_BOOK:.cpp=.o)) \
-	$(addprefix $(DIR_OBJ)/, $(SOURCES_WRITER:.cpp=.o))
+	$(addprefix $(DIR_OBJ)/, $(SOURCES_PHONE_BOOK:.cpp=.o))
 
 all: $(NAME_EXECUTABLE)
 
@@ -62,9 +58,6 @@ $(DIR_OBJ)/%.o: $(DIR_SOURCES_CONTACTS)/%.cpp | $(DIR_OBJ)
 	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
 
 $(DIR_OBJ)/%.o: $(DIR_SOURCES_PHONE_BOOK)/%.cpp | $(DIR_OBJ)
-	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
-
-$(DIR_OBJ)/%.o: $(DIR_SOURCES_WRITER)/%.cpp | $(DIR_OBJ)
 	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
 
 $(DIR_OBJ):

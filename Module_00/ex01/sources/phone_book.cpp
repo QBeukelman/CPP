@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   phone_book.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/04 11:57:43 by qbeukelm          #+#    #+#             */
+/*   Updated: 2025/04/04 15:05:06 by qbeukelm         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "../includes/include.hpp"
+#include "contact/Contact.hpp"
+#include "phone_book/PhoneBook.hpp"
 
 int	program_loop(PhoneBook phoneBook) {
 	std::string		command;
@@ -25,6 +37,6 @@ int	program_loop(PhoneBook phoneBook) {
 int main() {
 	PhoneBook phoneBook;
 
-	write_greeting();
+	phoneBook.write_greering();
 	program_loop(phoneBook);
 }

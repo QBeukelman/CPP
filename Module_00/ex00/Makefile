@@ -6,7 +6,7 @@
 #    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/14 11:41:32 by qbeukelm          #+#    #+#              #
-#    Updated: 2025/03/14 11:53:10 by qbeukelm         ###   ########.fr        #
+#    Updated: 2025/04/04 15:56:35 by qbeukelm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,12 @@ BLUE				:= \033[34;1m
 RESET				:= \033[0m
 
 # Compiler
-CC 		= g++
+CC 		= c++
 CFLAGS	= -Wall -Werror -Wextra -std=c++98
 
 # Targets
-SOURCES 		= Megaphone.cpp
-NAME_EXECUTABLE	= megaphone
+SOURCES 		= megaphone.cpp
+NAME_EXECUTABLE	= megaphone_exc
 
 all: $(NAME_EXECUTABLE)
 
@@ -36,7 +36,9 @@ valgrind: $(NAME_EXECUTABLE)
 	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME_EXECUTABLE)
 
 clean:
-	@$(RM) $(NAME_EXECUTABLE)
+	@echo "$(BLUE)\nCleaning ...$(RESET)"
+	@$(RM) -rf $(OBJS)
+	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"
 
 fclean: clean
 	@$(RM) $(NAME_EXECUTABLE)

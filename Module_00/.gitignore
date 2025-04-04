@@ -1,0 +1,17 @@
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# objs
+obj
+phone_book_exc
+megaphone_exc
+
+
+# static library
+*.a
+
+# vscode folder
+.vscode/

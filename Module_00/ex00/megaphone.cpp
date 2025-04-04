@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Megaphone.cpp                                      :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 11:41:27 by qbeukelm          #+#    #+#             */
-/*   Updated: 2025/03/14 11:49:15 by qbeukelm         ###   ########.fr       */
+/*   Updated: 2025/04/04 13:36:59 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 Megaphone::Megaphone() : message("") {}
 
 std::string Megaphone::str_upper(const std::string str) {
-	std::string result;
-	result.reserve(str.size());
+	std::string upper_str = str;
 
 	for (size_t i = 0; i < str.size(); i++) {
-		result += std::toupper(str[i]);
+		upper_str[i] = std::toupper(str[i]);
 	}
-	return (result);
+	return (upper_str);
 }
 
 std::string join_args(int argc, char **argv) {

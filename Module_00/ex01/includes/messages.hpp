@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   messages.hpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/17 23:21:42 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/17 23:21:45 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   messages.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/17 23:21:42 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/04/04 15:46:36 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MESSAGES_HPP
 #define MESSAGES_HPP
 
-#define MAX_FIELD_WIDTH		7
+#define MAX_FIELD_WIDTH		10
 
 // Introduction
 #define INTRO_MESSAGE		"\nPhone book started.\nStore up to 8 contacts, thereafter the first contact is overwritten.\nThe table schema is as follows:"
@@ -29,8 +29,10 @@
 #define INVALID_CMD			"Command not found, try: add, search, exit:"
 #define ADDED_CONTACT		"Contact added successfully."
 #define EMPTY_BOOK			"The phone book contains no contacts. Please use 'add' to enter contacts."
-#define SEARCH_PROMPT		"Contact index 1 to 8:"
+#define SEARCH_PROMPT		"Contact index 1 to "
 #define INVALID_INDEX		"Index out of range or contact does not exist. Try a number between 1 and 8."
+#define INVALID_NUMBER		"Incorrect characters in phone number. Contact not saved, returning to menu..."
+#define EMPTY_INPUT			"No value given. Contact not saved, returning to munu..."
 
 // Write contact
 #define TABLE_SEPERATOR		" | "

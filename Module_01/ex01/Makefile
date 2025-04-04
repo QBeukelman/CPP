@@ -1,38 +1,47 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
-#                                                    +#+                       #
-#    Created: 2025/03/17 23:19:04 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/03/24 21:48:26 by quentinbeuk   ########   odam.nl          #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/03/17 23:19:04 by quentinbeuk       #+#    #+#              #
+#    Updated: 2025/04/04 17:39:20 by qbeukelm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Compiler
-CC = g++
+BOLD				:= \033[1m
+RED					:= \033[31;1m
+GREEN				:= \033[32;1m
+YELLOW				:= \033[33;1m
+BLUE				:= \033[34;1m
+RESET				:= \033[0m
 
+# Compiler
+CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-TARGET			= zombie
-UTILS			= ../utils/utils.cpp
+NAME_EXECUTABLE			= zombie_exc
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp testZombie.cpp $(UTILS)
+SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp testZombie.cpp
 OBJS = $(SRCS:.cpp=.o)
 
-# Targets
-all: $(TARGET)
+all: $(NAME_EXECUTABLE)
 
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+$(NAME_EXECUTABLE): $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME_EXECUTABLE) $(OBJS)
 
 %.o: %.cpp Zombie.hpp
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-# ! test_runner?
-clean:
-	rm -f $(OBJS) $(TEST_OBJS) $(TARGET) test_runner
-	rm -rf $(GTEST_BUILD_DIR)
+clean: all
+	@echo "$(BLUE)\nCleaning ...$(RESET)"
+	@$(RM) -rf $(OBJS)
+	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"
 
-.PHONY: all clean test
+fclean: clean
+	@$(RM) $(NAME_EXECUTABLE)
+
+re: fclean all
+
+.PHONY: all clean

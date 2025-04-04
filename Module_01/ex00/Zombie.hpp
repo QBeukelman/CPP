@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Zombie.hpp                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/17 23:20:31 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/17 23:20:33 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/17 23:20:31 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/04/04 17:21:04 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,12 @@
 #include <iostream>
 #include <string>
 #include <memory>
-#include "../utils/utils.hpp"
+
+#define C_YELLOW "\033[1;33m"
+#define C_RED "\x1B[1;31m"
+#define C_BLUE "\033[1;34m"
+#define C_GREEN "\033[1;32m"
+#define RESET_COLOR "\033[0m"
 
 class Zombie {
 	private:

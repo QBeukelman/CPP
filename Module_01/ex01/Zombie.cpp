@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Zombie.cpp                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/05 21:39:58 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/17 23:19:38 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/05 21:39:58 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/04/04 17:32:29 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,10 @@ void	Zombie::setName(std::string newName) {
 
 void		Zombie::announce(void) {
 	std::cout << C_BLUE << name << RESET_COLOR << ANNOUNCE << std::endl;
+}
+
+std::string		Zombie::toString(int value) {
+	std::ostringstream oss;
+	oss << value;
+	return oss.str();
 }

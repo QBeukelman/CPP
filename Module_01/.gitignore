@@ -1,0 +1,17 @@
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# objs
+obj
+zombie_exc
+hi_this_is_brain
+
+
+# static library
+*.a
+
+# vscode folder
+.vscode/

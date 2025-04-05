@@ -22,7 +22,7 @@ CC = c++
 CFLAGS = -std=c++98 -Wall -Werror -Wextra
 
 # Targets
-NAME_EXECUTABLE = unnecessary_violance
+NAME_EXECUTABLE = unnecessary_violance_exc
 
 # Sources
 SOURCES						= main.cpp \
@@ -32,8 +32,6 @@ SOURCES_HUMAN				= HumanA.cpp \
 
 SOURCES_WEAPON				= Weapon.cpp \
 
-SOURCES_UTILS				= utils.cpp \
-
 INC 						= inc
 DIR_OBJ						= obj
 
@@ -41,13 +39,11 @@ DIR_OBJ						= obj
 DIR_SOURCES					= sources
 DIR_SOURCES_HUMAN			= sources/human
 DIR_SOURCES_WEAPON			= sources/weapon
-DIR_SOURCES_UTILS			= ../utils
 
 # Object files
 OBJ = $(addprefix $(DIR_OBJ)/, $(SOURCES:.cpp=.o)) \
 	$(addprefix $(DIR_OBJ)/, $(SOURCES_HUMAN:.cpp=.o)) \
 	$(addprefix $(DIR_OBJ)/, $(SOURCES_WEAPON:.cpp=.o)) \
-	$(addprefix $(DIR_OBJ)/, $(SOURCES_UTILS:.cpp=.o)) \
 
 all: $(NAME_EXECUTABLE)
 
@@ -63,9 +59,6 @@ $(DIR_OBJ)/%.o: $(DIR_SOURCES_HUMAN)/%.cpp | $(DIR_OBJ)
 	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
 
 $(DIR_OBJ)/%.o: $(DIR_SOURCES_WEAPON)/%.cpp | $(DIR_OBJ)
-	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
-
-$(DIR_OBJ)/%.o: $(DIR_SOURCES_UTILS)/%.cpp | $(DIR_OBJ)
 	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
 
 $(DIR_OBJ):

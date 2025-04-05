@@ -14,6 +14,9 @@
 #include "human/HumanA.hpp"
 #include "human/HumanB.hpp"
 
+void		write_line(void) { std::cout << std::endl; }
+void		write_divider(void) { std::cout << std::endl << "---------------------\n\n"; }
+
 int		main(void) {
 
 	write_line();

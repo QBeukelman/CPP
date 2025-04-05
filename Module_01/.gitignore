@@ -5,10 +5,14 @@
 *.elf
 
 # objs
-obj
-zombie_exc
-hi_this_is_brain
+*/obj
 
+# Excs
+zombie_exc
+hi_this_is_brain_exc
+unnecessary_violance_exc
+string_replace_exc
+harl_complains_exc
 
 # static library
 *.a

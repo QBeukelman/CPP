@@ -24,7 +24,7 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98
 # Targets
 UTILS			= ../utils/utils.cpp
 FILENAME		= main.cpp
-NAME_EXECUTABLE	= hi_this_is_brain
+NAME_EXECUTABLE	= hi_this_is_brain_exc
 
 all: $(NAME_EXECUTABLE)
 

@@ -12,17 +12,19 @@
 
 #include "File.hpp"
 #include "StringProcessor.hpp"
-#include "../utils/utils.hpp"
 
 #define OUT_FILE_SUFFIX ".append"
+
+void		write_line(void) { std::cout << std::endl; }
+void		write_divider(void) { std::cout << std::endl << "---------------------\n\n"; }
 
 int	main(int argc, char **argv) {
 
 	if (argc != 4) {
 		std::cerr
-		<< C_RED
-		<< "Invalid arg count\n"
-		<< RESET_COLOR;
+			<< C_RED
+			<< "Invalid arg count\n"
+			<< RESET_COLOR;
 		return (0);
 	}
 

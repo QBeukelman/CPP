@@ -12,6 +12,9 @@
 
 #include "Harl.hpp"
 
+void		write_line(void) { std::cout << std::endl; }
+void		write_divider(void) { std::cout << std::endl << "---------------------\n\n"; }
+
 int		main(void) {
 	Harl harl;
 

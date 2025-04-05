@@ -23,29 +23,29 @@ void	Harl::debug(void) {
 
 void	Harl::info(void) {
 	std::cout 
-	<< C_BLUE
-	<< "INFO: "
-	<< RESET_COLOR
-	<< INFO_MESSAGE
-	<< "\n\n"; 
+		<< C_BLUE
+		<< "INFO: "
+		<< RESET_COLOR
+		<< INFO_MESSAGE
+		<< "\n\n"; 
 }
 
 void	Harl::warning(void) {
 	std::cout 
-	<< C_BLUE
-	<< "WARNING: "
-	<< RESET_COLOR
-	<< WARNING_MESSAGE
-	<< "\n\n"; 
+		<< C_BLUE
+		<< "WARNING: "
+		<< RESET_COLOR
+		<< WARNING_MESSAGE
+		<< "\n\n"; 
 }
 
 void	Harl::error(void) {
 	std::cout 
-	<< C_BLUE
-	<< "ERROR: "
-	<< RESET_COLOR
-	<< ERROR_MESSAGE
-	<< "\n\n"; 
+		<< C_BLUE
+		<< "ERROR: "
+		<< RESET_COLOR
+		<< ERROR_MESSAGE
+		<< "\n\n"; 
 }
 
 void	Harl::complain(std::string level) {

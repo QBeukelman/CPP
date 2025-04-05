@@ -10,13 +10,21 @@
 #                                                                              #
 # **************************************************************************** #
 
+BOLD				:= \033[1m
+RED					:= \033[31;1m
+GREEN				:= \033[32;1m
+YELLOW				:= \033[33;1m
+BLUE				:= \033[34;1m
+RESET				:= \033[0m
+
+# Compiler
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-NAME_EXECUTABLE = string_replace
-UTILS			= ../utils/utils.cpp
+# Targets
+NAME_EXECUTABLE = string_replace_exc
 
-SRCS = main.cpp File.cpp StringProcessor.cpp $(UTILS)
+SRCS = main.cpp File.cpp StringProcessor.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME_EXECUTABLE)
@@ -24,10 +32,17 @@ all: $(NAME_EXECUTABLE)
 $(NAME_EXECUTABLE): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME_EXECUTABLE) $(OBJS)
 
-%.o: %.cpp Zombie.hpp
+%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
-	rm -f $(OBJS) $(NAME_EXECUTABLE)
+clean: all
+	@echo "$(BLUE)\nCleaning ...$(RESET)"
+	@$(RM) -rf $(OBJS)
+	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"
+
+fclean: clean
+	@$(RM) $(NAME_EXECUTABLE)
+
+re: fclean all
 
 .PHONY: all clean

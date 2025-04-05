@@ -17,8 +17,8 @@ StringProcessor::~StringProcessor() {}
 
 std::string	StringProcessor::replaceAll(std::string content, const std::string s1, const std::string s2) {
 	std::string		result;
-	int				pos;
-	int				posEnd;
+	unsigned long	pos;
+	unsigned long	posEnd;
 	
 	if (s1.empty())
 		return (content);

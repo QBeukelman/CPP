@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/03/14 14:06:21 by qbeukelm          #+#    #+#              #
-#    Updated: 2025/04/04 17:16:48 by qbeukelm         ###   ########.fr        #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: quentin <quentin@student.42.fr>              +#+                      #
+#                                                    +#+                       #
+#    Created: 2025/03/14 14:06:21 by qbeukelm      #+#    #+#                  #
+#    Updated: 2025/04/08 22:07:17 by quentin       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ OBJ = $(addprefix $(DIR_OBJ)/, $(SOURCES:.cpp=.o)) \
 all: $(NAME_EXECUTABLE)
 
 $(NAME_EXECUTABLE): $(OBJ)
-	@echo "$(BLUE)Making ...\n$(RESET)"
+	@echo "$(BLUE)\nMaking ...\n$(RESET)"
 	@$(CC) $(OBJ) $(CFLAGS) -o $(NAME_EXECUTABLE)
 	@echo "$(GREEN)Compiled all!\n$(RESET)"
 
@@ -72,7 +72,7 @@ clean:
 	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"
 
 fclean: clean
-	@$(RM) $(NAME_EXECUTABLE)
+	@$(RM) -f $(NAME_EXECUTABLE)
 
 re: fclean all
 

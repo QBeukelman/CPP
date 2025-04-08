@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
+/*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/17 21:44:43 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/17 23:43:32 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/04/08 22:22:43 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		write_line(void) { std::cout << std::endl; }
 void		write_divider(void) { std::cout << std::endl << "---------------------\n\n"; }
 
 int		main(void) {
-	Harl harl;
+	Harl	harl;
 
 	write_line();
 	harl.complain("DEBUG");

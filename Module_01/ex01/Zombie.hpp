@@ -26,12 +26,12 @@ class Zombie {
 		void				setName(std::string newName);
 		std::string			getName(void) const;
 		void				announce(void);
-		static Zombie*		newZombie(std::string name);
-		static void			randomChump(std::string name);
-		static Zombie*		zombieHorde(int N, std::string name);
 		std::string			toString(int value);
 };
 
+void	randomChump(std::string name);
+Zombie*	newZombie(std::string name);
+Zombie*	zombieHorde(int N, std::string name);
 void	assert_with_message(bool assertion, const std::string& message);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   HumanA.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
+/*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/14 16:46:23 by qbeukelm      #+#    #+#                 */
-/*   Updated: 2025/03/16 14:58:31 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/04/08 22:03:12 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class HumanA {
 		void			setWeapon(Weapon& newWeapon);
 		
 		// Attack
-		void			attack() const;		
+		void			attack() const;
 };
 
 #endif

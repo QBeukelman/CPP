@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/03/17 23:19:04 by quentinbeuk       #+#    #+#              #
-#    Updated: 2025/04/04 17:39:20 by qbeukelm         ###   ########.fr        #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: quentin <quentin@student.42.fr>              +#+                      #
+#                                                    +#+                       #
+#    Created: 2025/03/17 23:19:04 by quentinbeuk   #+#    #+#                  #
+#    Updated: 2025/04/08 22:00:38 by quentin       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 NAME_EXECUTABLE			= zombie_exc
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp testZombie.cpp
+SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp testZombie.cpp zombieHorde.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME_EXECUTABLE)
@@ -36,11 +36,11 @@ $(NAME_EXECUTABLE): $(OBJS)
 
 clean: all
 	@echo "$(BLUE)\nCleaning ...$(RESET)"
-	@$(RM) -rf $(OBJS)
+	@$(RM) -f $(OBJS)
 	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"
 
 fclean: clean
-	@$(RM) $(NAME_EXECUTABLE)
+	@$(RM) -f $(NAME_EXECUTABLE)
 
 re: fclean all
 

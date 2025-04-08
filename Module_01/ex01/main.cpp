@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 23:15:19 by quentinbeuk       #+#    #+#             */
-/*   Updated: 2025/04/04 17:35:06 by qbeukelm         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   main.cpp                                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: quentin <quentin@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/03/17 23:15:19 by quentinbeuk   #+#    #+#                 */
+/*   Updated: 2025/04/08 22:00:02 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		write_divider(void) { std::cout << std::endl << "---------------------\n\n
 int main(void) {
 	int		i;
 	
-	Zombie* horde = Zombie::zombieHorde(ZOMBIE_COUNT, ZOMBIE_NAME);
+	Zombie* horde = zombieHorde(ZOMBIE_COUNT, ZOMBIE_NAME);
 	write_line();
 	
 	i = 0;

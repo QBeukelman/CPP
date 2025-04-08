@@ -3,12 +3,19 @@
 /*                                                        ::::::::            */
 /*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
+/*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/16 21:07:07 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/17 23:40:13 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/04/08 22:21:10 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+ *	./string_replace_exc	"test.txt" "000" "XXX"
+ *								\------------------ Input file
+ *										\---------- String to replace
+ *												\-- Replacement string
+*/
 
 #include "File.hpp"
 #include "StringProcessor.hpp"
@@ -40,7 +47,7 @@ int	main(int argc, char **argv) {
 	file.openFile(fileName);
 
 	write_line();
-	StringProcessor stringProcessor = StringProcessor();
+	StringProcessor	stringProcessor = StringProcessor();
 	std::string newData = stringProcessor.replaceAll(file.getFileData(), s1, s2);
 	if (newData.empty()) {
 		return (0);

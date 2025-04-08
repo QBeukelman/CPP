@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/03/17 23:18:55 by quentinbeuk       #+#    #+#              #
-#    Updated: 2025/04/04 17:39:39 by qbeukelm         ###   ########.fr        #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: quentin <quentin@student.42.fr>              +#+                      #
+#                                                    +#+                       #
+#    Created: 2025/03/17 23:18:55 by quentinbeuk   #+#    #+#                  #
+#    Updated: 2025/04/08 22:02:14 by quentin       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,11 +33,11 @@ $(NAME_EXECUTABLE): $(FILENAME)
 
 clean: all
 	@echo "$(BLUE)\nCleaning ...$(RESET)"
-	@$(RM) -rf $(OBJS)
+	@$(RM) -f $(OBJS)
 	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"
 
 fclean: clean
-	@$(RM) $(NAME_EXECUTABLE)
+	@$(RM) -f $(NAME_EXECUTABLE)
 
 re: fclean all
 

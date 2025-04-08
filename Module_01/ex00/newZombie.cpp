@@ -12,6 +12,12 @@
 
 #include "Zombie.hpp"
 
-Zombie*		Zombie::newZombie(std::string name) {
-	return new Zombie(name);
+/*
+	Return a new Zombie, to be used outside of the function scope
+*/
+Zombie*	newZombie(std::string name) {
+	Zombie *zombie = new (Zombie);
+
+	zombie->setName(name);
+	return (zombie);
 }

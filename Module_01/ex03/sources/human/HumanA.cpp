@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   HumanA.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
+/*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/14 16:51:47 by qbeukelm      #+#    #+#                 */
-/*   Updated: 2025/03/16 15:10:00 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/04/08 22:05:38 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,23 @@ HumanA::HumanA(std::string name, Weapon& weapon) : name(name), weapon(weapon) {}
 
 HumanA::~HumanA() {}
 
-std::string		HumanA::getName(void) const {
+std::string	HumanA::getName(void) const {
 	return (this->name);
 }
 
-void			HumanA::setName(std::string newName) {
+void	HumanA::setName(std::string newName) {
 	this->name = newName;
 }
 
-Weapon&			HumanA::getWeapon() const {
+Weapon&	HumanA::getWeapon() const {
 	return (this->weapon);
 }
 
-void			HumanA::setWeapon(Weapon& newWeapon) {
+void	HumanA::setWeapon(Weapon& newWeapon) {
 	this->weapon = newWeapon;
 }
 
-void		HumanA::attack() const {
+void	HumanA::attack() const {
 	std::cout
 		<< C_BLUE
 		<< name

@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   HumanB.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
+/*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/14 17:11:58 by qbeukelm      #+#    #+#                 */
-/*   Updated: 2025/03/16 15:10:08 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/04/08 22:05:59 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,23 @@ HumanB::HumanB(std::string name) : name(name), weapon(NULL) {}
 
 HumanB::~HumanB() {}
 
-std::string		HumanB::getName(void) const {
+std::string	HumanB::getName(void) const {
 	return (this->name);
 }
 
-void			HumanB::setName(std::string newName) {
+void	HumanB::setName(std::string newName) {
 	this->name = newName;
 }
 
-Weapon*			HumanB::getWeapon() const {
+Weapon*	HumanB::getWeapon() const {
 	return (this->weapon);
 }
 
-void			HumanB::setWeapon(Weapon& newWeapon) {
+void	HumanB::setWeapon(Weapon& newWeapon) {
 	this->weapon = &newWeapon;
 }
 
-void		HumanB::attack() const {
+void	HumanB::attack() const {
 	std::cout
 		<< C_BLUE
 		<< name

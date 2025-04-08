@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Weapon.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
+/*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/17 23:18:31 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/17 23:18:35 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/04/08 22:03:54 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class Weapon {
 		Weapon(const std::string& type);
 		~Weapon();
 
-		void				setType(const std::string& newType);
 		const std::string&	getType() const;
+		void				setType(const std::string& newType);
 };
 
 #endif

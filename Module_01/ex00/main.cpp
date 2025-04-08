@@ -18,12 +18,12 @@ void		write_divider(void) { std::cout << std::endl << "---------------------\n\n
 int main(void) {
 	
 	write_line();
-	Zombie*	heapZombie = Zombie::newZombie("HeapZombie");
+	Zombie*	heapZombie = newZombie("HeapZombie");
 	heapZombie->announce();
 	delete (heapZombie);
 
 	write_divider();
-	Zombie::randomChump("StackZombie");
+	randomChump("StackZombie");
 	write_line();
 	
 	return (0);

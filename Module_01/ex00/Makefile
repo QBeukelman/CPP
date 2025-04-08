@@ -36,11 +36,11 @@ $(NAME_EXECUTABLE): $(OBJS)
 
 clean: all
 	@echo "$(BLUE)\nCleaning ...$(RESET)"
-	@$(RM) -rf $(OBJS)
+	@$(RM) -f $(OBJS)
 	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"
 
 fclean: clean
-	@$(RM) $(NAME_EXECUTABLE)
+	@$(RM) -f $(NAME_EXECUTABLE)
 
 re: fclean all
 

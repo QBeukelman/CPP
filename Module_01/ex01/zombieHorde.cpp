@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Weapon.cpp                                         :+:    :+:            */
+/*   zombieHorde.cpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/03/17 23:18:37 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/04/08 22:04:31 by quentin       ########   odam.nl         */
+/*   Created: 2025/04/08 21:51:03 by quentin       #+#    #+#                 */
+/*   Updated: 2025/04/08 21:58:23 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "Zombie.hpp"
 
-Weapon::Weapon() : type("Default") {}
+Zombie* zombieHorde(int N, std::string name) {
+	Zombie*	horde = new Zombie[N];
 
-Weapon::Weapon(const std::string& type) : type(type) {}
-
-Weapon::~Weapon() {}
-
-const std::string&	Weapon::getType() const {
-	return (this->type);
-}
-
-void   Weapon::setType(const std::string& newType) {
-	this->type = newType;
+	for (int i = 0; i < N; i++) {
+		horde[i].setName(name + horde[i].toString(i));
+	}
+	return (horde);
 }

@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/03/16 21:11:13 by quentinbeuk       #+#    #+#              #
-#    Updated: 2025/04/04 17:24:30 by qbeukelm         ###   ########.fr        #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: quentin <quentin@student.42.fr>              +#+                      #
+#                                                    +#+                       #
+#    Created: 2025/03/16 21:11:13 by quentinbeuk   #+#    #+#                  #
+#    Updated: 2025/04/09 16:35:47 by quentin       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ $(NAME_EXECUTABLE): $(OBJS)
 %.o: %.cpp Zombie.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean: all
+clean:
 	@echo "$(BLUE)\nCleaning ...$(RESET)"
 	@$(RM) -f $(OBJS)
 	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"

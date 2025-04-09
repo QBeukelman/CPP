@@ -3,33 +3,46 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
+#    By: quentin <quentin@student.42.fr>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/03/24 21:47:25 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/03/24 22:36:40 by quentinbeuk   ########   odam.nl          #
+#    Updated: 2025/04/09 16:34:14 by quentin       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-# Compiler
-CC = g++
+BOLD				:= \033[1m
+RED					:= \033[31;1m
+GREEN				:= \033[32;1m
+YELLOW				:= \033[33;1m
+BLUE				:= \033[34;1m
+RESET				:= \033[0m
 
+# Compiler
+CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-TARGET			= fixed_point
+NAME_EXECUTABLE			= fixed_point_exc
 
 SRCS = main.cpp Fixed.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 # Targets
-all: $(TARGET)
+all: $(NAME_EXECUTABLE)
 
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+$(NAME_EXECUTABLE): $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME_EXECUTABLE) $(OBJS)
 
-%.o: %.cpp Fixed.hpp
+%.o: %.cpp
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	@echo "$(BLUE)\nCleaning ...$(RESET)"
+	@$(RM) -rf $(OBJS)
+	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"
+
+fclean: clean
+	@$(RM) -f $(NAME_EXECUTABLE)
+
+re: fclean all
 
 .PHONY: all clean

@@ -6,7 +6,7 @@
 #    By: quentin <quentin@student.42.fr>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/03/17 23:19:04 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/04/08 22:00:38 by quentin       ########   odam.nl          #
+#    Updated: 2025/04/09 16:36:41 by quentin       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ $(NAME_EXECUTABLE): $(OBJS)
 %.o: %.cpp Zombie.hpp
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-clean: all
+clean:
 	@echo "$(BLUE)\nCleaning ...$(RESET)"
 	@$(RM) -f $(OBJS)
 	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"

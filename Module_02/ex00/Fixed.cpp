@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Fixed.cpp                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
+/*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/03/24 19:56:06 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/24 21:45:23 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/04/09 16:10:23 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Fixed::Fixed() {
 	_wholeValue = 0;
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default constructor called." << std::endl;
 }
 
 /*
@@ -22,8 +22,8 @@ Fixed::Fixed() {
 	The values of the original objects members are copied into the new object.
 */
 Fixed::Fixed(const Fixed& other) {
-	std::cout << "Copy constructor called" << std::endl;
-	this->_wholeValue = other._wholeValue;
+	std::cout << "Copy constructor called." << std::endl;
+	*this = other;
 }
 
 /*
@@ -31,7 +31,7 @@ Fixed::Fixed(const Fixed& other) {
 	Assign one object to another using the `=` operator.
 */
 Fixed	&Fixed::operator=(const Fixed& other) {
-	std::cout << "Copy assignment operator called " << std::endl;
+	std::cout << "Copy assignment operator called." << std::endl;
 	if (this != &other) {	// Prevent self-assignment
 		_wholeValue = other._wholeValue;
 	}
@@ -39,11 +39,11 @@ Fixed	&Fixed::operator=(const Fixed& other) {
 }
 
 Fixed::~Fixed() {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called." << std::endl;
 }
 
 int		Fixed::getWholeValue(void) const {
-	std::cout << "getWholeValue() member function called" << std::endl;
+	std::cout << "getWholeValue() member function called." << std::endl;
 	return (this->_wholeValue);
 }
 

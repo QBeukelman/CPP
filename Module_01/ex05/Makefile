@@ -6,7 +6,7 @@
 #    By: quentin <quentin@student.42.fr>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/03/17 21:57:55 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/04/08 22:23:07 by quentin       ########   odam.nl          #
+#    Updated: 2025/04/09 16:39:55 by quentin       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ $(NAME_EXECUTABLE): $(OBJS)
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean: all
+clean:
 	@echo "$(BLUE)\nCleaning ...$(RESET)"
 	@$(RM) -rf $(OBJS)
 	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"

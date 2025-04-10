@@ -1,19 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 09:59:13 by qbeukelm          #+#    #+#             */
-/*   Updated: 2025/04/04 11:12:44 by qbeukelm         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   ClapTrap.cpp                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: quentin <quentin@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/04/04 09:59:13 by qbeukelm      #+#    #+#                 */
+/*   Updated: 2025/04/10 23:51:28 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include <iostream>
+#include <sstream>
+
+ClapTrap::ClapTrap() {
+	std::cout
+		<< "Default ClapTrap"
+		<< " constructor." 
+		<< std::endl;
+	this->name = "Default ClapTrap";
+	this->health = DEFAULT_HEALTH;
+	this->energy = DEFAULT_ENERGY;
+	this->damage = DEFAULT_DAMAGE;
+}
 
 ClapTrap::ClapTrap(const std::string newName) {
-	std::cout << "" << std::endl;
+	std::cout
+		<< newName
+		<< " parameterised constructor." 
+		<< std::endl;
 	this->name = newName;
 	this->health = DEFAULT_HEALTH;
 	this->energy = DEFAULT_ENERGY;
@@ -21,14 +37,20 @@ ClapTrap::ClapTrap(const std::string newName) {
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other) {
-	std::cout << "" << std::endl;
+	std::cout
+		<< other.name
+		<< " copy constructor."
+		<< std::endl;
 	this->health = other.health;
 	this->energy = other.energy;
 	this->damage = other.damage;
 }
 
 ClapTrap	&ClapTrap::operator=(const ClapTrap& other) {
-	std::cout << "" << std::endl;
+	std::cout
+		<< other.name
+		<< " copy assignment operator."
+		<< std::endl;
 	if (this != &other) {
 		this->health = other.health;
 		this->energy = other.energy;
@@ -38,7 +60,10 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap& other) {
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "Destructor called" << std::endl;
+	std::cout
+		<< this->name
+		<< " destructor."
+		<< std::endl;
 }
 
 std::string	ClapTrap::getName(void) {
@@ -76,20 +101,30 @@ void	ClapTrap::setDamage(int newDamage) {
 void	ClapTrap::attack(const std::string& target) {
 	if (this->energy < 1) {
 		std::cout
+			<< "❌ "
+			<< C_BLUE
 			<< this->name
+			<< RESET_COLOR
+			<< " attacks"
 			<< C_RED
-			<< " is out of energy. Energy: "
+			<< " is out of energy. Energy: ["
 			<< this->energy
+			<< ']'
 			<< RESET_COLOR
 			<< std::endl;
 		return ;
 	}
 	if (this->health < 1) {
 		std::cout
+			<< "❌ "
+			<< C_BLUE
 			<< this->name
+			<< RESET_COLOR
+			<< " attacks"
 			<< C_RED
-			<< " has no health. Health: "
+			<< " has no health. Health: ["
 			<< this->health
+			<< "]"
 			<< RESET_COLOR
 			<< std::endl;
 		return ;
@@ -97,62 +132,87 @@ void	ClapTrap::attack(const std::string& target) {
 	
 	this->energy -= 1;
 	std::cout
+		<< "🥊 "
+		<< C_BLUE
 		<< this->name
-		<< C_GREEN
-		<< " attacks "
-		<< target
-		<< " causing "
-		<< toString(this->damage)
-		<< " points of damage!"
 		<< RESET_COLOR
+		<< " attacks "
+		<< C_BLUE
+		<< target
+		<< RESET_COLOR
+		<< " causing ["
+		<< toString(this->damage)
+		<< "] points of damage!"
 		<< std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
+	unsigned int	healthBefore = this->health;
+
 	if (amount > this->health) {
 		this->health = 0;
 	} else {
 		this->health -= amount;
 	}
 
+	if ((health >= 0) && (healthBefore != this->health)) {
+		std::cout
+			<< "💥 "
+			<< C_BLUE
+			<< this->name
+			<< RESET_COLOR
+			<< " takes damage: ["
+			<< amount
+			<< "]. Health: ["
+			<< this->health
+			<< "]"
+			<< std::endl;
+	}	
+
 	if (this->health <= 0) {
 		std::cout
-		<< this->name
-		<< C_RED
-		<< " has no health. Health: "
-		<< this->health
-		<< RESET_COLOR
-		<< std::endl;
+			<< "❌ "
+			<< C_BLUE
+			<< this->name
+			<< RESET_COLOR
+			<< " takes damage "
+			<< C_RED
+			<< " has no health. Health: ["
+			<< this->health
+			<< "]"
+			<< RESET_COLOR
+			<< std::endl;
+		return ;
 	}
-
-	std::cout
-		<< this->name
-		<< C_GREEN
-		<< " takes damage of amount: "
-		<< amount
-		<< ". Remaining health: "
-		<< this->health
-		<< RESET_COLOR
-		<< std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
 	if (this->energy < 1) {
 		std::cout
+			<< "❌ "
+			<< C_BLUE
 			<< this->name
+			<< RESET_COLOR
+			<< " be repaired"
 			<< C_RED
-			<< " is out of energy. Energy: "
+			<< " is out of energy. Energy: ["
 			<< this->energy
+			<< "]"
 			<< RESET_COLOR
 			<< std::endl;
 		return ;
 	}
 	if (this->health < 1) {
 		std::cout
+			<< "❌ "
+			<< C_BLUE
 			<< this->name
+			<< RESET_COLOR
+			<< " be repaired"
 			<< C_RED
-			<< " has no health. Health: "
+			<< " has no health. Health: ["
 			<< this->health
+			<< "]"
 			<< RESET_COLOR
 			<< std::endl;
 		return ;
@@ -161,13 +221,15 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 	this->energy -= 1;
 	this->health += amount;
 	std::cout
+		<< "🔋 "
+		<< C_BLUE
 		<< this->name
-		<< C_GREEN
-		<< " repaired with amount: "
-		<< amount
-		<< ". Current health is: "
-		<< this->health
 		<< RESET_COLOR
+		<< " repaired: ["
+		<< amount
+		<< "]. Health: ["
+		<< this->health
+		<< "]"
 		<< std::endl;
 }
 

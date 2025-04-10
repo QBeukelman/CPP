@@ -5,12 +5,12 @@
 /*                                                     +:+                    */
 /*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/04/10 22:19:41 by quentin       #+#    #+#                 */
-/*   Updated: 2025/04/10 23:50:47 by quentin       ########   odam.nl         */
+/*   Created: 2025/04/11 00:14:33 by quentin       #+#    #+#                 */
+/*   Updated: 2025/04/11 00:35:21 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
 
 void	write_line(void) { std::cout << std::endl; }
@@ -20,23 +20,23 @@ int     main(void) {
 
 	write_divider();
 	{
-		ScavTrap frodo = ScavTrap("Frodo");
+		FragTrap frodo = FragTrap("Frodo");
 
 		write_line();
 		frodo.setDamage(2);
 		frodo.attack("Sauron");
 		frodo.takeDamage(2);
 		frodo.beRepaired(1);
-		frodo.guardGate();
+		frodo.highFiveGuys();
 		write_line();
 	}
 	write_divider();
 	{
-		ScavTrap frodo = ScavTrap("Frodo");
+		FragTrap frodo = FragTrap("Frodo");
 
 		write_line();
 		frodo.setHealth(0);
-		frodo.guardGate();
+		frodo.highFiveGuys();
 		write_line();
 	}
 	write_divider();

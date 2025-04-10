@@ -1,72 +1,73 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ScavTrap.cpp                                       :+:    :+:            */
+/*   FragTrap.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/04/10 22:19:49 by quentin       #+#    #+#                 */
-/*   Updated: 2025/04/11 00:30:13 by quentin       ########   odam.nl         */
+/*   Created: 2025/04/11 00:16:27 by quentin       #+#    #+#                 */
+/*   Updated: 2025/04/11 00:33:48 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
+#include <string>
 
-ScavTrap::ScavTrap() : ClapTrap() {
-	std::cout
-		<< "Default ScavTrap constructor."
+FragTrap::FragTrap() : ClapTrap() {
+    std::cout
+		<< "Default FragTrap constructor."
 		<< std::endl;
-	this->name = "Default ScavTrap";
-	this->health = SCAV_DEFAULT_HEALTH;
-	this->energy = SCAV_DEFAULT_ENERGY;
-	this->damage = SCAV_DEFAULT_DAMAGE;
+	this->name = "Default FragTrap";
+	this->health = FRAG_DEFAULT_HEALTH;
+	this->energy = FRAG_DEFAULT_ENERGY;
+	this->damage = FRAG_DEFAULT_DAMAGE;
 }
 
-ScavTrap::ScavTrap(std::string newName) {
+FragTrap::FragTrap(std::string newName) {
 	std::cout
 		<< newName
-		<< " ScavTrap parameterised constructor."
+		<< " FragTrap parameterised constructor."
 		<< std::endl;
 	this->name = newName;
-	this->health = SCAV_DEFAULT_HEALTH;
-	this->energy = SCAV_DEFAULT_ENERGY;
-	this->damage = SCAV_DEFAULT_DAMAGE;
+	this->health = FRAG_DEFAULT_HEALTH;
+	this->energy = FRAG_DEFAULT_ENERGY;
+	this->damage = FRAG_DEFAULT_DAMAGE;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap() {
+FragTrap::FragTrap(const FragTrap &other) : ClapTrap() {
 	std::cout
 		<< other.name
-		<< " ScavTrap copy constructor."
+		<< " FragTrap copy constructor."
 		<< std::endl;
 	*this = other;
 }
 
-ScavTrap& ScavTrap::operator=(const ScavTrap &other) {
+FragTrap& FragTrap::operator=(const FragTrap &other) {
 	std::cout
 		<< other.name
-		<< " ScavTrap copy assignment operator."
+		<< " FragTrap copy assignment operator."
 		<< std::endl;
 	if (this != &other)
 		ClapTrap::operator=(other);
 	return (*this);
 }
 
-ScavTrap::~ScavTrap() {
+FragTrap::~FragTrap() {
 	std::cout
 		<< this->name
-		<< " ScavTrap destructor."
+		<< " FragTrap destructor."
 		<< std::endl;
 }
 
-void	ScavTrap::guardGate() {
+void	FragTrap::highFiveGuys() {
 		if (this->energy < 1) {
 		std::cout
 			<< "❌ "
 			<< C_BLUE
 			<< this->name
 			<< RESET_COLOR
-			<< " GateKeperMode"
+			<< " HighFive"
 			<< C_RED
 			<< " is out of energy. Energy: ["
 			<< this->energy
@@ -81,7 +82,7 @@ void	ScavTrap::guardGate() {
 			<< C_BLUE
 			<< this->name
 			<< RESET_COLOR
-			<< " GateKeperMode"
+			<< " HighFive"
 			<< C_RED
 			<< " has no health. Health: ["
 			<< this->health
@@ -91,15 +92,15 @@ void	ScavTrap::guardGate() {
 		return ;
 	}
 	std::cout
-		<< "💂 "
+		<< "🙌 "
 		<< C_BLUE
 		<< this->name
 		<< RESET_COLOR
-		<< " ScavTrap is now in GateKeper mode"
+		<< " FragTrap High Five Guys!"
 		<< std::endl;
 }
 
-void	ScavTrap::attack(const std::string &target) {
+void	FragTrap::attack(const std::string &target) {
 	if (this->energy < 1) {
 		std::cout
 			<< "❌ "

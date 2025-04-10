@@ -1,34 +1,48 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/04 10:28:49 by qbeukelm          #+#    #+#              #
-#    Updated: 2025/04/04 10:29:13 by qbeukelm         ###   ########.fr        #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: quentin <quentin@student.42.fr>              +#+                      #
+#                                                    +#+                       #
+#    Created: 2025/04/04 10:28:49 by qbeukelm      #+#    #+#                  #
+#    Updated: 2025/04/11 00:15:53 by quentin       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-CC = g++
+BOLD				:= \033[1m
+RED					:= \033[31;1m
+GREEN				:= \033[32;1m
+YELLOW				:= \033[33;1m
+BLUE				:= \033[34;1m
+RESET				:= \033[0m
 
+# Compiler
+CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-TARGET			= clap_trap
+NAME_EXECUTABLE	= clap_trap_exc
 
 SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 # Targets
-all: $(TARGET)
+all: $(NAME_EXECUTABLE)
 
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+$(NAME_EXECUTABLE): $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME_EXECUTABLE) $(OBJS)
 
-%.o: %.cpp ClapTrap.hpp ScavTrap.hpp
+%.o: %.cpp
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	@echo "$(BLUE)\nCleaning ...$(RESET)"
+	@$(RM) -f $(OBJS)
+	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"
+
+fclean: clean
+	@$(RM) -f $(NAME_EXECUTABLE)
+
+re: fclean all
 
 .PHONY: all clean

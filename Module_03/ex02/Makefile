@@ -5,8 +5,8 @@
 #                                                      +:+                     #
 #    By: quentin <quentin@student.42.fr>              +#+                      #
 #                                                    +#+                       #
-#    Created: 2025/03/24 22:36:42 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/04/10 19:58:19 by quentin       ########   odam.nl          #
+#    Created: 2025/04/11 00:14:28 by quentin       #+#    #+#                  #
+#    Updated: 2025/04/11 00:15:49 by quentin       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,9 @@ RESET				:= \033[0m
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
-NAME_EXECUTABLE			= fixed_point_exc
+NAME_EXECUTABLE	= clap_trap_exc
 
-SRCS = main.cpp Fixed.cpp
+SRCS = main.cpp ClapTrap.cpp FragTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 # Targets

@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 09:59:19 by qbeukelm          #+#    #+#             */
-/*   Updated: 2025/04/04 11:12:00 by qbeukelm         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   ClapTrap.hpp                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: quentin <quentin@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/04/04 09:59:19 by qbeukelm      #+#    #+#                 */
+/*   Updated: 2025/04/10 23:51:26 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
 
-#include <iostream>
 #include <string>
-#include <sstream>
 
 #define C_YELLOW "\033[1;33m"
 #define C_RED "\x1B[1;31m"
@@ -35,6 +33,7 @@ class ClapTrap {
 		unsigned int		damage;
 
 	public:
+		ClapTrap();
 		ClapTrap(const std::string newName);
 		ClapTrap(const ClapTrap& other);
 		ClapTrap& operator=(const ClapTrap& other);

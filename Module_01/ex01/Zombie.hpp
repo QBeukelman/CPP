@@ -2,11 +2,7 @@
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
 
-#include <iostream>
 #include <string>
-#include <memory>
-#include <cassert>
-#include <sstream>
 
 #define C_YELLOW "\033[1;33m"
 #define C_RED "\x1B[1;31m"

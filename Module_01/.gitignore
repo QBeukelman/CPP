@@ -14,6 +14,9 @@ unnecessary_violance_exc
 string_replace_exc
 harl_complains_exc
 
+# Outputs
+*.append
+
 # static library
 *.a
 

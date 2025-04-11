@@ -1,17 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   File.hpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/16 17:04:54 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/16 21:02:43 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   File.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/16 17:04:54 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/04/11 11:20:46 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <fstream>
 #include <string>
 
 class File {

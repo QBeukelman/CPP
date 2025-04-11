@@ -6,16 +6,14 @@
 /*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 23:20:31 by quentinbeuk       #+#    #+#             */
-/*   Updated: 2025/04/04 17:21:04 by qbeukelm         ###   ########.fr       */
+/*   Updated: 2025/04/11 11:11:55 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
 
-#include <iostream>
 #include <string>
-#include <memory>
 
 #define C_YELLOW "\033[1;33m"
 #define C_RED "\x1B[1;31m"

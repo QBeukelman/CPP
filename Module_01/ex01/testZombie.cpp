@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   testZombie.cpp                                     :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/17 23:19:18 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/17 23:19:21 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   testZombie.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/17 23:19:18 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/04/11 11:16:19 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
+#include <cassert>
 
 void	assert_with_message(bool assertion, const std::string& message) {
 	if (!assertion) {

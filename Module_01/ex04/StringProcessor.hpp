@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   StringProcessor.hpp                                :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/16 21:15:55 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/16 21:28:07 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   StringProcessor.hpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/16 21:15:55 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/04/11 11:20:22 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
-#include <iostream>
 
 #define C_YELLOW "\033[1;33m"
 #define C_RED "\x1B[1;31m"

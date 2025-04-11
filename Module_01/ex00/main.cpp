@@ -6,11 +6,12 @@
 /*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 23:19:52 by quentinbeuk       #+#    #+#             */
-/*   Updated: 2025/04/04 17:19:58 by qbeukelm         ###   ########.fr       */
+/*   Updated: 2025/04/11 11:12:18 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
 void		write_line(void) { std::cout << std::endl; }
 void		write_divider(void) { std::cout << std::endl << "---------------------\n\n"; }

@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/17 23:15:19 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/04/08 22:00:02 by quentin       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/17 23:15:19 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/04/11 11:16:34 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
 #define ZOMBIE_COUNT 10
 #define ZOMBIE_NAME "Zombie_"

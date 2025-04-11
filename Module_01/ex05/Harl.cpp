@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Harl.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/17 21:22:00 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/17 23:42:46 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/17 21:22:00 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/04/11 11:28:37 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+#include <iostream>
 
 void	Harl::debug(void) {
 	std::cout 

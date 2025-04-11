@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Harl.hpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/17 21:13:52 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/17 23:17:54 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/17 21:13:52 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/04/11 11:28:35 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
-#include <iostream>
 #include <map>
 
 #define C_YELLOW "\033[1;33m"

@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   HumanB.cpp                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/14 17:11:58 by qbeukelm      #+#    #+#                 */
-/*   Updated: 2025/04/08 22:05:59 by quentin       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/14 17:11:58 by qbeukelm          #+#    #+#             */
+/*   Updated: 2025/04/11 11:18:31 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../weapon/Weapon.hpp"
 #include "HumanB.hpp"
+#include <iostream>
 
 HumanB::HumanB() : name("Default HumanB") {}
 

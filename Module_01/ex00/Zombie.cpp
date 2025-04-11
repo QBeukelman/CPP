@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Zombie.cpp                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/05 21:39:58 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/17 23:20:40 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/05 21:39:58 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/04/11 11:12:03 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
 #define ANNOUNCE " BraiiiiiiinnnzzzZ..."
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/16 21:07:07 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/04/08 22:21:10 by quentin       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/16 21:07:07 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/04/11 11:20:58 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 #include "File.hpp"
 #include "StringProcessor.hpp"
+#include <iostream>
 
 #define OUT_FILE_SUFFIX ".append"
 

@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: quentin <quentin@student.42.fr>              +#+                      #
-#                                                    +#+                       #
-#    Created: 2025/03/16 21:11:13 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/04/09 16:35:47 by quentin       ########   odam.nl          #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/03/16 21:11:13 by quentinbeuk       #+#    #+#              #
+#    Updated: 2025/04/11 11:12:56 by qbeukelm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,5 +43,9 @@ fclean: clean
 	@$(RM) -f $(NAME_EXECUTABLE)
 
 re: fclean all
+
+valgrind: $(NAME_EXECUTABLE)
+	@echo "$(YELLOW)Running Valgrind...$(RESET)"
+	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME_EXECUTABLE)
 
 .PHONY: all clean

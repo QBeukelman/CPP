@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   HumanA.cpp                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/14 16:51:47 by qbeukelm      #+#    #+#                 */
-/*   Updated: 2025/04/08 22:05:38 by quentin       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/14 16:51:47 by qbeukelm          #+#    #+#             */
+/*   Updated: 2025/04/11 11:18:39 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../weapon/Weapon.hpp"
 #include "HumanA.hpp"
+#include <iostream>
 
 Weapon defaultWeapon("Default Weapon");
 HumanA::HumanA() : name("Default HumanA"), weapon(defaultWeapon) {}

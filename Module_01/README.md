@@ -1,4 +1,10 @@
 
+## Ex02
+
+`str` This is the regular base string.
+`stringPTR` A pointer to the string. This is the actual address of the string. To access the string it needs to be dereferenced.
+`stringREF` This is an alias for str, not a seperate object. You can change what it points to. Changes to stringREF directly effect str, vice versa. It does not need to be dereferenced.
+
 
 ## Ex03 Unnecessary Violance
 

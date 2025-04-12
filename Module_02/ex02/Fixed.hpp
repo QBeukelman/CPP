@@ -1,15 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Fixed.hpp                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/25 00:07:46 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/25 00:21:54 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/25 00:07:46 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/04/11 12:30:22 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef FIXED_HPP
 #define FIXED_HPP

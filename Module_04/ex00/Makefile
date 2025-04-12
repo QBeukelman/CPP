@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/03/24 21:47:25 by quentinbeuk       #+#    #+#              #
-#    Updated: 2025/04/11 12:27:14 by qbeukelm         ###   ########.fr        #
+#    Created: 2025/04/12 13:03:01 by qbeukelm          #+#    #+#              #
+#    Updated: 2025/04/12 16:34:44 by qbeukelm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,24 +19,49 @@ RESET				:= \033[0m
 
 # Compiler
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98
-
-NAME_EXECUTABLE			= fixed_point_exc
-
-SRCS = main.cpp Fixed.cpp
-OBJS = $(SRCS:.cpp=.o)
+CFLAGS = -std=c++98 -Wall -Werror -Wextra
 
 # Targets
+NAME_EXECUTABLE = polymorphism_exc
+
+# Sources
+SOURCES						= main.cpp \
+
+SOURCES_ANIMAL				= Animal.cpp \
+								Cat.cpp \
+								Dog.cpp \
+
+INC 						= inc
+DIR_OBJ						= obj
+
+# Directories
+DIR_SOURCES					= sources
+DIR_SOURCES_ANIMAL			= sources/animal_objects
+
+# Object files
+OBJ = $(addprefix $(DIR_OBJ)/, $(SOURCES:.cpp=.o)) \
+	$(addprefix $(DIR_OBJ)/, $(SOURCES_ANIMAL:.cpp=.o)) \
+
 all: $(NAME_EXECUTABLE)
 
-$(NAME_EXECUTABLE): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME_EXECUTABLE) $(OBJS)
+$(NAME_EXECUTABLE): $(OBJ)
+	@echo "$(BLUE)\nMaking ...\n$(RESET)"
+	@$(CC) $(OBJ) $(CFLAGS) -o $(NAME_EXECUTABLE)
+	@echo "$(GREEN)Compiled all!\n$(RESET)"
 
-%.o: %.cpp
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+$(DIR_OBJ)/%.o: $(DIR_SOURCES)/%.cpp | $(DIR_OBJ)
+	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
+
+$(DIR_OBJ)/%.o: $(DIR_SOURCES_ANIMAL)/%.cpp | $(DIR_OBJ)
+	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
+
+$(DIR_OBJ):
+	@mkdir -p $@
 
 clean:
 	@echo "$(BLUE)\nCleaning ...$(RESET)"
+	@$(RM) -rf $(DIR_OBJ)
+	@$(RM) -rf $(EXTRA_O)
 	@$(RM) -rf $(OBJS)
 	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"
 
@@ -47,6 +72,6 @@ re: fclean all
 
 valgrind: $(NAME_EXECUTABLE)
 	@echo "$(YELLOW)Running Valgrind...$(RESET)"
-	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME_EXECUTABLE)
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME_EXECUTABLE)
 
-.PHONY: all clean
+.PHONY: all clean fclean re valgrind

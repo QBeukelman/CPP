@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Fixed.hpp                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/24 22:19:21 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/03/25 00:11:21 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/24 22:19:21 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/04/11 12:29:17 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define FIXED_HPP
 
 #include <iostream>
-#include <cmath>
 
 class Fixed {
 	private:

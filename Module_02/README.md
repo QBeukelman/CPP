@@ -8,13 +8,13 @@
 
 - The `operator=` keyword indicates this function is an overload of the `=` operator. It defines how the `=` operator behaves when used with `Fixed` objects.
 - For example `b = a` will call this function.
-- The operator= ensures that a deep copy of the _wholeValue is performed.
-- Returning *this allows chaining of assignments, like a = b = c.
+- The `operator=` ensures that a deep copy of the `_wholeValue` is performed.
+- Returning `*this` allows chaining of assignments, like `a = b = c`.
 
 
 ## Left shift operation `<<`
 
-Left shifting is bitwise operation that shifts the bits of a number ro the left by a specified number of positions. it's often used to multiply by powers of 2, as it moves the bits to higher place values.
+Left shifting is bitwise operation that shifts the bits of a number to the left by a specified number of positions. it's often used to multiply by powers of 2, as it moves the bits to higher place values.
 
 `int result = number << n;`
 
@@ -29,9 +29,29 @@ Left shifting is bitwise operation that shifts the bits of a number ro the left 
 	- After:		00001010 (10)
 
 
+## Fixed-poing numbers
+
+A **fixed-point number** is a way to represent real numbers (numbers with a fractional part). A fixed-point number has a fixed number of digits after the decimal point (the point is fixed).
+
+Suppose you have 8 bits to store a number.
+
+- You could reserve 5 bits for the whole number part (integer).
+- And 3 bits for the fractional part.
+
+This could be represented as:
+
+- `00010.101` -> 2.625
+- `11111.111` -> 31.875
+
+### Why use fixed-point numbers?
+
+- **Faster and simpler** than floating point numbers.
+- **More pridictable**, having the same precision throughout, without rounding errors.
+ 
+
 ## Floating Point Number Representation and Programming Considerations
 
-Modern systems predominantly use the IEEE-754 standard for floating-point number representation. This standard defines floats (4 bytes) and doubles (8 bytes) as consisting of three parts:
+Modern systems predominantly use the **IEEE-754** standard for floating-point number representation. This standard defines floats (4 bytes) and doubles (8 bytes) as consisting of three parts:
 
 - **Sign bit**: Indicates positive or negative.
 - **Exponent**: Encodes the order of magnitude (using a "shift-127" method for single precision).

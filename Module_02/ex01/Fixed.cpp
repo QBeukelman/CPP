@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Fixed.cpp                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/24 22:19:18 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/04/09 16:19:35 by quentin       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/24 22:19:18 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/04/11 12:29:12 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <cmath>
 
 Fixed::Fixed() {
 	_wholeValue = 0;
@@ -42,7 +43,7 @@ Fixed::Fixed(const int newInt) {
 	Constructor - Assigns `wholeValue` to `newFloat` value.
 */
 Fixed::Fixed(const float newFloat) {
-	std::cout << "Int constructor called." << std::endl;
+	std::cout << "Float constructor called." << std::endl;
 	this->_wholeValue = roundf(newFloat * (1 << this->_fractionalValue));
 }
 

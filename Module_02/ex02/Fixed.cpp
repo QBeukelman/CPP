@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Fixed.cpp                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/25 00:07:42 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/04/09 16:29:05 by quentin       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/25 00:07:42 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/04/12 12:17:04 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <cmath>
 
 // Default constructor
 Fixed::Fixed() {
@@ -86,18 +87,30 @@ Fixed	Fixed::operator-(const Fixed value) const {
 
 Fixed	Fixed::operator*(const Fixed value) const {
 	Fixed	result;
+	int64_t	wideResult;
 
-	result._wholeValue = (this->_wholeValue * value._wholeValue) >> this->_fractionalValue;
+	// Promote to 64-bit before shifting
+	wideResult = static_cast<int64_t>(this->_wholeValue) * value._wholeValue;
+	wideResult >>= this->_fractionalValue;
+
+	result._wholeValue = static_cast<int>(wideResult);
 	return (result);
 }
 
 Fixed	Fixed::operator/(const Fixed value) const {
 	Fixed	result;
+	int64_t	numerator;
+	int64_t	wideResult;
 
 	if (value._wholeValue == 0) {
 		throw std::runtime_error("Division by zero");
 	}
-	result._wholeValue = (this->_wholeValue << this->_fractionalValue) / value._wholeValue;
+
+	// Promote to 64-bit before shifting
+	numerator = static_cast<int64_t>(this->_wholeValue) << this->_fractionalValue;
+	wideResult = numerator / value._wholeValue;
+	result._wholeValue = static_cast<int>(wideResult);
+	
 	return (result);
 }
 

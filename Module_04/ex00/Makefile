@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/12 13:03:01 by qbeukelm          #+#    #+#              #
-#    Updated: 2025/04/12 16:34:44 by qbeukelm         ###   ########.fr        #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: quentin <quentin@student.42.fr>              +#+                      #
+#                                                    +#+                       #
+#    Created: 2025/04/12 13:03:01 by qbeukelm      #+#    #+#                  #
+#    Updated: 2025/04/16 21:26:26 by quentin       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,8 @@ INC 						= inc
 DIR_OBJ						= obj
 
 # Directories
-DIR_SOURCES					= sources
-DIR_SOURCES_ANIMAL			= sources/animal_objects
+DIR_SOURCES					= .
+DIR_SOURCES_ANIMAL			= sources
 
 # Object files
 OBJ = $(addprefix $(DIR_OBJ)/, $(SOURCES:.cpp=.o)) \

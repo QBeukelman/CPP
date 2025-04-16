@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/12 13:07:41 by qbeukelm          #+#    #+#             */
-/*   Updated: 2025/04/12 16:58:05 by qbeukelm         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   Animal.hpp                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: quentin <quentin@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/04/12 13:07:41 by qbeukelm      #+#    #+#                 */
+/*   Updated: 2025/04/16 21:25:10 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Animal {
 		Animal();
 		Animal(const Animal &other);
 		Animal& operator=(const Animal &other);
-		~Animal();
+		virtual ~Animal();
 		
 		std::string		getType() const;
 		void			setType(const std::string newType);

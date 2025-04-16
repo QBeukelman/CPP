@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/12 13:07:22 by qbeukelm          #+#    #+#             */
-/*   Updated: 2025/04/12 16:59:44 by qbeukelm         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   Animal.cpp                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: quentin <quentin@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/04/12 13:07:22 by qbeukelm      #+#    #+#                 */
+/*   Updated: 2025/04/16 20:25:12 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../animal_headers/Animal.hpp"
+#include "../include/Animal.hpp"
 #include "iostream"
 
 Animal::Animal() {
 	std::cout << "Animal default constructor." << std::endl;
+	this->type = "Animal";
 }
 
 Animal::Animal(const Animal& other) {

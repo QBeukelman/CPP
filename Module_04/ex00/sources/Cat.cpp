@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/12 16:11:56 by qbeukelm          #+#    #+#             */
-/*   Updated: 2025/04/12 16:58:59 by qbeukelm         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   Cat.cpp                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: quentin <quentin@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/04/12 16:11:56 by qbeukelm      #+#    #+#                 */
+/*   Updated: 2025/04/16 20:24:59 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../animal_headers/Cat.hpp"
+#include "../include/Cat.hpp"
 #include "iostream"
 
 Cat::Cat() {
 	std::cout << "Cat default constructor." << std::endl;
+	this->type = "Cat";
 }
 
 Cat::Cat(const Cat& other) {

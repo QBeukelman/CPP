@@ -6,13 +6,13 @@
 /*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/04/12 16:33:50 by qbeukelm      #+#    #+#                 */
-/*   Updated: 2025/04/14 17:29:17 by quentin       ########   odam.nl         */
+/*   Updated: 2025/04/16 20:25:54 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal_headers/Animal.hpp"
-#include "animal_headers/Cat.hpp"
-#include "animal_headers/Dog.hpp"
+#include "include/Animal.hpp"
+#include "include/Cat.hpp"
+#include "include/Dog.hpp"
 #include "iostream"
 
 void	write_line(void) { std::cout << std::endl; }
@@ -40,6 +40,7 @@ int	main() {
 		write_line();
 		std::cout << "Cat type: " << cat->getType() << std::endl;
 		std::cout << "Dog type: " << dog->getType() << std::endl;
+		std::cout << "Animal type: " << animal->getType() << std::endl;
 		cat->makeSound();
 		dog->makeSound();
 		animal->makeSound();

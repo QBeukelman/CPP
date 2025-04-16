@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/12 16:26:09 by qbeukelm          #+#    #+#             */
-/*   Updated: 2025/04/12 16:59:20 by qbeukelm         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   Dog.cpp                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: quentin <quentin@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/04/12 16:26:09 by qbeukelm      #+#    #+#                 */
+/*   Updated: 2025/04/16 20:24:44 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../animal_headers/Dog.hpp"
+#include "../include/Dog.hpp"
 #include "iostream"
 
 Dog::Dog() {
 	std::cout << "Dog default constructor." << std::endl;
+	this->type = "Dog";
 }
 
 Dog::Dog(const Dog& other) {

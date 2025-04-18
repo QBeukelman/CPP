@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ClapTrap.cpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/04/04 10:31:40 by qbeukelm      #+#    #+#                 */
-/*   Updated: 2025/04/11 00:27:25 by quentin       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/04 10:31:40 by qbeukelm          #+#    #+#             */
+/*   Updated: 2025/04/18 09:34:08 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	ClapTrap::attack(const std::string &target) {
 			<< C_BLUE
 			<< this->name
 			<< RESET_COLOR
-			<< " attacks"
+			<< " ClapTrap attacks"
 			<< C_RED
 			<< " is out of energy. Energy: ["
 			<< this->energy
@@ -120,7 +120,7 @@ void	ClapTrap::attack(const std::string &target) {
 			<< C_BLUE
 			<< this->name
 			<< RESET_COLOR
-			<< " attacks"
+			<< " ClapTrap attacks"
 			<< C_RED
 			<< " has no health. Health: ["
 			<< this->health
@@ -136,7 +136,7 @@ void	ClapTrap::attack(const std::string &target) {
 		<< C_BLUE
 		<< this->name
 		<< RESET_COLOR
-		<< " attacks "
+		<< " ClapTrap attacks "
 		<< C_BLUE
 		<< target
 		<< RESET_COLOR
@@ -161,7 +161,7 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 			<< C_BLUE
 			<< this->name
 			<< RESET_COLOR
-			<< " takes damage: ["
+			<< " ClapTrap takes damage: ["
 			<< amount
 			<< "]. Health: ["
 			<< this->health
@@ -175,7 +175,7 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 			<< C_BLUE
 			<< this->name
 			<< RESET_COLOR
-			<< " takes damage "
+			<< " ClapTrap takes damage "
 			<< C_RED
 			<< " has no health. Health: ["
 			<< this->health
@@ -193,7 +193,7 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 			<< C_BLUE
 			<< this->name
 			<< RESET_COLOR
-			<< " be repaired"
+			<< " ClapTrap be repaired"
 			<< C_RED
 			<< " is out of energy. Energy: ["
 			<< this->energy
@@ -208,7 +208,7 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 			<< C_BLUE
 			<< this->name
 			<< RESET_COLOR
-			<< " be repaired"
+			<< " ClapTrap be repaired"
 			<< C_RED
 			<< " has no health. Health: ["
 			<< this->health
@@ -225,7 +225,7 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 		<< C_BLUE
 		<< this->name
 		<< RESET_COLOR
-		<< " repaired: ["
+		<< " ClapTrap repaired: ["
 		<< amount
 		<< "]. Health: ["
 		<< this->health

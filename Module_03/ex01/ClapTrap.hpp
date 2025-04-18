@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ClapTrap.hpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/04/10 22:19:46 by quentin       #+#    #+#                 */
-/*   Updated: 2025/04/10 23:49:13 by quentin       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/10 22:19:46 by quentin           #+#    #+#             */
+/*   Updated: 2025/04/18 10:26:36 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ class ClapTrap {
 		ClapTrap& operator=(const ClapTrap &other);
 		~ClapTrap();
 
-		void    attack(const std::string &target);
-		void    takeDamage(unsigned int amount);
-		void    beRepaired(unsigned int amount);
+		void	attack(const std::string &target);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
 
 		std::string		getName(void);
 		void			setName(std::string newName);

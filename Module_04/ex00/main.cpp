@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/04/12 16:33:50 by qbeukelm      #+#    #+#                 */
-/*   Updated: 2025/04/16 20:25:54 by quentin       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/12 16:33:50 by qbeukelm          #+#    #+#             */
+/*   Updated: 2025/04/18 10:00:59 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@ int	main() {
 		cat->makeSound();
 		dog->makeSound();
 		animal->makeSound();
+
+		delete (animal);
+		delete (cat);
+		delete (dog);
 		write_line();
 	}
 	write_divider();

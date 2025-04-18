@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/04/16 16:40:20 by quentin       #+#    #+#                 */
-/*   Updated: 2025/04/16 16:55:35 by quentin       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/16 16:40:20 by quentin           #+#    #+#             */
+/*   Updated: 2025/04/18 13:21:00 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	main() {
 	std::cout << "Idea of animals[0]: " << C_BLUE << brain->getIdea(1) << RESET_COLOR << std::endl;
 
 	// Test a deep copy
+	AAnimal *tempAnimal = animals[5];
 	animals[5] = animals[0];
 	std::cout << "Deep copy test" << std::endl;
 	std::cout << "Idea of animals[5]: " << C_BLUE << animals[5]->getBrain().getIdea(0) << RESET_COLOR << std::endl;
@@ -67,13 +68,15 @@ int	main() {
 	for (int i = 0; i < TEST_COUNT; i++) {
 		if (i == 5)
 			continue ;
-		delete animals[i];
+		delete (animals[i]);
 		write_line();
 	}
+	delete (tempAnimal);
+	write_line();
 
 	write_divider("Test makeSound()");
 	{
-		// const AAnimal* animal = new AAnimal(); // Pure virtual, can not be created.
+		// const AAnimal* animal = new AAnimal(); // Pure virtual, base class may not be instanciated.
         const AAnimal* dog = new Dog();
         const AAnimal* cat = new Cat();
 

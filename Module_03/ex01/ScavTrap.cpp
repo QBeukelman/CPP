@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ScavTrap.cpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/04/10 22:19:49 by quentin       #+#    #+#                 */
-/*   Updated: 2025/04/11 00:30:13 by quentin       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/10 22:19:49 by quentin           #+#    #+#             */
+/*   Updated: 2025/04/18 09:30:56 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ScavTrap::guardGate() {
 			<< C_BLUE
 			<< this->name
 			<< RESET_COLOR
-			<< " GateKeperMode"
+			<< " ScavTrap GateKeperMode"
 			<< C_RED
 			<< " is out of energy. Energy: ["
 			<< this->energy
@@ -81,7 +81,7 @@ void	ScavTrap::guardGate() {
 			<< C_BLUE
 			<< this->name
 			<< RESET_COLOR
-			<< " GateKeperMode"
+			<< " ScavTrap GateKeperMode"
 			<< C_RED
 			<< " has no health. Health: ["
 			<< this->health
@@ -106,7 +106,7 @@ void	ScavTrap::attack(const std::string &target) {
 			<< C_BLUE
 			<< this->name
 			<< RESET_COLOR
-			<< " attacks"
+			<< " ScavTrap attacks"
 			<< C_RED
 			<< " is out of energy. Energy: ["
 			<< this->energy
@@ -121,9 +121,9 @@ void	ScavTrap::attack(const std::string &target) {
 			<< C_BLUE
 			<< this->name
 			<< RESET_COLOR
-			<< " attacks"
+			<< " ScavTrap attacks"
 			<< C_RED
-			<< " has no health. Health: ["
+			<< " ScavTrap has no health. Health: ["
 			<< this->health
 			<< "]"
 			<< RESET_COLOR
@@ -137,7 +137,7 @@ void	ScavTrap::attack(const std::string &target) {
 		<< C_BLUE
 		<< this->name
 		<< RESET_COLOR
-		<< " attacks "
+		<< " ScavTrap attacks "
 		<< C_BLUE
 		<< target
 		<< RESET_COLOR

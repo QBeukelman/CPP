@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   FragTrap.cpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/04/11 00:16:27 by quentin       #+#    #+#                 */
-/*   Updated: 2025/04/11 00:33:48 by quentin       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/11 00:16:27 by quentin           #+#    #+#             */
+/*   Updated: 2025/04/18 09:36:52 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	FragTrap::highFiveGuys() {
 			<< C_BLUE
 			<< this->name
 			<< RESET_COLOR
-			<< " HighFive"
+			<< " FragTrap HighFive"
 			<< C_RED
 			<< " is out of energy. Energy: ["
 			<< this->energy
@@ -82,7 +82,7 @@ void	FragTrap::highFiveGuys() {
 			<< C_BLUE
 			<< this->name
 			<< RESET_COLOR
-			<< " HighFive"
+			<< " FragTrap HighFive"
 			<< C_RED
 			<< " has no health. Health: ["
 			<< this->health
@@ -107,7 +107,7 @@ void	FragTrap::attack(const std::string &target) {
 			<< C_BLUE
 			<< this->name
 			<< RESET_COLOR
-			<< " attacks"
+			<< " FragTrap attacks"
 			<< C_RED
 			<< " is out of energy. Energy: ["
 			<< this->energy
@@ -122,7 +122,7 @@ void	FragTrap::attack(const std::string &target) {
 			<< C_BLUE
 			<< this->name
 			<< RESET_COLOR
-			<< " attacks"
+			<< " FragTrap attacks"
 			<< C_RED
 			<< " has no health. Health: ["
 			<< this->health
@@ -138,7 +138,7 @@ void	FragTrap::attack(const std::string &target) {
 		<< C_BLUE
 		<< this->name
 		<< RESET_COLOR
-		<< " attacks "
+		<< " FragTrap attacks "
 		<< C_BLUE
 		<< target
 		<< RESET_COLOR

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ScavTrap.hpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/04/10 22:19:52 by quentin       #+#    #+#                 */
-/*   Updated: 2025/04/10 23:49:55 by quentin       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/10 22:19:52 by quentin           #+#    #+#             */
+/*   Updated: 2025/04/18 10:26:20 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class ScavTrap: public ClapTrap {
 		static const int	SCAV_DEFAULT_ENERGY = 50;
 		static const int	SCAV_DEFAULT_DAMAGE = 20;
 
-    public:
+	public:
 		ScavTrap();
 		ScavTrap(std::string newName);
 		ScavTrap(const ScavTrap& other);

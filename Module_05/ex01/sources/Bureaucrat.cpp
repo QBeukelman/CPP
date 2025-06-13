@@ -6,11 +6,12 @@
 /*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/13 10:04:26 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/13 13:28:52 by quentin       ########   odam.nl         */
+/*   Updated: 2025/06/13 15:11:41 by quentin       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Bureaucrat.hpp"
+#include "../include/Form.hpp"
 #include "iostream"
 
 // -------------------------------------------------------------: Constructors
@@ -45,9 +46,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other) {
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat& other) {
 	std::cout
-        << "Bureaucrat copy assignment operator for "
-        << other.getName() << "."
-        << std::endl;
+		<< "Bureaucrat copy assignment operator for "
+		<< other.getName() << "."
+		<< std::endl;
 	if (this != &other) {
 		this->name = other.name;
 		this->grade = other.grade;
@@ -57,9 +58,9 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat& other) {
 
 Bureaucrat::~Bureaucrat() {
 	std::cout
-        << "Bureaucrat destructor for "
-        << this->getName() << "."
-        << std::endl;
+		<< "Bureaucrat destructor for "
+		<< this->getName() << "."
+		<< std::endl;
 }
 
 
@@ -91,6 +92,28 @@ void	Bureaucrat::decrementGrade() {
 		this->grade++;
 	} else {
 		throw GradeTooLowException();
+	}
+}
+
+void	Bureaucrat::signForm(Form& form) {
+	try
+	{
+		form.beSigned(*this);
+		std::cout
+			<< this->name
+			<< " signed "
+			<< form.getName() << "."
+			<< std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout
+			<< this->name
+			<< " could not sign "
+			<< form.getName()
+			<< " because: " << "\n"
+			<< e.what()
+			<< std::endl;
 	}
 }
 

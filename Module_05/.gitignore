@@ -9,6 +9,7 @@
 
 # Excs
 bureaucrat_exc
+bureaucrats_forms_exc
 
 # Outputs
 *.append

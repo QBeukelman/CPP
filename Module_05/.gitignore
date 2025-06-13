@@ -1,0 +1,21 @@
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# objs
+*/obj
+
+# Excs
+bureaucrat_exc
+bureaucrats_forms_exc
+
+# Outputs
+*.append
+
+# static library
+*.a
+
+# vscode folder
+.vscode/

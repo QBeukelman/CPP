@@ -6,7 +6,7 @@
 /*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/13 13:43:40 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/20 08:59:50 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/06/19 21:05:00 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 #define MIN_GRADE 150
 #define MAX_GRADE 0
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 	private:
@@ -45,7 +45,8 @@ class Bureaucrat {
 		int			getGrade() const;
 		void		incrementGrade();
 		void		decrementGrade();
-		void		signForm(Form& form);
+		void		signForm(AForm& form);
+		void		executeForm(const AForm& form);
 
 		// Public exception inheriting from std exception
 		class GradeTooHighException : public std::exception {

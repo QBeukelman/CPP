@@ -6,7 +6,7 @@
 #    By: quentin <quentin@student.42.fr>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/06/13 10:57:48 by quentin       #+#    #+#                  #
-#    Updated: 2025/06/13 11:02:33 by quentin       ########   odam.nl          #
+#    Updated: 2025/06/19 15:51:02 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ NAME_EXECUTABLE = bureaucrat_exc
 SOURCES						= main.cpp
 
 SOURCES_BUREAUCRAT			= Bureaucrat.cpp \
+								helpers.cpp \
 
 INC 						= inc
 DIR_OBJ						= obj

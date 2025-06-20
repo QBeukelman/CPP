@@ -3,10 +3,10 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: quentin <quentin@student.42.fr>              +#+                      #
+#    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
 #                                                    +#+                       #
-#    Created: 2025/06/13 14:53:03 by quentin       #+#    #+#                  #
-#    Updated: 2025/06/19 15:50:48 by quentinbeuk   ########   odam.nl          #
+#    Created: 2025/06/16 07:46:35 by quentinbeuk   #+#    #+#                  #
+#    Updated: 2025/06/19 15:46:37 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,11 @@ NAME_EXECUTABLE = bureaucrat_exc
 SOURCES						= main.cpp
 
 SOURCES_BUREAUCRAT			= Bureaucrat.cpp \
-								Form.cpp \
+								AForm.cpp \
 								helpers.cpp \
+								PresidentialPardonForm.cpp \
+								RobotomyRequestForm.cpp \
+								ShrubberyCreationForm.cpp \
 
 INC 						= inc
 DIR_OBJ						= obj

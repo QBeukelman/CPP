@@ -6,12 +6,12 @@
 /*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/13 10:04:26 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/20 09:01:00 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/06/19 21:13:15 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Bureaucrat.hpp"
-#include "../include/Form.hpp"
+#include "../include/AForm.hpp"
 #include <iostream>
 
 // -------------------------------------------------------------: Constructors
@@ -95,7 +95,7 @@ void	Bureaucrat::decrementGrade() {
 	}
 }
 
-void	Bureaucrat::signForm(Form& form) {
+void	Bureaucrat::signForm(AForm& form) {
 	try
 	{
 		form.beSigned(*this);
@@ -110,12 +110,39 @@ void	Bureaucrat::signForm(Form& form) {
 	catch(const std::exception& e)
 	{
 		std::cout
-			<< C_RED
 			<< this->name
 			<< " could not sign "
 			<< form.getName()
 			<< " because: " << "\n"
 			<< e.what()
+			<< std::endl;
+	}
+}
+
+
+// 
+void	Bureaucrat::executeForm(const AForm& form) {
+	try 
+	{
+		form.execute(*this);
+		std::cout
+			<< C_BLUE
+			<< this->getName()
+			<< " executed "
+			<< form.getName()
+			<< RESET_COLOR
+			<< std::endl;
+	} 
+	catch (const std::exception& exception) 
+	{
+		std::cout
+			<< C_RED
+			<< "Execute ERROR: "
+			<< this->getName()
+			<< " failed to execute "
+			<< form.getName()
+			<< " because: \n"
+			<< exception.what()
 			<< RESET_COLOR
 			<< std::endl;
 	}

@@ -3,10 +3,10 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: quentin <quentin@student.42.fr>              +#+                      #
+#    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
 #                                                    +#+                       #
-#    Created: 2025/06/13 14:53:03 by quentin       #+#    #+#                  #
-#    Updated: 2025/06/19 15:50:48 by quentinbeuk   ########   odam.nl          #
+#    Created: 2025/06/20 08:36:09 by quentinbeuk   #+#    #+#                  #
+#    Updated: 2025/06/20 08:40:43 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RESET				:= \033[0m
 
 # Compiler
 CC = c++
-CFLAGS = -std=c++98 -Wall -Werror -Wextra
+CFLAGS = -std=c++11 -Wall -Werror -Wextra
 
 # Targets
 NAME_EXECUTABLE = bureaucrat_exc
@@ -29,8 +29,12 @@ NAME_EXECUTABLE = bureaucrat_exc
 SOURCES						= main.cpp
 
 SOURCES_BUREAUCRAT			= Bureaucrat.cpp \
-								Form.cpp \
+								AForm.cpp \
 								helpers.cpp \
+								Intern.cpp \
+								PresidentialPardonForm.cpp \
+								RobotomyRequestForm.cpp \
+								ShrubberyCreationForm.cpp \
 
 INC 						= inc
 DIR_OBJ						= obj

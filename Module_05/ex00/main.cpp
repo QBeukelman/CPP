@@ -6,15 +6,12 @@
 /*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/13 10:57:31 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/13 13:21:00 by quentin       ########   odam.nl         */
+/*   Updated: 2025/06/20 08:58:48 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/Bureaucrat.hpp"
-
-void		write_line(void) { std::cout << std::endl; }
-void		write_divider(void) { std::cout << std::endl << "---------------------\n\n"; }
-void		write_title(std::string title) { std::cout << C_BLUE << title << RESET_COLOR << "\n\n"; };
+#include "include/helpers.hpp"
 
 int main(void) {
 
@@ -25,11 +22,17 @@ int main(void) {
 
 		try {
 			Bureaucrat newBur = Bureaucrat("Jonny", -1);
-			std::cout << newBur.getName();
+			std::cout
+				<< C_BLUE
+				<< newBur.getName()
+				<< RESET_COLOR
+				<< std::endl;
 		} catch (std::exception& e) {
-			std::cout << e.what();
+			std::cout
+				<< C_RED
+				<< e.what()
+				<< RESET_COLOR;
 		}
-
 		write_line();
 		write_divider();
 	}
@@ -44,52 +47,64 @@ int main(void) {
 
 		try {
 			std::cout
+				<< C_BLUE
 				<< "Current grade for "
 				<< maxBureaucrat.getName()
 				<< " is "
-				<< maxBureaucrat.getGrade()
-				<< "." << std::endl;
+				<< maxBureaucrat.getGrade() << "."
+				<< RESET_COLOR
+				<< std::endl;
 			maxBureaucrat.incrementGrade();
 			std::cout
+				<< C_BLUE
 				<< "Successfully incremented grade for "
 				<< maxBureaucrat.getName() << "\n"
 				<< "Grade currently: "
 				<< maxBureaucrat.getGrade() << "."
+				<< RESET_COLOR
 				<< std::endl;
 		} catch (std::exception& e) {
 			std::cout
+				<< C_RED
 				<< "Attempted to increment grade for "
 				<< maxBureaucrat.getName()
 				<< " but an exception was caught: \n"
 				<< e.what() << "." << "\n"
 				<< "Grade currently: "
 				<< maxBureaucrat.getGrade() << "."
+				<< RESET_COLOR
 				<< std::endl;
 		}
 		write_line();
 
 		try {
 			std::cout
+				<< C_BLUE
 				<< "Current grade for "
 				<< minBureaucrat.getName()
 				<< " is "
-				<< minBureaucrat.getGrade()
-				<< "." << std::endl;
+				<< minBureaucrat.getGrade() << "."
+				<< RESET_COLOR
+				<< std::endl;
 			minBureaucrat.decrementGrade();
 			std::cout
+				<< C_BLUE
 				<< "Successfully decremented grade for "
 				<< minBureaucrat.getName() << "\n"
 				<< "Grade currently: "
 				<< minBureaucrat.getGrade() << "."
+				<< RESET_COLOR
 				<< std::endl;
 		} catch (std::exception& e) {
 			std::cout
+				<< C_RED
 				<< "Attempted to decrement grade for "
 				<< minBureaucrat.getName()
 				<< " but an exception was caught: \n"
 				<< e.what() << "." << "\n"
 				<< "Grade currently: "
 				<< minBureaucrat.getGrade() << "."
+				<< RESET_COLOR
 				<< std::endl;
 		}
 		write_line();
@@ -105,52 +120,64 @@ int main(void) {
 
 		try {
 			std::cout
+				<< C_BLUE
 				<< "Current grade for "
 				<< bureaucratHightScore.getName()
 				<< " is "
-				<< bureaucratHightScore.getGrade()
-				<< "." << std::endl;
+				<< bureaucratHightScore.getGrade() << "."
+				<< RESET_COLOR
+				<< std::endl;
 			bureaucratHightScore.incrementGrade();
 			std::cout
+				<< C_BLUE
 				<< "Successfully incremented grade for "
 				<< bureaucratHightScore.getName() << "\n"
 				<< "Grade currently: "
 				<< bureaucratHightScore.getGrade() << "."
+				<< RESET_COLOR
 				<< std::endl;
 		} catch (std::exception& e) {
 			std::cout
+				<< C_RED
 				<< "Attempted to increment grade for "
 				<< bureaucratHightScore.getName()
 				<< " but an exception was caught: \n"
 				<< e.what() << "." << "\n"
 				<< "Grade currently: "
 				<< bureaucratHightScore.getGrade() << "."
+				<< RESET_COLOR
 				<< std::endl;
 		}
 		write_line();
 
 		try {
 			std::cout
+				<< C_BLUE
 				<< "Current grade for "
 				<< bureaucratLowScore.getName()
 				<< " is "
-				<< bureaucratLowScore.getGrade()
-				<< "." << std::endl;
+				<< bureaucratLowScore.getGrade() << "."
+				<< RESET_COLOR
+				<< std::endl;
 			bureaucratLowScore.decrementGrade();
 			std::cout
+				<< C_BLUE
 				<< "Successfully decremented grade for "
 				<< bureaucratLowScore.getName() << "\n"
 				<< "Grade currently: "
 				<< bureaucratLowScore.getGrade() << "."
+				<< RESET_COLOR
 				<< std::endl;
 		} catch (std::exception& e) {
 			std::cout
+				<< C_RED
 				<< "Attempted to decrement grade for "
 				<< bureaucratLowScore.getName()
 				<< " but an exception was caught: \n"
 				<< e.what() << "." << "\n"
 				<< "Grade currently: "
 				<< bureaucratLowScore.getGrade() << "."
+				<< RESET_COLOR
 				<< std::endl;
 		}
 		write_line();

@@ -6,16 +6,13 @@
 /*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/13 14:53:58 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/13 15:19:38 by quentin       ########   odam.nl         */
+/*   Updated: 2025/06/20 09:05:40 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/Bureaucrat.hpp"
 #include "include/Form.hpp"
-
-void		write_line(void) { std::cout << std::endl; }
-void		write_divider(void) { std::cout << std::endl << "---------------------\n\n"; }
-void		write_title(std::string title) { std::cout << C_BLUE << title << RESET_COLOR << "\n\n"; };
+#include "include/helpers.hpp"
 
 int main(void) {
 	{
@@ -57,16 +54,21 @@ int main(void) {
 		try {
 			form.beSigned(bart);
 			std::cout
+				<< C_BLUE
 				<< bart.getName()
 				<< " successfully signed "
 				<< form.getName() << "."
+				<< RESET_COLOR
 				<< std::endl;
 		} catch (const std::exception& e) {
 			std::cout
+				<< C_RED
 				<< bart.getName()
 				<< " could not sign "
-				<< e.what()
+				<< form.getName()
 				<< " because: \n"
+				<< e.what()
+				<< RESET_COLOR
 				<< std::endl;
 		}
 
@@ -74,16 +76,21 @@ int main(void) {
 		try {
 			form.beSigned(bob);
 			std::cout
+				<< C_BLUE
 				<< bob.getName()
 				<< " successfully signed "
 				<< form.getName() << "."
+				<< RESET_COLOR
 				<< std::endl;
 		} catch (const std::exception& e) {
 			std::cout
+				<< C_RED
 				<< bob.getName()
 				<< " could not sign "
-				<< e.what()
+				<< form.getName()
 				<< " because: \n"
+				<< e.what()
+				<< RESET_COLOR
 				<< std::endl;
 		}
 
@@ -91,16 +98,21 @@ int main(void) {
 		try {
 			form.beSigned(borris);
 			std::cout
+				<< C_BLUE
 				<< borris.getName()
 				<< " successfully signed "
 				<< form.getName() << "."
+				<< RESET_COLOR
 				<< std::endl;
 		} catch (const std::exception& e) {
 			std::cout
+				<< C_RED
 				<< borris.getName()
 				<< " could not sign "
+				<< form.getName()
 				<< " because: \n"
 				<< e.what()
+				<< RESET_COLOR
 				<< std::endl;
 		}
 		write_line();

@@ -6,7 +6,7 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/16 07:53:00 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/06/19 21:14:25 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/06/23 16:48:06 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ AForm::AForm() {
 }
 
 AForm::AForm(std::string newName, int newGradeToSign, int newGradeToExecute) {
-	if (newGradeToSign < 0 || newGradeToExecute < 0) {
+	if (newGradeToSign < MAX_GRADE || newGradeToExecute < MAX_GRADE) {
 		throw GradeTooHighException();
-	} else if (newGradeToSign > 150 || newGradeToExecute > 150) {
+	} else if (newGradeToSign > MIN_GRADE || newGradeToExecute > MIN_GRADE) {
 		throw GradeTooLowException();
 	} else {
 		this->name = newName;

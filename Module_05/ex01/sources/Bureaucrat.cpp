@@ -6,7 +6,7 @@
 /*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/13 10:04:26 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/20 09:01:00 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/06/23 16:46:44 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ Bureaucrat::Bureaucrat() {
 
 Bureaucrat::Bureaucrat(std::string newName, int newGrade) {
 	std::cout
-        << "Bureaucrat parameterised constructor for "
-        << newName << "."
-        << std::endl;
+		<< "Bureaucrat parameterised constructor for "
+		<< newName << "."
+		<< std::endl;
 	if (newGrade < MAX_GRADE) {
 		throw GradeTooHighException();
 	}
@@ -38,9 +38,9 @@ Bureaucrat::Bureaucrat(std::string newName, int newGrade) {
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) {
 	std::cout
-        << "Bureaucrat copy constructor for "
-        << other.getName() << "."
-        << std::endl;
+		<< "Bureaucrat copy constructor for "
+		<< other.getName() << "."
+		<< std::endl;
 	*this = other;
 }
 

@@ -6,7 +6,7 @@
 /*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/13 13:32:16 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/13 14:40:10 by quentin       ########   odam.nl         */
+/*   Updated: 2025/06/23 16:49:23 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ class Form {
 		std::string	name;
 		int			grade;
 		bool		isSigned;
-		int			gradeForSignature;
-		int			gradeForExecution;
+		int			gradeToSign;
+		int			gradeToExecute;
 
 	public:
 		Form();
-		Form(std::string newName, int newGrade, int newGradeForSigniture, int newGradeForExecution);
+		Form(std::string newName, int newGrade, int newGradeToSign, int newGradeToExecute);
 		Form(const Form& other);
 		Form& operator=(const Form& other);
 		~Form();
@@ -39,8 +39,8 @@ class Form {
 		std::string	getName() const;
 		int			getGrade() const;
 		bool		getSigned() const;
-		int			getGradeForSigniture() const;
-		int			getGradeForExecution() const;
+		int			getGradeToSign() const;
+		int			getGradeToExecute() const;
 		void		beSigned(const Bureaucrat& bureaucrat);
 
 		// Public exception inheriting from std exception

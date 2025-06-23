@@ -6,7 +6,7 @@
 /*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/13 13:44:06 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/18 20:08:40 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/06/23 16:55:33 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,26 @@ Form::Form() {
 	this->name = DEFAULT_FORM_NAME;
 	this->grade = MIN_GRADE;
 	this->isSigned = DEFAULT_IS_SIGNED;
-	this->gradeForSignature = MAX_GRADE;
-	this->gradeForExecution = MAX_GRADE;
+	this->gradeToSign = MAX_GRADE;
+	this->gradeToExecute = MAX_GRADE;
 }
 
-Form::Form(std::string newName, int newGrade, int newGradeForSigniture, int newGradeForExecution) {
+Form::Form(std::string newName, int newGrade, int newGradeToSign, int newGradeToExecute) {
+	if (newGrade < MAX_GRADE || newGradeToSign < MAX_GRADE || newGradeToExecute < MAX_GRADE) {
+		throw GradeTooHighException();
+	} else if (newGrade > MIN_GRADE || newGradeToSign > MIN_GRADE || newGradeToExecute > MIN_GRADE) {
+		throw GradeTooLowException();
+	} else {
+		this->name = newName;
+		this->grade = newGrade;
+		this->isSigned = DEFAULT_IS_SIGNED;
+		this->gradeToSign = newGradeToSign;
+		this->gradeToExecute = newGradeToExecute;
+	}
 	std::cout
 		<< "Form parameterised constructor for "
 		<< newName << "."
 		<<std::endl;
-	if (newGrade < MAX_GRADE) {
-		throw GradeTooHighException();
-	}
-	if (newGrade > MIN_GRADE) {
-		throw GradeTooLowException();
-	}
-	this->name = newName;
-	this->grade = newGrade;
-	this->isSigned = DEFAULT_IS_SIGNED;
-	this->gradeForSignature = newGradeForSigniture;
-	this->gradeForExecution = newGradeForExecution;
 }
 
 Form::Form(const Form& other) {
@@ -60,8 +60,8 @@ Form &Form::operator=(const Form& other) {
 		this->name = other.name;
 		this->grade = other.grade;
 		this->isSigned = other.isSigned;
-		this->gradeForSignature = other.gradeForSignature;
-		this->gradeForExecution = other.gradeForExecution;
+		this->gradeToSign = other.gradeToSign;
+		this->gradeToExecute = other.gradeToExecute;
 	}
 	return (*this);
 }
@@ -93,12 +93,12 @@ bool	Form::getSigned() const {
 	return (this->isSigned);
 }
 
-int	Form::getGradeForSigniture() const {
-	return (this->gradeForSignature);
+int	Form::getGradeToSign() const {
+	return (this->gradeToSign);
 }
 
-int Form::getGradeForExecution() const {
-	return (this->gradeForExecution);
+int Form::getGradeToExecute() const {
+	return (this->gradeToExecute);
 }
 
 void	Form::beSigned(const Bureaucrat& bureaucrat) {
@@ -108,7 +108,7 @@ void	Form::beSigned(const Bureaucrat& bureaucrat) {
 	else if (bureaucrat.getGrade() > MIN_GRADE) {
 		throw GradeTooLowException();
 	}
-	else if (bureaucrat.getGrade() > this->gradeForSignature) {
+	else if (bureaucrat.getGrade() > this->gradeToSign) {
 		throw GradeTooLowException();
 	} else {
 		this->isSigned = true;

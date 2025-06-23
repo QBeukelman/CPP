@@ -6,7 +6,7 @@
 /*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/21 10:35:34 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/21 14:34:11 by quentin       ########   odam.nl         */
+/*   Updated: 2025/06/23 16:21:55 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,38 @@
 int main() {
 
 	write_divider();
-	write_title("TEST 1: ");
+	write_title("TEST 1: Pseudo-literals");
 	{
-		ScalarConverter::convert("a.1");
+		ScalarConverter::convert("nan");
+		ScalarConverter::convert("+nanf");
+		ScalarConverter::convert("-nan");
+		write_line();
+		
+		ScalarConverter::convert("inf");
+		ScalarConverter::convert("+inff");
+		ScalarConverter::convert("-inf");
+	}
+	write_divider();
+
+	write_title("TEST 2: Simple Conversions");
+	{
+		ScalarConverter::convert("a");
+		ScalarConverter::convert("0");
+		ScalarConverter::convert("42");
+		ScalarConverter::convert("4.2");
+		ScalarConverter::convert("88.0f");
+		write_line();
+	}
+	write_divider();
+
+	write_title("TEST 3: Error Checks");
+	{
+		ScalarConverter::convert("a.a");
+		ScalarConverter::convert("42.");
+		ScalarConverter::convert("42.a");
+		ScalarConverter::convert("a.42f");
+		ScalarConverter::convert("--42");
+		write_line();
 	}
 	write_divider();
 }

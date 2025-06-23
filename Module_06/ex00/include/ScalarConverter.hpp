@@ -6,7 +6,7 @@
 /*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/21 10:10:35 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/21 13:00:32 by quentin       ########   odam.nl         */
+/*   Updated: 2025/06/23 14:57:52 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <sstream>
 #include <limits>
 #include <iomanip>
+#include <regex>
 
 #define C_RED "\x1B[1;31m"
 #define C_BLUE "\033[1;34m"

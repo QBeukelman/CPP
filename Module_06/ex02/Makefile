@@ -3,10 +3,10 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: quentin <quentin@student.42.fr>              +#+                      #
+#    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
 #                                                    +#+                       #
-#    Created: 2025/06/21 10:49:02 by quentin       #+#    #+#                  #
-#    Updated: 2025/06/25 17:40:42 by quentinbeuk   ########   odam.nl          #
+#    Created: 2025/06/25 20:32:31 by quentinbeuk   #+#    #+#                  #
+#    Updated: 2025/06/25 20:34:50 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,13 +23,13 @@ CC = c++
 CFLAGS = -std=c++11 -Wall -Werror -Wextra
 
 # Targets
-NAME_EXECUTABLE = scalar_converter_exc
+NAME_EXECUTABLE = real_types_exc
 
 # Sources
 SOURCES						= main.cpp
 
 SOURCES_BUREAUCRAT			= helpers.cpp \
-								ScalarConverter.cpp \
+								Base.cpp \
 
 INC 						= inc
 DIR_OBJ						= obj

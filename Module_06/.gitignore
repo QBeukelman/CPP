@@ -1,0 +1,23 @@
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# objs
+*/obj
+
+# Excs
+real_types_exc
+scalar_converter_exc
+serializer_exc
+
+# Outputs
+*.append
+ShrubberyCreationForm
+
+# static library
+*.a
+
+# vscode folder
+.vscode/

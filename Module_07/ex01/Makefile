@@ -3,10 +3,10 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: quentin <quentin@student.42.fr>              +#+                      #
+#    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
 #                                                    +#+                       #
-#    Created: 2025/06/21 10:49:02 by quentin       #+#    #+#                  #
-#    Updated: 2025/06/27 11:14:36 by quentinbeuk   ########   odam.nl          #
+#    Created: 2025/06/27 11:23:21 by quentinbeuk   #+#    #+#                  #
+#    Updated: 2025/06/28 12:14:20 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,25 +23,24 @@ CC = c++
 CFLAGS = -std=c++11 -Wall -Werror -Wextra
 
 # Targets
-NAME_EXECUTABLE = scalar_converter_exc
+NAME_EXECUTABLE = iter_exc
 
 # Sources
 SOURCES						= main.cpp
 
-SOURCES_CONVERTER			= helpers.cpp \
-								ScalarConverter.cpp \
+SOURCES_ITER			= writer.cpp \
 
 INC 						= inc
 DIR_OBJ						= obj
 
 # Directories
 DIR_SOURCES					= .
-DIR_SOURCES_CONVERTER		= sources
+DIR_SOURCES_ITER		= sources
 
 
 # Object files
 OBJ = $(addprefix $(DIR_OBJ)/, $(SOURCES:.cpp=.o)) \
-	$(addprefix $(DIR_OBJ)/, $(SOURCES_CONVERTER:.cpp=.o)) \
+	$(addprefix $(DIR_OBJ)/, $(SOURCES_ITER:.cpp=.o)) \
 
 all: $(NAME_EXECUTABLE)
 
@@ -53,7 +52,7 @@ $(NAME_EXECUTABLE): $(OBJ)
 $(DIR_OBJ)/%.o: $(DIR_SOURCES)/%.cpp | $(DIR_OBJ)
 	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
 
-$(DIR_OBJ)/%.o: $(DIR_SOURCES_CONVERTER)/%.cpp | $(DIR_OBJ)
+$(DIR_OBJ)/%.o: $(DIR_SOURCES_ITER)/%.cpp | $(DIR_OBJ)
 	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
 
 $(DIR_OBJ):

@@ -8,9 +8,8 @@
 */obj
 
 # Excs
-real_types_exc
-scalar_converter_exc
-serializer_exc
+comparator_exc
+iter_exc
 
 # Outputs
 *.append

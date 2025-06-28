@@ -6,7 +6,7 @@
 #    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/06/25 17:40:51 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/06/25 19:26:19 by quentinbeuk   ########   odam.nl          #
+#    Updated: 2025/06/27 11:14:14 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ NAME_EXECUTABLE = serializer_exc
 # Sources
 SOURCES						= main.cpp
 
-SOURCES_BUREAUCRAT			= helpers.cpp \
+SOURCES_SERIALIZER			= helpers.cpp \
 								Serializer.cpp \
 
 INC 						= inc
@@ -36,12 +36,12 @@ DIR_OBJ						= obj
 
 # Directories
 DIR_SOURCES					= .
-DIR_SOURCES_BUREAUCRAT		= sources
+DIR_SOURCES_SERIALIZER		= sources
 
 
 # Object files
 OBJ = $(addprefix $(DIR_OBJ)/, $(SOURCES:.cpp=.o)) \
-	$(addprefix $(DIR_OBJ)/, $(SOURCES_BUREAUCRAT:.cpp=.o)) \
+	$(addprefix $(DIR_OBJ)/, $(SOURCES_SERIALIZER:.cpp=.o)) \
 
 all: $(NAME_EXECUTABLE)
 
@@ -53,7 +53,7 @@ $(NAME_EXECUTABLE): $(OBJ)
 $(DIR_OBJ)/%.o: $(DIR_SOURCES)/%.cpp | $(DIR_OBJ)
 	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
 
-$(DIR_OBJ)/%.o: $(DIR_SOURCES_BUREAUCRAT)/%.cpp | $(DIR_OBJ)
+$(DIR_OBJ)/%.o: $(DIR_SOURCES_SERIALIZER)/%.cpp | $(DIR_OBJ)
 	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
 
 $(DIR_OBJ):

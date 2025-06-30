@@ -6,7 +6,7 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/28 14:40:56 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/06/28 15:12:12 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/06/30 16:32:08 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,17 @@
 template <class T> class Array {
 	private:
 		T*				data;
-		unsigned int	size;
+		unsigned int	arraySize;
 
 	public:
 		Array();
 		Array(unsigned int n);
 		Array(const Array& other);
-		Array operator=(const Array& other);
+		Array& operator=(const Array& other);
 		~Array();
+
+		T& operator[](unsigned int index);
+		const T& operator[](unsigned int index) const;
 
 		unsigned int	size(void) const;
 

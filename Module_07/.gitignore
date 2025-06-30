@@ -10,6 +10,7 @@
 # Excs
 comparator_exc
 iter_exc
+array_exc
 
 # Outputs
 *.append

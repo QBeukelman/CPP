@@ -6,15 +6,14 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/28 15:12:39 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/06/30 17:52:21 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/07/01 09:48:59 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-	Tip: Try to compile int * a = new int(); then display *a.
+	! Tip: Try to compile int * a = new int(); then display *a.
 */
 #include <iostream>
-#include "include/Array.hpp"
 #include "include/writer.hpp"
 #include "sources/Array.tpp"
 
@@ -28,7 +27,7 @@ int main(int, char**)
 	srand(time(NULL));
 
 	write_divider();
-	write_title("TEST 0: Default Constructor (empty array)");
+	write_title("TEST 1: Default Constructor (empty array)");
 	{
 		Array<int>	empty;
 
@@ -68,7 +67,7 @@ int main(int, char**)
 	}
 
 	write_divider();
-	write_title("TEST 1: Create & Match Arrays");
+	write_title("TEST 2: Create & Match Arrays");
 	{
 		for (int i = 0; i < MAX_VAL; i++) {
 			const int value = rand();
@@ -97,7 +96,7 @@ int main(int, char**)
 	}
 
 	write_divider();
-	write_title("TEST 2: Test Copy/Assignment Constructors");
+	write_title("TEST 3: Test Copy/Assignment Constructors");
 	{
 		Array<int> tmp = numbers;
 		Array<int> test(tmp);
@@ -121,7 +120,7 @@ int main(int, char**)
 	}
 	
 	write_divider();
-	write_title("TEST 3: Out Of Bounds Exception");
+	write_title("TEST 4: Out Of Bounds Exception");
 	{
 		try {
 			numbers[-2] = 0;

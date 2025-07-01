@@ -6,18 +6,12 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/27 11:24:28 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/06/28 12:52:45 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/07/01 09:43:35 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/iter.hpp"
+#include "sources/iter.tpp"
 #include "include/writer.hpp"
-
-template <typename T, typename Func> void iter(T* arr, size_t size, Func func) {
-	for (size_t i = 0; i < size; i++) {
-		func(arr[i]);
-	}
-}
 
 void	printInt(int x) {
 	std::cout

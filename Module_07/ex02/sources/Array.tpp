@@ -6,7 +6,7 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/28 15:14:49 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/06/30 17:49:25 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/07/01 10:52:13 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Array<T>::Array(const Array& other) : arraySize(other.arraySize) {
 	this->data = new T[other.arraySize];
 	
 	for (unsigned int i = 0; i < other.arraySize; i++) {
-		data[i] = other.data[i]; // Element-wise copy
+		this->data[i] = other.data[i]; // Element-wise copy
 	}
 }
 
@@ -48,7 +48,7 @@ Array<T>& Array<T>::operator=(const Array& other) {
 	this->arraySize = other.arraySize;
 	this->data = new T[other.arraySize];
 	for (unsigned int i = 0; i < other.arraySize; i++) {
-		data[i] = other.data[i]; // Element-wise copy
+		this->data[i] = other.data[i]; // Element-wise copy
 	}
 	return (*this);
 }

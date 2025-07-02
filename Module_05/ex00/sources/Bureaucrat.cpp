@@ -6,7 +6,7 @@
 /*   By: quentin <quentin@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/13 10:04:26 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/23 16:46:03 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/07/01 10:47:47 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,10 @@ void	Bureaucrat::decrementGrade() {
 
 
 // -------------------------------------------------------------: Exceptions
-const char* Bureaucrat::GradeTooHighException::what() const throw()
-{
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
 	return ("Exception: Bureaucrat grade is greater than maximum limit of 0");	
 } 
 
-const char* Bureaucrat::GradeTooLowException::what() const throw()
-{
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
 	return ("Exception: Bureaucrat grade is less than minimum limit of 150");
 }

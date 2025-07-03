@@ -6,7 +6,7 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/01 10:41:40 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/02 13:31:56 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/07/03 15:32:20 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void	Span::addNumber(int number) {
 	This approach is O(n log n).
 */
 SpanResult	Span::shortestSpan() {
-	SpanResult	res;
-	int			shortest;
+	SpanResult		res;
+	unsigned int	diff;
 
 	if (this->n < 2)
 		throw SpanInvalidException();
@@ -66,16 +66,16 @@ SpanResult	Span::shortestSpan() {
 	std::sort(numbers.begin(), numbers.end());
 
 	// Compare adjacent elements
-	shortest = std::abs(numbers[1] - numbers[0]);
+	res.span = std::abs(numbers[1] - numbers[0]);
 	res.begin = numbers[0];
 	res.end = numbers[1];
 
 	for (size_t i = 1; i < numbers.size() - 1; i++) {
-		int	diff = std::abs(numbers[i + 1] - numbers[i]);
-		if (diff < shortest) {
-			shortest = diff;
+		diff = numbers[i + 1] - numbers[i];
+		if (diff < res.span) {
+			res.span = diff;
 			res.begin = numbers[i];
-			res.begin = numbers[i + 1];
+			res.end = numbers[i + 1];
 		}
 	}
 	return (res);
@@ -97,7 +97,7 @@ SpanResult	Span::longestSpan() {
 
 	res.begin = *minIt;
 	res.end = *maxIt;
-	res.span = res.end - res.begin;
+	res.span = static_cast<unsigned long>(*maxIt) - static_cast<unsigned long>(*minIt);
 
 	return (res);
 }
@@ -114,16 +114,36 @@ void Span::write_span(SpanResult res, SpanType type) {
 		<< res.begin
 		<< " end: "
 		<< res.end
-		<< ") = "
+		<< ")\t = "
 		<< res.span
 		<< RESET_COLOR
 		<< std::endl;
 }
 
+void	Span::write_span_table(void) {
+	unsigned int	diff;
+
+	std::cout
+			<< "Begin:\t\tEnd:\t\tDiff:"
+			<< std::endl;
+	for (size_t i = 1; i < numbers.size() - 1; i++) {
+		diff = numbers[i + 1] - numbers[i];
+		std::cout
+			<< numbers[i + 1]
+			<< "\t\t"
+			<< numbers[i]
+			<< "\t\t"
+			<< C_BLUE
+			<< diff
+			<< RESET_COLOR
+			<< std::endl;
+	}
+}
+
 const char*	Span::SpanOutOfBoundsException::what() const throw() {
-	return ("SpanOutOfBoundsException");
+	return ("SpanOutOfBoundsException: Attempting to add values exceeding the capacity of created Span.");
 }
 
 const char*	Span::SpanInvalidException::what() const throw() {
-	return ("SpanInvalidException");
+	return ("SpanInvalidException: A span could not be calculated for these values.");
 }

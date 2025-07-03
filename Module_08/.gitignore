@@ -9,6 +9,8 @@
 
 # Excs
 span_exc
+easyfind_exc
+stack_exc
 
 # Outputs
 *.append

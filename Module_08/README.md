@@ -25,7 +25,22 @@ A list in c++ is implemented as a `doubly-linked list`. Lists use non-contiguous
 - Incertion/removal in middle `O(1)`.
 - Lists are useful for splicing operations, moving items between lists.
 
-## 2. Associative Containers
+### std::deque
+
+(double-ended queue) is an indeced sequence container that allows for fast insertion and deletion on both front and back ends. As opposed to std::vector, elements of a deque are not stored contiguously.
+
+
+
+## 2. Container Adaptors
+
+### std::stack
+
+It is not a full container type and wraps around another conainer like std::deque, and restricts access to enforse (Last-In-First-Out).
+The stack pushes and pops the elements from the back of the underlying container, known as the top of the stack.
+
+
+
+## 3. Associative Containers
 
 - set
 - map
@@ -44,7 +59,7 @@ These are ordered containers based on `balanced binary-trees`. Elements in maps 
 
 
 
-## 3. Unordered Containers
+## 4. Unordered Containers
 
 - unordered_set
 - unordered_map

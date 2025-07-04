@@ -12,7 +12,7 @@
 
 ### std::vector
 
-A vector in c++ is essentially a dynamic array, which grows automatically. Vectors use contiguous memory storage, meaning elements are stored next to eachother in memory, allowing for fast random-access.
+A vector in c++ is essentially a dynamic array, which grows automatically. Vectors use contiguous memory storage, meaning elements are stored next to eachother in memory, allowing for fast random-access. A vector is allocated on the heap, and is therefor less performant than an array.
 
 - Fast incertion/removal at end `O(1)`.
 - Slow incertion/removal in middle `O(n)`, items neet to be shifted.
@@ -24,6 +24,10 @@ A list in c++ is implemented as a `doubly-linked list`. Lists use non-contiguous
 - Find item `O(n)`.
 - Incertion/removal in middle `O(1)`.
 - Lists are useful for splicing operations, moving items between lists.
+
+### std::array
+
+Unlike a vector, array has a fixed size, and is usefull when size is known at compile time. Useful for stack allocation for performance. Prefer for smaller data sets.
 
 ### std::deque
 

@@ -1,0 +1,20 @@
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# objs
+*/obj
+
+# Excs
+btc
+
+# Outputs
+*.append
+
+# static library
+*.a
+
+# vscode folder
+.vscode/

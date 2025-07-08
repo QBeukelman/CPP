@@ -6,7 +6,7 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/04 13:46:18 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/04 15:50:54 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/07/07 11:02:51 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 #ifndef FILE_HPP
 #define FILE_HPP
 
-#define ROW_COUNT 2000
-
 #include <string>
 #include <fstream>
 #include <sstream>
@@ -28,19 +26,20 @@
 
 #include "../models/RateEntity.hpp"
 
-template<typename Container>
+template<typename T>
 class File {
 	private:
-		Container		data;
+		T			data;
+		size_t		count; // TODO find count
 
 	public:
-		File();
-		File(std::string fileName);
-		~File();
+		File() = default;
+		File(const std::string& fileName, std::function<ParsedResult<T>(std::istream&)> parser);
 
-		void	read(std::string fileName);
-		void	print(void);
-	
+		void		readData(const std::string& fileName, std::function<ParsedResult<T>(std::istream&)> parser);
+		const T&	getData() const;
+		size_t		getCount() const;
+
 		class FileException : public std::exception {
 			public:
 				virtual const char *what() const throw();

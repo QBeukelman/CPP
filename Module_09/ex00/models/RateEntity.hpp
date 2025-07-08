@@ -6,26 +6,38 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/04 14:35:00 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/04 15:43:35 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/07/07 10:54:42 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include <tuple>
+#ifndef RATEENTITY_HPP
+#define RATEENTITY_HPP
 
-struct Date {
-	int		day;
-	int		month;
-	int		year;
+#define ARRAY_LENGTH 1614
+#define INPUT_LENGTH 20
 
-	// Less than
-	bool	operator<(const Date& other) const;
-	
-	// Comparison operator
-	bool	operator==(const Date& other) const;
+#include <array>
+#include <string>
+#include <sstream>
+#include <iostream>
+
+#include "../models/Date.hpp"
+
+template <typename T>
+struct ParsedResult {
+	T		data;
+	size_t	count;
 };
 
 struct RateEntity {
 	Date	date;
-	int		value;
+	float	value;
 };
+
+template <size_t N>
+ParsedResult<std::array<RateEntity, N>>	parseDataFile(std::istream& in);
+
+template <size_t N>
+ParsedResult<std::array<RateEntity, N>>	parseInputFile(std::istream& in);
+
+#endif

@@ -6,7 +6,7 @@
 #    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/07/04 15:09:46 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/07/04 15:38:48 by quentinbeuk   ########   odam.nl          #
+#    Updated: 2025/07/06 20:20:50 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,7 @@ NAME_EXECUTABLE = btc
 SOURCES						= main.cpp
 
 SOURCES_BTC					= BitcoinExchange.cpp \
-								File.cpp \
-								RateEntity.cpp \
+								Date.cpp
 
 INC 						= inc
 DIR_OBJ						= obj

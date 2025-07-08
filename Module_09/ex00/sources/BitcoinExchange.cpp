@@ -6,7 +6,7 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/06 15:59:17 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/07 15:21:11 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/07/08 07:56:45 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	BitcoinExchange::convertRates(File<std::array<RateEntity, INPUT_LENGTH>> in
 	size_t		count = inputFile.getCount();
 	size_t		i;
 
+	// TODO: Remove sort check
 	if (isSorted() == false)
 		return ;
 	
@@ -88,6 +89,8 @@ void	BitcoinExchange::convertRates(File<std::array<RateEntity, INPUT_LENGTH>> in
 		if (savedRate > 0)
 			std::cout << "\tMatched rate: \t" << convertedRate << std::endl;
 		else
+			// TODO: Find nearest date when not found
+			// TODO: Show error with incorrect inputs
 			std::cout << "\tNot Found: \t" << savedRate << std::endl;
 		i++;
 	}

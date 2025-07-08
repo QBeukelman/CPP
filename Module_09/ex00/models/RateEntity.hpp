@@ -6,7 +6,7 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/04 14:35:00 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/07 10:54:42 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/07/08 15:38:01 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@
 #include <iostream>
 
 #include "../models/Date.hpp"
+
+enum ValueCheck {
+	VALID,
+	INVALID_TOO_HIGH,
+	INVALID_NEGATEVE
+};
 
 template <typename T>
 struct ParsedResult {

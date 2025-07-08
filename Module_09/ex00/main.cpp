@@ -6,7 +6,7 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/04 11:11:17 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/06 20:53:49 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/07/08 15:16:29 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,29 +36,28 @@
 int	main(int argc, char **argv) {
 
 	// Check args
-	// TODO: Input for look-up
 	if (argc != 2) {
 		std::cerr << C_RED << "Invalid argument count" << std::endl;
 		return (0);
 	}
 	
 	// Make a file
-	auto parser = [](std::istream& in) {
+	auto parserFunction = [](std::istream& in) {
 		return (parseDataFile<ARRAY_LENGTH>(in));
 	};
-	File<std::array<RateEntity, ARRAY_LENGTH>> file(RATE_DATA_FILE_PATH, parser);
-	// auto rates = file.getData();
-	
-	// for (const auto& rate : rates) {
-	// 	std::cout	<< rate.date.day << "-"
-	// 	<< rate.date.month << "-"
-	// 	<< rate.date.year << "\t = "
-	// 	<< rate.value
-	// 	<< std::endl;
-	// }
-	
+	File<std::array<RateEntity, ARRAY_LENGTH>> inputFile(RATE_DATA_FILE_PATH, parserFunction);
+
 	// Convert
-	std::string			inputFile = argv[1];
-	BitcoinExchange		exchange = BitcoinExchange(file);
-	exchange.convertRates(exchange.parseInput(inputFile));
+	std::string			inputFileName = argv[1];
+	BitcoinExchange		exchange = BitcoinExchange(inputFile);
+	
+	exchange.convertRates(exchange.parseInput(inputFileName));
+
+	// TODO
+	/*
+		Input:
+			Invalid date
+			Empty row
+			Invalid value (negative / int max);
+	*/
 }

@@ -6,7 +6,7 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/04 14:02:09 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/07 14:25:59 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/07/08 15:35:45 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,12 @@
 
 #define RATE_DATA_FILE_PATH "data/data.csv"
 
+#include <cmath>
+#include <climits>
+
 #include "../sources/File.tpp"
 #include "../sources/RateEntity.tpp"
+#include "colors.hpp"
 
 class BitcoinExchange {
 	private:
@@ -37,7 +41,7 @@ class BitcoinExchange {
 		File<std::array<RateEntity, INPUT_LENGTH>>	parseInput(const std::string& fileName);
 		
 		// A binary search look-up in rates.data.
-		float										getRate(Date inputDate);
+		float										searchRate(Date inputDate);
 
 		// Convert all inputs using getRate().
 		void										convertRates(File<std::array<RateEntity, INPUT_LENGTH>> inputFile);

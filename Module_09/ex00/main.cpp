@@ -6,7 +6,7 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/04 11:11:17 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/04 15:51:04 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/07/08 15:16:29 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@
 */
 
 #include "include/colors.hpp"
-#include "include/File.hpp"
-#include "models/RateEntity.hpp"
+#include "include/BitcoinExchange.hpp"
 
 int	main(int argc, char **argv) {
 
@@ -41,9 +40,24 @@ int	main(int argc, char **argv) {
 		std::cerr << C_RED << "Invalid argument count" << std::endl;
 		return (0);
 	}
-	std::cout << "Filename: " << argv[1] << std::endl;
-
+	
 	// Make a file
-	File<std::array<RateEntity, ROW_COUNT>> file;
-	file.read(argv[1]);
+	auto parserFunction = [](std::istream& in) {
+		return (parseDataFile<ARRAY_LENGTH>(in));
+	};
+	File<std::array<RateEntity, ARRAY_LENGTH>> inputFile(RATE_DATA_FILE_PATH, parserFunction);
+
+	// Convert
+	std::string			inputFileName = argv[1];
+	BitcoinExchange		exchange = BitcoinExchange(inputFile);
+	
+	exchange.convertRates(exchange.parseInput(inputFileName));
+
+	// TODO
+	/*
+		Input:
+			Invalid date
+			Empty row
+			Invalid value (negative / int max);
+	*/
 }

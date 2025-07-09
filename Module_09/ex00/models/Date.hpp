@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   RateEntity.cpp                                     :+:    :+:            */
+/*   Date.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/07/04 15:17:41 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/04 15:43:30 by quentinbeuk   ########   odam.nl         */
+/*   Created: 2025/07/06 20:17:56 by quentinbeuk   #+#    #+#                 */
+/*   Updated: 2025/07/07 14:47:58 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ! Remove
-#include <iostream>
+#ifndef DATE_HPP
+#define DATE_HPP
 
-#include "../models/RateEntity.hpp"
+#include <string>
+#include <sstream>
+#include <iomanip>
 
-bool Date::operator<(const Date& other) const {
-	std::cout << other.day << std::endl;
-	return (false);
-}
+struct Date {
+	int		day;
+	int		month;
+	int		year;
 
-bool Date::operator==(const Date& other) const {
-	std::cout << other.day << std::endl;
-	return (false);
-}
+	std::string		join() const;
+	bool			operator<(const Date& other) const;
+	bool			operator>(const Date& other) const;
+	bool			operator==(const Date& other) const;
+};
+
+#endif

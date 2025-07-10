@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   PmergeMe.hpp                                       :+:    :+:            */
+/*   PmergeMeList.hpp                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/09 08:46:40 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/10 15:18:14 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/07/10 15:18:09 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PMERGEME_HPP
-#define PMERGEME_HPP
+#ifndef PMERGEMELIST_HPP
+#define PMERGEMELIST_HPP
 
 #include <iostream>
 #include <list>
@@ -20,31 +20,31 @@
 
 #include "colors.hpp"
 
-class PmergeMe {
+class PmergeMeList {
 	private:
 		// First Step Helpers
-		void	pairAndSplit(const std::vector<int>& inputs,
-								std::vector<int>& minima,
-								std::vector<int>& maxima);
+		void	pairAndSplit(const std::list<int>& inputs,
+								std::list<int>& minima,
+								std::list<int>& maxima);
 		
 		// Internal Recursive Sort Function
-		void fordJohnsonSort(std::vector<int>& sequence);
+		void fordJohnsonSort(std::list<int>& sequence);
 
 		// Insertion Helper
-		void insertMinima(std::vector<int>& sorted,
-							const std::vector<int>& minima);
+		void insertMinima(std::list<int>& sorted,
+							const std::list<int>& minima);
 
 		// Binary Insertion Utility
-		size_t binaryInsertPosition(const std::vector<int>& sorted, int value);
+		std::list<int>::const_iterator linearInsertPosition(const std::list<int>& sorted, int value);
 
 
 	public:
-		PmergeMe();
-		~PmergeMe();
+		PmergeMeList();
+		~PmergeMeList();
 		
-		void	sort(std::vector<int>& inputs);
-		void	printContainer(std::string name, const std::vector<int> container);
-		bool	isSorted(const std::vector<int> sequence);
+		void	sort(std::list<int>& inputs);
+		void	printContainer(std::string name, const std::list<int> container);
+		bool	isSorted(const std::list<int> sequence);
 };
 
 #endif

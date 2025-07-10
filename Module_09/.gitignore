@@ -10,6 +10,8 @@
 # Excs
 btc
 RPN
+PmergeMe
+generator
 
 # Outputs
 *.append

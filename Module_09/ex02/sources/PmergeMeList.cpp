@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   PmergeMe.cpp                                       :+:    :+:            */
+/*   PmergeMeList.cpp                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/09 08:46:48 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/10 15:33:19 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/07/10 15:32:52 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/PmergeMe.hpp"
+#include "../include/PmergeMeList.hpp"
 
 // Constructors
 // _____________________________________________________________________________
-PmergeMe::PmergeMe() {}
-PmergeMe::~PmergeMe() {}
+PmergeMeList::PmergeMeList() {}
+PmergeMeList::~PmergeMeList() {}
 
 // Public Members
 // _____________________________________________________________________________
@@ -26,9 +26,9 @@ PmergeMe::~PmergeMe() {}
 	2. Sort Maxima recursively using fordJohnsonSort()
 	3. Insert Minima into Maxima using Binary Search (tournament tree)
 */
-void	PmergeMe::sort(std::vector<int>& inputs) {
-	std::vector<int>	minima;
-	std::vector<int>	maxima;
+void	PmergeMeList::sort(std::list<int>& inputs) {
+	std::list<int>	minima;
+	std::list<int>	maxima;
 
 	pairAndSplit(inputs, minima, maxima);
 	fordJohnsonSort(maxima);
@@ -37,7 +37,8 @@ void	PmergeMe::sort(std::vector<int>& inputs) {
 	inputs = maxima;
 }
 
-void	PmergeMe::printContainer(std::string name, const std::vector<int> container) {
+
+void	PmergeMeList::printContainer(std::string name, const std::list<int> container) {
 	std::cout << name << ": \t";
 	for (const auto& item : container) {
 		std::cout << item << " ";
@@ -45,19 +46,25 @@ void	PmergeMe::printContainer(std::string name, const std::vector<int> container
 	std::cout << std::endl;
 }
 
-bool	PmergeMe::isSorted(const std::vector<int> sequence) {
-	for (size_t i = 0; i < (sequence.size() - 1); i++) {
-		if (sequence[i] > sequence[i + 1]) {
+bool	PmergeMeList::isSorted(const std::list<int> sequence) {
+	std::list<int>::const_iterator	it = sequence.begin();
+	std::list<int>::const_iterator	next = it;
+	next++;
+	
+	while (next != sequence.end()) {
+		if (*it > *next) {
 			std::cerr
 				<< C_RED
 				<< "Failed at: v[i] "
-				<< sequence[i]
+				<< *it
 				<< " > v[i + 1] "
-				<< sequence[i + 1]
+				<< *next
 				<< RESET_COLOR
 				<< std::endl;
 			return (false);
 		}
+		it++;
+		next++;
 	}
 	return (true);
 }
@@ -73,22 +80,28 @@ bool	PmergeMe::isSorted(const std::vector<int> sequence) {
 
 	If input size is odd, unpaired element is added to `maxima`.
 */
-void	PmergeMe::pairAndSplit(const std::vector<int>& inputs, std::vector<int>& minima, std::vector<int>& maxima) {
-	size_t	i;
+void	PmergeMeList::pairAndSplit(const std::list<int>& inputs, std::list<int>& minima, std::list<int>& maxima) {
+	std::list<int>::const_iterator		it = inputs.begin();
+	
+	while (it != inputs.end()) {
+		std::list<int>::const_iterator	next = it;
+		next++;
 
-	i = 0;
-	while (i + 1 < inputs.size()) {
-		if (inputs[i] < inputs[i + 1]) {
-			minima.push_back(inputs[i]);
-			maxima.push_back(inputs[i + 1]);
-		} else {
-			minima.push_back(inputs[i + 1]);
-			maxima.push_back(inputs[i]);
+		// If list contains odd number
+		if (next == inputs.end()) {
+			maxima.push_back(*it);
+			break ;
 		}
-		i += 2;
+		
+		if (*it < *next) {
+			minima.push_back(*it);
+			maxima.push_back(*next);		
+		} else {
+			minima.push_back(*next);
+			maxima.push_back(*it);
+		}
+		std::advance(it, 2);
 	}
-	if (i < inputs.size())
-		maxima.push_back(inputs[i]);
 }
 
 /*
@@ -101,12 +114,12 @@ void	PmergeMe::pairAndSplit(const std::vector<int>& inputs, std::vector<int>& mi
 
 	Final forted sequence is written back into the input sequence.
 */
-void	PmergeMe::fordJohnsonSort(std::vector<int>& sequence) {
+void	PmergeMeList::fordJohnsonSort(std::list<int>& sequence) {
 	if (sequence.size() <= 1)
 		return ;
 
-	std::vector<int>	minima;
-	std::vector<int>	maxima;
+	std::list<int>	minima;
+	std::list<int>	maxima;
 
 	// 1: Pair and split
 	pairAndSplit(sequence, minima, maxima);
@@ -116,7 +129,7 @@ void	PmergeMe::fordJohnsonSort(std::vector<int>& sequence) {
 
 	// 3: Insert minima into the sorted maxima
 	insertMinima(maxima, minima);
-	
+
 	sequence = maxima;
 }
 
@@ -125,12 +138,15 @@ void	PmergeMe::fordJohnsonSort(std::vector<int>& sequence) {
 	- Find the position using binary search.
 	- Inser aat calculated position to maintain sorted order.
 */
-void	PmergeMe::insertMinima(std::vector<int>& sorted, const std::vector<int>& minima) {
-	for (size_t i = 0; i < minima.size(); ++i) {
-		int		value = minima[i];
-		size_t	pos = binaryInsertPosition(sorted, value);
-		
-		sorted.insert(sorted.begin() + pos, value);
+void	PmergeMeList::insertMinima(std::list<int>& sorted, const std::list<int>& minima) {
+	std::list<int>::const_iterator	it = minima.begin();
+
+	while (it != minima.end()) {
+		int								value = *it;
+		std::list<int>::const_iterator	pos = linearInsertPosition(sorted, value);
+
+		sorted.insert(pos, value);
+		it++;
     }
 }
 
@@ -138,10 +154,15 @@ void	PmergeMe::insertMinima(std::vector<int>& sorted, const std::vector<int>& mi
 	Helper function to find the index where 'value' should be inserted
 	into a sorted vector to maintain sort order.
 
-	Returns the index using std::lower_bound for binary search.
-
-	Using binary search performs: O(log n)
+	Linear search performs: O(n)
 */
-size_t	PmergeMe::binaryInsertPosition(const std::vector<int>& sorted, int value) {
-	return (std::lower_bound(sorted.begin(), sorted.end(), value) - sorted.begin());
+std::list<int>::const_iterator	PmergeMeList::linearInsertPosition(const std::list<int>& sorted, int value) {
+	std::list<int>::const_iterator	it = sorted.begin();
+
+	while (it != sorted.end()) {
+		if (*it >= value)
+			return (it);
+		it++;
+	}
+	return (sorted.end());
 }

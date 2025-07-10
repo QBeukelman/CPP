@@ -6,7 +6,7 @@
 #    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/07/09 08:47:12 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/07/09 10:56:58 by quentinbeuk   ########   odam.nl          #
+#    Updated: 2025/07/10 16:50:22 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,15 @@ CC = c++
 CFLAGS = -std=c++17 -Wall -Werror -Wextra
 
 # Targets
-NAME_EXECUTABLE = PmergeMe
+NAME_EXECUTABLE			= PmergeMe
+NAME_NUMBER_GENERATOR	= generator
 
 # Sources
 SOURCES						= main.cpp
 
 SOURCES_PMERGEME			= PmergeMe.cpp \
+								PmergeMeList.cpp \
+								writer.cpp \
 
 INC 						= inc
 DIR_OBJ						= obj
@@ -58,6 +61,9 @@ $(DIR_OBJ)/%.o: $(DIR_SOURCES_PMERGEME)/%.cpp | $(DIR_OBJ)
 $(DIR_OBJ):
 	@mkdir -p $@
 
+make generator:
+	@$(CC) $(CFLAGS) -o $(NAME_NUMBER_GENERATOR) sources/generator.cpp
+
 clean:
 	@echo "$(BLUE)\nCleaning ...$(RESET)"
 	@$(RM) -rf $(DIR_OBJ)
@@ -66,7 +72,7 @@ clean:
 	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"
 
 fclean: clean
-	@$(RM) -f $(NAME_EXECUTABLE)
+	@$(RM) -f $(NAME_EXECUTABLE) $(NAME_NUMBER_GENERATOR)
 
 re: fclean all
 

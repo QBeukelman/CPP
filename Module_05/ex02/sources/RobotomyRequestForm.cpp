@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   RobotomyRequestForm.cpp                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/19 13:52:41 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/06/19 15:37:06 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/19 13:52:41 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/18 11:09:49 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,12 @@ RobotomyRequestForm::RobotomyRequestForm() {
 }
 
 // Constructor
-RobotomyRequestForm::RobotomyRequestForm(const std::string &newTarget) : AForm("Robotomy Request Form", SIGN_ROBOTOMY_FORM, EXC_ROBOTOMY_FORM) {
+RobotomyRequestForm::RobotomyRequestForm(const std::string &newTarget)
+	: AForm(
+		"Robotomy Request Form",
+		MIN_GRADE,
+		SIGN_ROBOTOMY_FORM,
+		EXC_ROBOTOMY_FORM) {
 	std::cout
 		<< "RobotomyRequestForm constructor for: "
 		<< newTarget << "."

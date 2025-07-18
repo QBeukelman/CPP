@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   AForm.hpp                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/16 07:52:39 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/06/19 15:47:20 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/16 07:52:39 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/18 11:06:08 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ class Bureaucrat;
 
 class AForm {
 	private:
-		std::string	name;
-		int			grade;
-		bool		isSigned;
-		int			gradeToSign;
-		int			gradeToExecute;
+		const std::string	name;
+		const int			grade;
+		bool				isSigned;
+		const int			gradeToSign;
+		const int			gradeToExecute;
 
 	public:
 		AForm();
-		AForm(std::string newName, int newGradeToSign, int newGradeToExecute);
+		AForm(std::string newName, int newGrade, int newGradeToSign, int newGradeToExecute);
 		AForm(const AForm& other);
 		AForm& operator=(const AForm& other);
 		virtual ~AForm();

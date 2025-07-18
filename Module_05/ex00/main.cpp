@@ -1,17 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/13 10:57:31 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/20 08:58:48 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/13 10:57:31 by quentin           #+#    #+#             */
+/*   Updated: 2025/07/18 10:57:07 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/Bureaucrat.hpp"
 #include "include/helpers.hpp"
+
+// ! Test `<<` overload
 
 int main(void) {
 
@@ -21,10 +23,10 @@ int main(void) {
 		write_title("TEST 1: Invalid Paramatised Constructor");
 
 		try {
-			Bureaucrat newBur = Bureaucrat("Jonny", -1);
+			Bureaucrat jonny = Bureaucrat("Jonny", -1);
 			std::cout
 				<< C_BLUE
-				<< newBur.getName()
+				<< jonny.getName()
 				<< RESET_COLOR
 				<< std::endl;
 		} catch (std::exception& e) {
@@ -45,15 +47,16 @@ int main(void) {
 		Bureaucrat minBureaucrat = Bureaucrat("min_bureaucrat", MIN_GRADE);
 		write_line();
 
+		std::cout
+			<< C_BLUE
+			<< "Current grade for "
+			<< maxBureaucrat.getName()
+			<< " is "
+			<< maxBureaucrat.getGrade() << "."
+			<< RESET_COLOR
+			<< std::endl;
+
 		try {
-			std::cout
-				<< C_BLUE
-				<< "Current grade for "
-				<< maxBureaucrat.getName()
-				<< " is "
-				<< maxBureaucrat.getGrade() << "."
-				<< RESET_COLOR
-				<< std::endl;
 			maxBureaucrat.incrementGrade();
 			std::cout
 				<< C_BLUE
@@ -77,15 +80,16 @@ int main(void) {
 		}
 		write_line();
 
+		std::cout
+			<< C_BLUE
+			<< "Current grade for "
+			<< minBureaucrat.getName()
+			<< " is "
+			<< minBureaucrat.getGrade() << "."
+			<< RESET_COLOR
+			<< std::endl;
+
 		try {
-			std::cout
-				<< C_BLUE
-				<< "Current grade for "
-				<< minBureaucrat.getName()
-				<< " is "
-				<< minBureaucrat.getGrade() << "."
-				<< RESET_COLOR
-				<< std::endl;
 			minBureaucrat.decrementGrade();
 			std::cout
 				<< C_BLUE
@@ -113,20 +117,21 @@ int main(void) {
 
 	// 3. Successful increment & decrement
 	{
-		write_title("TEST 3: Successful Incremetn & Decrement");
+		write_title("TEST 3: Successful Increment & Decrement");
 		Bureaucrat bureaucratHightScore = Bureaucrat("bureaucrat_high_score", 3);
 		Bureaucrat bureaucratLowScore = Bureaucrat("bureaucrat_low_score", 142);
 		write_line();
 
+		std::cout
+			<< C_BLUE
+			<< "Current grade for "
+			<< bureaucratHightScore.getName()
+			<< " is "
+			<< bureaucratHightScore.getGrade() << "."
+			<< RESET_COLOR
+			<< std::endl;
+
 		try {
-			std::cout
-				<< C_BLUE
-				<< "Current grade for "
-				<< bureaucratHightScore.getName()
-				<< " is "
-				<< bureaucratHightScore.getGrade() << "."
-				<< RESET_COLOR
-				<< std::endl;
 			bureaucratHightScore.incrementGrade();
 			std::cout
 				<< C_BLUE
@@ -150,15 +155,16 @@ int main(void) {
 		}
 		write_line();
 
+		std::cout
+			<< C_BLUE
+			<< "Current grade for "
+			<< bureaucratLowScore.getName()
+			<< " is "
+			<< bureaucratLowScore.getGrade() << "."
+			<< RESET_COLOR
+			<< std::endl;
+
 		try {
-			std::cout
-				<< C_BLUE
-				<< "Current grade for "
-				<< bureaucratLowScore.getName()
-				<< " is "
-				<< bureaucratLowScore.getGrade() << "."
-				<< RESET_COLOR
-				<< std::endl;
 			bureaucratLowScore.decrementGrade();
 			std::cout
 				<< C_BLUE
@@ -180,6 +186,21 @@ int main(void) {
 				<< RESET_COLOR
 				<< std::endl;
 		}
+		write_line();
+	}
+	write_divider();
+
+	// 4. Overlad operator
+	{
+		write_title("TEST 4: Use << operator");
+		Bureaucrat jonny = Bureaucrat("Jonny", 120);
+		write_line();
+
+		std::cout
+			<< C_BLUE
+			<< jonny
+			<< RESET_COLOR
+			<< std::endl;
 		write_line();
 	}
 	write_divider();

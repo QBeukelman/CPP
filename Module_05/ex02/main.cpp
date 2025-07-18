@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/18 20:11:58 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/06/19 21:20:35 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/18 20:11:58 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/18 11:15:32 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		main(void) {
 	// sign: 145 - exc: 137
 	{
 		ShrubberyCreationForm form = ShrubberyCreationForm("Amsterdam");
-		Bureaucrat tom = Bureaucrat("Tom", 140);
+		Bureaucrat tom = Bureaucrat("Tom", 140); // exc is too low
 
 		tom.signForm(form);
 		tom.executeForm(form);

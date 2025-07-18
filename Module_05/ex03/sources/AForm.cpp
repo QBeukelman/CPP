@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   AForm.cpp                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/16 07:53:00 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/06/23 16:53:01 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/16 07:53:00 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/18 11:20:17 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,68 +15,72 @@
 #include <iostream>
 
 // -------------------------------------------------------------: Constructors
-AForm::AForm() {
+AForm::AForm()
+	: name(DEFAULT_FORM_NAME),
+	  grade(MIN_GRADE),
+	  isSigned(DEFAULT_IS_SIGNED),
+	  gradeToSign(MAX_GRADE),
+	  gradeToExecute(MAX_GRADE) {
 	std::cout << "AForm default constructor." << std::endl;
-	this->name = DEFAULT_FORM_NAME;
-	this->grade = MIN_GRADE;
-	this->isSigned = DEFAULT_IS_SIGNED;
-	this->gradeToSign = MAX_GRADE;
-	this->gradeToExecute = MAX_GRADE;
 }
 
-AForm::AForm(std::string newName, int newGradeToSign, int newGradeToExecute) {
-	if (newGradeToSign < MAX_GRADE || newGradeToExecute < MAX_GRADE) {
+AForm::AForm(std::string newName, int newGrade, int newGradeToSign, int newGradeToExecute)
+	: name(newName),
+	  grade(newGrade),
+	  isSigned(DEFAULT_IS_SIGNED),
+	  gradeToSign(newGradeToSign),
+	  gradeToExecute(newGradeToExecute) {
+
+	if (newGrade < MAX_GRADE || newGradeToSign < MAX_GRADE || newGradeToExecute < MAX_GRADE) {
 		throw GradeTooHighException();
-	} else if (newGradeToSign > MIN_GRADE || newGradeToExecute > MIN_GRADE) {
+	} else if (newGrade > MIN_GRADE || newGradeToSign > MIN_GRADE || newGradeToExecute > MIN_GRADE) {
 		throw GradeTooLowException();
-	} else {
-		this->name = newName;
-		this->isSigned = DEFAULT_IS_SIGNED;
-		this->gradeToSign = newGradeToSign;
-		this->gradeToExecute = newGradeToExecute;
 	}
+
 	std::cout
 		<< "AForm parameterised constructor for "
 		<< newName << "."
 		<<std::endl;
 }
 
-AForm::AForm(const AForm& other) {
+AForm::AForm(const AForm& other)
+	: name(other.name),
+	  grade(other.grade),
+	  isSigned(other.isSigned),
+	  gradeToSign(other.gradeToSign),
+	  gradeToExecute(other.gradeToExecute) {
 	std::cout
 		<< "AForm copy constructor for "
 		<< other.getName() << "."
 		<< std::endl;
-	*this = other;
 }
 
-AForm &AForm::operator=(const AForm& other) {
+// Copy assignment not present because of const members.
+AForm& AForm::operator=(const AForm& other) {
 	std::cout
-		<< "AForm copy assignment operator for "
-		<< other.getName() << "."
+		<< "AForm copy assignment operator (deleted). Returning `*this` and other, "
+		<< other.getName()
+		<< " has not been assigned."
 		<< std::endl;
-
-	if (this != &other) {
-		this->name = other.name;
-		this->grade = other.grade;
-		this->isSigned = other.isSigned;
-		this->gradeToSign = other.gradeToSign;
-		this->gradeToExecute = other.gradeToExecute;
-	}
 	return (*this);
 }
 
 AForm::~AForm() {
 	std::cout
-		<< "AForm destructor for "
+		<< "Form destructor for "
 		<< this->getName() << "."
 		<< std::endl;
 }
 
 
 // -------------------------------------------------------------: Menbers
-std::ostream& operator<<(std::ostream& out, const AForm& form) 
-{
-	out << form.getName() << ", form grade " << form.getGrade() << std::endl;
+std::ostream& operator<<(std::ostream& out, const AForm& form) {
+	out
+		<< "Form \"" << form.getName()
+		<< "\", grade: " << form.getGrade()
+	    << ", signed: " << (form.getSigned() ? "yes" : "no")
+	    << ", grade required to sign: " << form.getGradeToSign()
+	    << ", grade required to execute: " << form.getGradeToExecute();
 	return (out);
 }
 
@@ -130,12 +134,10 @@ void	AForm::execute(Bureaucrat const &executor) const {
 
 
 // -------------------------------------------------------------: Exceptions
-const char* AForm::GradeTooHighException::what() const throw()
-{
+const char* AForm::GradeTooHighException::what() const throw() {
 	return ("Exception: AForm grade is too high.");
 }
 
-const char* AForm::GradeTooLowException::what() const throw()
-{
+const char* AForm::GradeTooLowException::what() const throw() {
 	return ("Exception: AForm grade is too low.");
 }

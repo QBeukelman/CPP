@@ -1,15 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Form.hpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/13 13:32:16 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/23 16:49:23 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/13 13:32:16 by quentin           #+#    #+#             */
+/*   Updated: 2025/07/18 10:45:12 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+	name, gradeToSign and gradeToExecute can not be `const` as this negates the
+	`==` assignment construtor.
+*/
 #ifndef FORM_HPP
 #define FORM_HPP
 
@@ -22,11 +26,11 @@ class Bureaucrat;
 
 class Form {
 	private:
-		std::string	name;
-		int			grade;
-		bool		isSigned;
-		int			gradeToSign;
-		int			gradeToExecute;
+		const std::string	name;
+		const int			grade;
+		bool				isSigned;
+		const int			gradeToSign;
+		const int			gradeToExecute;
 
 	public:
 		Form();

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   PresidentialPardonForm.cpp                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/19 15:24:49 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/06/19 21:19:08 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/19 15:24:49 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/18 11:18:18 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,12 @@ PresidentialPardonForm::PresidentialPardonForm() {
 }
 
 // Constructor
-PresidentialPardonForm::PresidentialPardonForm(const std::string &newTarget) : AForm("Presidential Pardon Form", SIGN_PARDON_FORM, EXC_PARDON_FORM) {
+PresidentialPardonForm::PresidentialPardonForm(const std::string &newTarget)
+	: AForm(
+		"Presidential Pardon Form",
+		MIN_GRADE,
+		SIGN_PARDON_FORM,
+		EXC_PARDON_FORM) {
 	std::cout
 		<< "PresidentialPardonForm constructor for: "
 		<< newTarget << "."

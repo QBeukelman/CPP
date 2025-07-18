@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ShrubberyCreationForm.cpp                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/16 08:21:33 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/06/19 15:38:39 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/16 08:21:33 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/18 11:18:58 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,12 @@ ShrubberyCreationForm::ShrubberyCreationForm() {
 }
 
 // Constructor
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &newTarget) : AForm("Shrubbery Creation Form", SIGN_SHRUBBERY_FORM, EXC_SHRUBBERY_FORM) {
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &newTarget)
+	: AForm(
+		"Shrubbery Creation Form",
+		MIN_GRADE,
+		SIGN_SHRUBBERY_FORM,
+		EXC_SHRUBBERY_FORM) {
 	std::cout
 		<< "ShrubberyCreationForm constructor for: "
 		<< newTarget << "."
@@ -90,3 +95,4 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
 			<< std::endl;
 	}
 }
+

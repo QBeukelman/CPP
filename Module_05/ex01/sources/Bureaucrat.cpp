@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Bureaucrat.cpp                                     :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/13 10:04:26 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/23 16:46:44 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/13 10:04:26 by quentin           #+#    #+#             */
+/*   Updated: 2025/07/15 12:26:24 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,7 @@ Bureaucrat::~Bureaucrat() {
 
 
 // -------------------------------------------------------------: Menbers
-std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat) 
-{
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat) {
 	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << std::endl;
 	return (out);
 }
@@ -96,8 +95,7 @@ void	Bureaucrat::decrementGrade() {
 }
 
 void	Bureaucrat::signForm(Form& form) {
-	try
-	{
+	try {
 		form.beSigned(*this);
 		std::cout
 			<< C_BLUE
@@ -107,8 +105,7 @@ void	Bureaucrat::signForm(Form& form) {
 			<< RESET_COLOR
 			<< std::endl;
 	}
-	catch(const std::exception& e)
-	{
+	catch(const std::exception& e) {
 		std::cout
 			<< C_RED
 			<< this->name
@@ -123,12 +120,10 @@ void	Bureaucrat::signForm(Form& form) {
 
 
 // -------------------------------------------------------------: Exceptions
-const char* Bureaucrat::GradeTooHighException::what() const throw()
-{
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
 	return ("Exception: Bureaucrat grade is greater than maximum limit of 0");	
 } 
 
-const char* Bureaucrat::GradeTooLowException::what() const throw()
-{
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
 	return ("Exception: Bureaucrat grade is less than minimum limit of 150");
 }

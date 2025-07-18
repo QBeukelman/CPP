@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/13 14:53:58 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/20 09:05:40 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/13 14:53:58 by quentin           #+#    #+#             */
+/*   Updated: 2025/07/18 11:00:23 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "include/helpers.hpp"
 
 int main(void) {
+
+	// 1. Can sign
 	{
 		write_line();
 		write_divider();
@@ -29,6 +31,8 @@ int main(void) {
 	}
 	write_divider();
 
+
+	// 2. Sign failed
 	{
 		write_title("TEST 2: Bureaucrat Failed Sign");
 
@@ -41,6 +45,8 @@ int main(void) {
 	}
 	write_divider();
 
+
+	// 3. BeSigned limits
 	{
 		write_title("TEST 3: Form beSigned() Limits");
 
@@ -115,6 +121,22 @@ int main(void) {
 				<< RESET_COLOR
 				<< std::endl;
 		}
+		write_line();
+	}
+	write_divider();
+
+
+	// 4. << Overload
+	{
+		write_title("TEST 4: Use << operator");
+		Form application = Form();
+		write_line();
+		
+		std::cout
+			<< C_BLUE
+			<< application
+			<< RESET_COLOR
+			<< std::endl;
 		write_line();
 	}
 	write_divider();

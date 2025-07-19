@@ -1,24 +1,69 @@
 # C++
 
-[C++ Language Reference](https://learn.microsoft.com/nl-nl/cpp/cpp/cpp-language-reference?view=msvc-170)
 
-`man std::toupper`
+This repository contains my solutions and notes for the Codam C++ modules.
+Each module has its own `README.md` with detailed explanations and exercises. This file provides a high-level overview of the topics covered across all modules.
 
-`git push -u origin head`
+### C++ Concepts
 
-`getters` Make a private attribute readable
-`setters` Make a private attribite writable
+Access c++ manual page in therminal: `man std::vector`
 
-`::` scope resolution operator. 
+- `getters` Make a private attribute readable.
+- `setters` Make a private attribite writable.
+- `::` scope resolution operator.
+- `Namespace` declarative space that provides scope to identifiers (functions, variables...). Organize code into logical groups, to prevent name collisions.
 
-`Namespace` declarative space that provides scope to identifiers (functions, variables...). Organize code into logical groups, to prevent name collisions.
+---
+<br/>
+
 
 ### Orthodox Canonical Form
 
-- **Default constructor**
-- **Copy constructor** (initialize a previously uninitialized object from other object's data)
-- **Copy assignment constructor** (replace the data of a previously initialized object with other object's data)
-- **Deconstructor**
+Classes following the canonical form should implement:
 
-Deep copy creates a new object and itrativly copies its members.
-Shallow copy creates a new object and maintains reference to the orignal. This can be faster, but changing the copy will change the orignal.
+- **Default constructor**
+- **Copy constructor**: Initializes a new object as a copy of an existing one.
+- **Copy assignment operator**: Assigns one object's contents to another.
+- **Destructor**
+
+> 💡 **Deep copy** creates a new object and recursively copies members. 
+
+> 💡 **Shallow copy** duplicates references, not the data — changes affect both.
+
+---
+<br/>
+
+
+### 📦 Modules Overview
+
+#### [Module 00](./module_00)
+Namespaces, classes, member functions, initialization lists, `static`, `const`, and basic I/O streams.
+
+#### [Module 01](./module_01)
+Memory allocation, pointers to members, references, and switch statements.
+
+#### [Module 02](./module_02)
+Ad-hoc polymorphism, operator overloading, and the Orthodox Canonical class form.
+
+#### [Module 03](./module_03)
+Inheritance.
+
+#### [Module 04](./module_04)
+Subtype polymorphism, abstract classes, and interfaces.
+
+#### [Module 05](./module_05)
+Exception handling and repetition.
+
+#### [Module 06](./module_06)
+C++ type casts (`static_cast`, `dynamic_cast`, etc.).
+
+#### [Module 07](./module_07)
+C++ templates.
+
+#### [Module 08](./module_08)
+Templated containers, iterators, and algorithms.
+
+#### [Module 09](./module_09)
+STL (Standard Template Library).
+
+---

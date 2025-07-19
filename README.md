@@ -36,34 +36,34 @@ Classes following the canonical form should implement:
 
 ### 📦 Modules Overview
 
-#### [Module 00](./module_00)
+#### [Module 00](./Module_00)
 Namespaces, classes, member functions, initialization lists, `static`, `const`, and basic I/O streams.
 
-#### [Module 01](./module_01)
+#### [Module 01](./Module_01)
 Memory allocation, pointers to members, references, and switch statements.
 
-#### [Module 02](./module_02)
+#### [Module 02](./Module_02)
 Ad-hoc polymorphism, operator overloading, and the Orthodox Canonical class form.
 
-#### [Module 03](./module_03)
+#### [Module 03](./Module_03)
 Inheritance.
 
-#### [Module 04](./module_04)
+#### [Module 04](./Module_04)
 Subtype polymorphism, abstract classes, and interfaces.
 
-#### [Module 05](./module_05)
+#### [Module 05](./Module_05)
 Exception handling and repetition.
 
-#### [Module 06](./module_06)
+#### [Module 06](./Module_06)
 C++ type casts (`static_cast`, `dynamic_cast`, etc.).
 
-#### [Module 07](./module_07)
+#### [Module 07](./Module_07)
 C++ templates.
 
-#### [Module 08](./module_08)
+#### [Module 08](./Module_08)
 Templated containers, iterators, and algorithms.
 
-#### [Module 09](./module_09)
+#### [Module 09](./Module_09)
 STL (Standard Template Library).
 
 ---

@@ -1,72 +1,214 @@
-# Module_08
+# Module 08
 
-# STL (Standard Template Library) Containers
+## 🧰 STL (Standard Template Library) Containers
 
-## 1. Sequence containers
+This module covers the various STL container types in C++. STL containers are general-purpose classes and templates that store collections of objects.
 
-- vector
-- list
-- deque
-- array
-- forward_list
+---
+<br/>
 
-### std::vector
 
-A vector in c++ is essentially a dynamic array, which grows automatically. Vectors use contiguous memory storage, meaning elements are stored next to eachother in memory, allowing for fast random-access. A vector is allocated on the heap, and is therefor less performant than an array.
+## 1. Sequence Containers
 
-- Fast incertion/removal at end `O(1)`.
-- Slow incertion/removal in middle `O(n)`, items neet to be shifted.
+Sequence containers maintain the **order** of insertion. Common operations include element access, insertion, and deletion.
 
-### std::list
+- `std::vector`
+- `std::list`
+- `std::deque`
+- `std::array`
+- `std::forward_list`
 
-A list in c++ is implemented as a `doubly-linked list`. Lists use non-contiguous memory storage, and random access is not supported.
+---
 
-- Find item `O(n)`.
-- Incertion/removal in middle `O(1)`.
-- Lists are useful for splicing operations, moving items between lists.
+### 🔹 std::vector
 
-### std::array
+A dynamically resizing array. Elements are stored in **contiguous memory**, enabling fast random access.
 
-Unlike a vector, array has a fixed size, and is usefull when size is known at compile time. Useful for stack allocation for performance. Prefer for smaller data sets.
+- Fast insertion/removal at the end: `O(1)`
+- Slow insertion/removal in the middle: `O(n)` (elements must be shifted)
+- Allocated on the **heap**
+- Best for when frequent random access is needed
 
-### std::deque
+---
 
-(double-ended queue) is an indeced sequence container that allows for fast insertion and deletion on both front and back ends. As opposed to std::vector, elements of a deque are not stored contiguously.
+### 🔹 std::list
 
+A **doubly-linked list** implementation.
+
+- No random access — only sequential traversal
+- Insertion/removal in the middle: `O(1)`
+- Searching for an item: `O(n)`
+- Useful for splicing (moving elements between lists in constant time)
+
+---
+
+### 🔹 std::forward_list
+
+A **singly-linked list**. Similar to `std::list`, but with less overhead.
+
+- No random access
+- Insertion/removal at the front: `O(1)`
+- More memory-efficient than `std::list`
+- Cannot traverse backward
+
+---
+
+### 🔹 std::deque
+
+A **double-ended queue**, allowing fast insertion and deletion at both front and back.
+
+- Random access is supported but slightly slower than `std::vector`
+- Internally implemented as a segmented array (not contiguous)
+- Insertion/removal at both ends: `O(1)`
+- Great when you need fast access to both ends
+
+---
+
+### 🔹 std::array
+
+A fixed-size array. Size must be known at compile time.
+
+- Allocated on the **stack**
+- Supports random access (`O(1)`)
+- Cannot resize
+- Use when size is fixed and performance is critical
+
+---
+<br/>
 
 
 ## 2. Container Adaptors
 
-### std::stack
+These containers **wrap** other containers (like `deque` or `vector`) and restrict access to provide a specific data structure interface.
 
-It is not a full container type and wraps around another conainer like std::deque, and restricts access to enforse (Last-In-First-Out).
-The stack pushes and pops the elements from the back of the underlying container, known as the top of the stack.
+- `std::stack`
+- `std::queue`
+- `std::priority_queue`
 
+---
+
+### 🔹 std::stack
+
+Implements **LIFO** (Last-In, First-Out) semantics.
+
+- By default, uses `std::deque` internally
+- Only allows access to the top element
+- Operations: `push()`, `pop()`, `top()`
+
+---
+
+### 🔹 std::queue
+
+Implements **FIFO** (First-In, First-Out) semantics.
+
+- Also uses `std::deque` internally
+- Operations: `push()`, `pop()`, `front()`, `back()`
+
+---
+
+### 🔹 std::priority_queue
+
+Implements a **max-heap** by default.
+
+- Elements are automatically ordered by priority
+- Highest-priority item is always on top
+- Internally uses a `std::vector` with `std::make_heap` / `push_heap`
+
+---
+<br/>
 
 
 ## 3. Associative Containers
 
-- set
-- map
-- multiset
-- multimap
+These containers store sorted elements and provide fast **lookup** via keys using **balanced binary trees** (typically red-black trees).
 
-### std::map & std::set
+- `std::set`
+- `std::map`
+- `std::multiset`
+- `std::multimap`
 
-These are ordered containers based on `balanced binary-trees`. Elements in maps and sets are always sorted by key.
+---
 
-> **Maps** - do not allow duplicate keys, each element is unique. A map stores key value pairs.
+### 🔹 std::set
 
-> **Set** - is a collection of unique keys only.
+- Stores **unique keys** in sorted order
+- No duplicate values allowed
+- Lookup, insert, and delete: `O(log n)`
 
-- Fast look-up operations `O(log(n))`.
+---
+
+### 🔹 std::map
+
+- Stores **key-value pairs** with **unique keys**
+- Values are associated with a key
+- Lookup, insert, and delete: `O(log n)`
+
+---
+
+### 🔹 std::multiset
+
+- Like `set`, but allows **duplicate keys**
+- Useful for storing sorted values where duplicates are allowed
+
+---
+
+### 🔹 std::multimap
+
+- Like `map`, but allows **duplicate keys**
+- Useful when a key maps to multiple values
+
+---
+<br/>
 
 
+## 4. Unordered Associative Containers
 
-## 4. Unordered Containers
+Unordered containers use **hash tables** instead of binary trees. They offer **average constant time** complexity for lookups and insertions (`O(1)`), but ordering is **not guaranteed**.
 
-- unordered_set
-- unordered_map
-- unordered_multiset
-- unordered_multimap
+- `std::unordered_set`
+- `std::unordered_map`
+- `std::unordered_multiset`
+- `std::unordered_multimap`
+
+---
+
+### 🔹 std::unordered_set
+
+- Stores **unique keys**
+- Elements are **not sorted**
+- Lookup: average `O(1)`, worst-case `O(n)`
+
+---
+
+### 🔹 std::unordered_map
+
+- Stores **key-value pairs** with **unique keys**
+- Not sorted
+- Lookup: average `O(1)`
+
+---
+
+### 🔹 std::unordered_multiset
+
+- Like `unordered_set`, but allows **duplicate keys**
+
+---
+
+### 🔹 std::unordered_multimap
+
+- Like `unordered_map`, but allows **duplicate keys**
+
+---
+<br/>
+
+
+## Summary Table
+
+| Container Type           | Ordered? | Allows Duplicates? | Key-Based? | Lookup Time    |
+|--------------------------|----------|---------------------|------------|----------------|
+| `vector`, `deque`, etc.  | Yes      | Yes                 | No         | `O(n)`         |
+| `set` / `map`            | Yes      | No                  | Yes        | `O(log n)`     |
+| `multiset` / `multimap`  | Yes      | Yes                 | Yes        | `O(log n)`     |
+| `unordered_*`            | No       | Depends             | Yes        | `O(1)` average |
+
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Base.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/25 18:25:25 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/06/25 20:56:06 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/25 18:25:25 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/23 16:27:58 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,14 @@ void	Base::identify(Base& p) {
 			<< RESET_COLOR
 			<< std::endl;
 		return ;
-	} catch (...) {}
+	} catch (std::bad_cast& e) {
+		std::cout
+			<< C_RED
+			<< "Could not cast this type, with exception: "
+			<< e.what() << '.'
+			<< RESET_COLOR
+			<< std::endl;
+	}
 	
 	try {
 		B &b = dynamic_cast<B &>(p);

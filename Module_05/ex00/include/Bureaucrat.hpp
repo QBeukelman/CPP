@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Bureaucrat.hpp                                     :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/13 09:48:33 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/20 08:51:47 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/13 09:48:33 by quentin           #+#    #+#             */
+/*   Updated: 2025/07/23 15:39:49 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@
 
 #define DEFAULT_NAME "Default Bureaucrat"
 #define MIN_GRADE 150
-#define MAX_GRADE 0
+#define MAX_GRADE 0		// Grade should range from 1 -150
 
 class Bureaucrat {
 	private:
-		std::string	name;
+		std::string	name;		// Should be immutable (const)
 		int			grade;
 
 	public:

@@ -4,6 +4,20 @@
 
 An unsigned integer type with the property that any valid pointer to void can be converted to this type, then converted back to pointer to void, and the result will compare equal to the original pointer.
 
+## What are `nan` and `inf`?
+
+NaN stands for Not a Number. When the number is undifined. Some examples:
+
+```math
+x / 0
+```
+
+or
+
+```math
+x^(-2)
+```
+
 
 ## What does it mean to serialize / deserialize?
 
@@ -17,7 +31,7 @@ Serialization is used in c++ for converting an object into a linear format (e.g.
 
 ## What does dynamic_cast<>() do?
 
-Safely converts pointers and references to classes up, down, and sideways along the inheritance hierarchy.
+Safely converts pointers and references to classes up, down, and sideways along the **inheritance hierarchy** of classes.
 
 `dynamic_cast< target-type >( expression )`
 

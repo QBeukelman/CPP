@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/25 20:30:01 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/06/25 20:59:55 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/25 20:30:01 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/23 16:39:40 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int main(void) {
 		
 		Base::identify(b1);
 		Base::identify(*b1);
+		delete (b1);
 	}
 	
 	write_divider();
@@ -37,6 +38,7 @@ int main(void) {
 		
 		Base::identify(z);
 		Base::identify(*z);
+		delete (z);
 	}
 	write_divider();
 }

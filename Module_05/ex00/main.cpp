@@ -6,14 +6,12 @@
 /*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 10:57:31 by quentin           #+#    #+#             */
-/*   Updated: 2025/07/18 10:57:07 by qbeukelm         ###   ########.fr       */
+/*   Updated: 2025/07/23 10:31:09 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/Bureaucrat.hpp"
 #include "include/helpers.hpp"
-
-// ! Test `<<` overload
 
 int main(void) {
 

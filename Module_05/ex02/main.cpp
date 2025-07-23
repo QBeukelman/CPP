@@ -6,7 +6,7 @@
 /*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 20:11:58 by quentinbeuk       #+#    #+#             */
-/*   Updated: 2025/07/18 11:15:32 by qbeukelm         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:11:37 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		main(void) {
 	// sign: 145 - exc: 137
 	{
 		ShrubberyCreationForm form = ShrubberyCreationForm("Amsterdam");
-		Bureaucrat tom = Bureaucrat("Tom", 140); // exc is too low
+		Bureaucrat tom = Bureaucrat("Tom", 120); // exc is too low
 
 		tom.signForm(form);
 		tom.executeForm(form);
@@ -49,6 +49,18 @@ int		main(void) {
 
 		tom.signForm(form);
 		tom.executeForm(form);
+	}
+	write_divider();
+
+	write_title("TEST 4: Use << operator");
+	{
+		ShrubberyCreationForm shrubberyForm = ShrubberyCreationForm("Amsterdam");
+		RobotomyRequestForm robotomyForm = RobotomyRequestForm("Amsterdam");
+		PresidentialPardonForm pardonForm = PresidentialPardonForm("Amsterdam");
+
+		std::cout << C_BLUE << shrubberyForm << RESET_COLOR << std::endl;
+		std::cout << C_BLUE << robotomyForm << RESET_COLOR << std::endl;
+		std::cout << C_BLUE << pardonForm << RESET_COLOR << std::endl;
 	}
 	write_divider();
 }

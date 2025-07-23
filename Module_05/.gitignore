@@ -10,6 +10,9 @@
 # Excs
 bureaucrat_exc
 
+# Default form creation
+Amsterdam
+
 # Outputs
 *.append
 ShrubberyCreationForm

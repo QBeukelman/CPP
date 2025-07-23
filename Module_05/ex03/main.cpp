@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/19 21:24:16 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/06/20 08:50:35 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/19 21:24:16 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/23 09:21:21 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,19 @@ int		main(void) {
 		
 		try {
 			// Correct
-			intern.makeForm("presidential pardon", "Amsterdam");
-			intern.makeForm("robotomy request", "Utrecht");
-			intern.makeForm("shrubbery creation", "Den Haag");
+			AForm* pardonForm = intern.makeForm("presidential pardon", "Amsterdam");
+			delete (pardonForm);
+			
+			AForm* robotomyForm = intern.makeForm("robotomy request", "Utrecht");
+			delete (robotomyForm);
+			
+			AForm* shrubberyForm = intern.makeForm("shrubbery creation", "Den Haag");
+			delete (shrubberyForm);
 			
 			// Incorrect
-			intern.makeForm("other form", "Rotterdam");
+			AForm* otherForm = intern.makeForm("other form", "Rotterdam");
+			delete (otherForm);
+
 		} catch (std::exception& e) {
 			std::cout
 				<< C_RED

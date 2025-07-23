@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Intern.cpp                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/19 21:24:40 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/06/20 08:42:54 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/19 21:24:40 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/23 09:16:17 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Intern::Intern(const Intern& other) {
 }
 
 // Copy Assignment Constructor
-Intern &Intern::operator=(const Intern& other) {
+Intern& Intern::operator=(const Intern& other) {
 	std::cout
 		<< "Intern copy assignment operator."
 		<< std::endl;
@@ -82,7 +82,6 @@ AForm*	Intern::makeForm(const std::string &name, const std::string &target) {
 	throw Intern::InternFormException();
 }
 
-const char* Intern::InternFormException::what() const throw()
-{
+const char* Intern::InternFormException::what() const throw() {
 	return ("Exception: Intern does not know the given form.");	
 }

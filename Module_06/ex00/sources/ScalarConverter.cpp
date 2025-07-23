@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ScalarConverter.cpp                                :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/21 10:16:05 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/23 16:33:03 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/21 10:16:05 by quentin           #+#    #+#             */
+/*   Updated: 2025/07/23 16:15:02 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter() {}
-
-ScalarConverter::ScalarConverter(const ScalarConverter& other) {
-	*this = other;
-}
-
-ScalarConverter &ScalarConverter::operator=(const ScalarConverter& other) {
-	if (this != &other) {}
-	return (*this);
-}
-
-ScalarConverter::~ScalarConverter() {}
-
+// ! Constructos have been deleted as class may not be instantiable.
 
 void printResult(const std::string& label, const std::string& value, bool error = false) {
 	std::cout
@@ -84,6 +72,7 @@ void	ScalarConverter::convert(const std::string& input) {
 	} catch (...) {
 		printResult("Double", "Impossible (out of double range).", true);
 	}
+	std::cout << std::endl;
 }
 
 bool	isInCharRange(const int number) {

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   ScalarConverter.hpp                                :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentin <quentin@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/21 10:10:35 by quentin       #+#    #+#                 */
-/*   Updated: 2025/06/23 14:57:52 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/21 10:10:35 by quentin           #+#    #+#             */
+/*   Updated: 2025/07/23 16:14:22 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <limits>
 #include <iomanip>
 #include <regex>
+#include <cfloat>
 
 #define C_RED "\x1B[1;31m"
 #define C_BLUE "\033[1;34m"
@@ -28,10 +29,10 @@
 class ScalarConverter {
 
 	public:
-		ScalarConverter();
-		ScalarConverter(const ScalarConverter& other);
-		ScalarConverter& operator=(const ScalarConverter& other);
-		~ScalarConverter();
+		ScalarConverter() = delete;
+		ScalarConverter(const ScalarConverter& other) = delete;
+		ScalarConverter& operator=(const ScalarConverter& other) = delete;
+		~ScalarConverter() = delete;
 
 		static void	convert(const std::string& literal);
 };

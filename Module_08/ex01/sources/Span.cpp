@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Span.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/01 10:41:40 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/03 15:32:20 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/01 10:41:40 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/28 11:26:24 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ Span::~Span() {}
 
 // Members
 // _____________________________________________________________________________
-
 void	Span::addNumber(int number) {
 	if (this->n < 2)
 		throw SpanInvalidException();
@@ -102,7 +101,12 @@ SpanResult	Span::longestSpan() {
 	return (res);
 }
 
-void Span::write_span(SpanResult res, SpanType type) {
+void	Span::fillWithRange(int start, int end) {
+	for (int i = start; i <= end; i++)
+		this->addNumber(i);
+}
+
+void	Span::write_span(SpanResult res, SpanType type) {
 	if (type == SHORTEST)
 		std::cout << "Shortest: \t";
 	if (type == LONGEST)

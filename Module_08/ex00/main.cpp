@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/02 13:35:02 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/03 15:26:32 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/02 13:35:02 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/28 11:12:03 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <list>
 #include <array>
+#include <vector>
+#include <deque>
 
 int main(void) {
 	
@@ -36,6 +38,7 @@ int main(void) {
 			std::cout
 				<< C_BLUE
 				<< "PASSED: easyfind() did not find given value and correctly threw: \n"
+				<< C_RED
 				<< e.what()
 				<< RESET_COLOR
 				<< std::endl;
@@ -77,7 +80,7 @@ int main(void) {
 	write_divider();
 	write_title("TEST 4: Easyfind() with deque<int>");
 	{
-		std::list<int>	vectorContainer;
+		std::deque<int>	vectorContainer;
 
 		for (int i = 0; i < 10; i++) {
 			vectorContainer.push_back(i);

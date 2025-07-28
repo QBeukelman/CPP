@@ -1,18 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/28 15:12:39 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/01 09:48:59 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/28 15:12:39 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/28 09:27:16 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-	! Tip: Try to compile int * a = new int(); then display *a.
-*/
 #include <iostream>
 #include "include/writer.hpp"
 #include "sources/Array.tpp"
@@ -27,9 +24,24 @@ int main(int, char**)
 	srand(time(NULL));
 
 	write_divider();
+	write_title("Tip: Try to compile int * a = new int(); then display *a");
+	{
+		int*		a = new int();
+		
+		std::cout
+			<< C_BLUE
+			<< "Int default constructor: "
+			<< *a
+			<< RESET_COLOR
+			<< std::endl;
+
+		delete (a);
+	}
+
+	write_divider();
 	write_title("TEST 1: Default Constructor (empty array)");
 	{
-		Array<int>	empty;
+		Array<int> empty = Array<int>();
 
 		if (empty.size() == 0) {
 			std::cout

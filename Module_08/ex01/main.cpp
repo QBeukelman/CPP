@@ -6,7 +6,7 @@
 /*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 10:03:02 by quentinbeuk       #+#    #+#             */
-/*   Updated: 2025/07/28 11:27:09 by qbeukelm         ###   ########.fr       */
+/*   Updated: 2025/07/28 11:40:15 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,6 @@ int	main(void) {
 		span.write_span(span.shortestSpan(), SHORTEST);
 		span.write_span(span.longestSpan(), LONGEST);
 	}
-	write_divider();
 
 	write_divider();
 	write_title("TEST 5: Fill with range");

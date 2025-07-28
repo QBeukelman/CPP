@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/27 11:24:28 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/01 09:43:35 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/27 11:24:28 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/28 09:04:46 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,15 @@ void	printInt(int x) {
 		<< std::endl;
 }
 
-// Instantiated template function
+/*
+	Generic template function (Instantiated in main).
+	
+	Each time the template is used with a different type,
+	the compiler instantiates a separate version:
+
+	- `void templatePrintFunc<int>(int x)`
+	- `void templatePrintFunc<std::string>(std::string x)`
+*/
 template <typename T> void templatePrintFunc(T x) {
 	std::cout
 		<< "Value: "

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/03 11:13:19 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/03 14:00:23 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/03 11:13:19 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/28 11:30:59 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 int	main(void) {
 
 	write_divider();
-	write_title("TEST 1: Test Stack");
+	write_title("TEST 1: Test Default Stack");
 	{
 		MutatedStack<int>	mstack;
 		

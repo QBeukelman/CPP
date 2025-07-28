@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/02 10:03:02 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/03 14:48:22 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/02 10:03:02 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/28 11:27:09 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main(void) {
 			std::cout
 				<< C_BLUE
 				<< "PASSED: Span class threw SpanInvalidException with `n < 2`: \n"
+				<< C_RED
 				<< e.what()
 				<< RESET_COLOR
 				<< std::endl;
@@ -57,6 +58,7 @@ int	main(void) {
 			std::cout
 				<< C_BLUE
 				<< "PASSED: Span class threw SpanOutOfBoundsException with `Span::addNumber() > 3`: \n"
+				<< C_RED
 				<< e.what()
 				<< RESET_COLOR
 				<< std::endl;
@@ -115,6 +117,18 @@ int	main(void) {
 
 		span.write_span(span.shortestSpan(), SHORTEST);
 		span.write_span(span.longestSpan(), LONGEST);
+	}
+	write_divider();
+
+	write_divider();
+	write_title("TEST 5: Fill with range");
+	{
+		Span	span = Span(10);
+
+		span.addNumber(0);
+		span.addNumber(1);
+		span.fillWithRange(2, 9);
+		span.write_span_table();
 	}
 	write_divider();
 

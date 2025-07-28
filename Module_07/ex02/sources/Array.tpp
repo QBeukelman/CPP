@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Array.tpp                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/06/28 15:14:49 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/01 10:52:13 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Array.tpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/28 15:14:49 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/28 09:17:49 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Array<T>::Array() : data(nullptr), arraySize(0) {}
 // Parameterized constructor
 template <class T>
 Array<T>::Array(unsigned int n) : arraySize(n) {
-	this->data = new T[n]; // Allocate memory
+	this->data = new T[n]();
 
 	for (unsigned int i = 0; i < n; i++) {
 		data[i] = T(); // Default-initialize each element

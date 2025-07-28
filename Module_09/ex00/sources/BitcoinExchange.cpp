@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   BitcoinExchange.cpp                                :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/06 15:59:17 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/08 15:48:39 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/06 15:59:17 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/28 12:29:42 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ ValueCheck	isValidValue(float value) {
 // _____________________________________________________________________________
 /*
 	l = lower
-	i = midpoint index i = (l + u) / 2
+	i = midpoint index i = l + (u - l) / 2
 	u = upper
 */
 float	BitcoinExchange::searchRate(Date inputDate) {

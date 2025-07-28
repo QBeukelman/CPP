@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/04 11:11:17 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/08 15:16:29 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 11:11:17 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/28 13:07:33 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,15 @@
 		b) format checker.
 
 	3. Binary search.
+*/
+
+// TODO
+/*
+	Invalid input:
+		1. Invalid date
+		2. Empty row
+		3. Empty file
+		4. File permissions
 */
 
 #include "include/colors.hpp"
@@ -52,12 +61,4 @@ int	main(int argc, char **argv) {
 	BitcoinExchange		exchange = BitcoinExchange(inputFile);
 	
 	exchange.convertRates(exchange.parseInput(inputFileName));
-
-	// TODO
-	/*
-		Input:
-			Invalid date
-			Empty row
-			Invalid value (negative / int max);
-	*/
 }

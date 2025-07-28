@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   RateEntity.tpp                                     :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/06 20:03:33 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/07 10:57:52 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   RateEntity.tpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/06 20:03:33 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/28 13:07:04 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../models/RateEntity.hpp"
 
-// TODO: Validate date and value -> throw
 template <size_t N>
 ParsedResult<std::array<RateEntity, N>> parse(std::istream& in, char delimiter) {
 	std::array<RateEntity, N>	rateEntities{};
@@ -26,12 +25,16 @@ ParsedResult<std::array<RateEntity, N>> parse(std::istream& in, char delimiter) 
 
 		std::string			dateStr, valueStr;
 		std::stringstream	ss(line);
-		if (!std::getline(ss, dateStr, delimiter) || !std::getline(ss, valueStr))
+		if (!std::getline(ss, dateStr, delimiter) || !std::getline(ss, valueStr)) {
+			// TODO: Empty value
 			continue ;
+		}
 		
 		Date date;
-		if (sscanf(dateStr.c_str(), "%d-%d-%d", &date.year, &date.month, &date.day) != 3)
+		if (sscanf(dateStr.c_str(), "%d-%d-%d", &date.year, &date.month, &date.day) != 3) {
+			// TODO: Invalid date
 			continue ;
+		}
 		
 		float	value = std::stof(valueStr);
 		rateEntities[i] = RateEntity{date, value};

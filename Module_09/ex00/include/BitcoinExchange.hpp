@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   BitcoinExchange.hpp                                :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/04 14:02:09 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/08 15:35:45 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 14:02:09 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/07/28 13:00:03 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 #include <cmath>
 #include <climits>
+#include <functional>
 
 #include "../sources/File.tpp"
 #include "../sources/RateEntity.tpp"

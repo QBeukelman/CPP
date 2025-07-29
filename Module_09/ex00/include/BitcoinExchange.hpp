@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/04 14:02:09 by quentinbeuk       #+#    #+#             */
-/*   Updated: 2025/07/28 13:00:03 by qbeukelm         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   BitcoinExchange.hpp                                :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/07/04 14:02:09 by quentinbeuk   #+#    #+#                 */
+/*   Updated: 2025/07/29 16:00:01 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,19 @@ class BitcoinExchange {
 		File<std::array<RateEntity, ARRAY_LENGTH>>		rates;
 
 	public:
-		BitcoinExchange() = default;
 		BitcoinExchange(File<std::array<RateEntity, ARRAY_LENGTH>> dataFile);
 
 		// Open input file, and parse dates and values.
 		File<std::array<RateEntity, INPUT_LENGTH>>	parseInput(const std::string& fileName);
-		
+
 		// A binary search look-up in rates.data.
-		float										searchRate(Date inputDate);
+		float	searchRate(Date inputDate);
 
 		// Convert all inputs using getRate().
-		void										convertRates(File<std::array<RateEntity, INPUT_LENGTH>> inputFile);
+		void	convertRates(File<std::array<RateEntity, INPUT_LENGTH>> inputFile);
 
-		bool										isSorted();
+		// Binary search requires input to be sorted.
+		bool	isSorted();
 };
 
 #endif

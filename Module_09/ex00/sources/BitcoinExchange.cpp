@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/06 15:59:17 by quentinbeuk       #+#    #+#             */
-/*   Updated: 2025/07/28 12:29:42 by qbeukelm         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   BitcoinExchange.cpp                                :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/07/06 15:59:17 by quentinbeuk   #+#    #+#                 */
+/*   Updated: 2025/07/29 16:07:08 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,29 @@ size_t	getMidpoint(size_t	l, size_t u) {
 
 ValueCheck	isValidValue(float value) {
 	if (std::isnan(value) || std::isinf(value) || value >= static_cast<float>(INT_MAX)) {
-		std::cerr << C_RED << "Error: value too large." << RESET_COLOR << std::endl;
+		std::cerr << C_RED << "ERROR: value too large." << RESET_COLOR << std::endl;
 		return (INVALID_TOO_HIGH);
 	}
 	if (value < 0.0f) {
-		std::cerr << C_RED << "Error: not a positive number." << RESET_COLOR << std::endl;
+		std::cerr << C_RED << "ERROR: not a positive number." << RESET_COLOR << std::endl;
 		return (INVALID_NEGATEVE);
 	}
 	return (VALID);
+}
+
+static void		writeError(RateEntity entity) {
+	auto it = parseErrorMessages.find(entity.error);
+
+	std::cout
+		<< entity.date.join()
+		<< '\t';
+
+	std::string message = (it != parseErrorMessages.end()) ? it->second : "ERROR: Unknown parse error";
+	std::cerr
+		<< C_RED
+		<< message
+		<< RESET_COLOR
+		<< std::endl;
 }
 
 // Public Members
@@ -85,8 +100,9 @@ float	BitcoinExchange::searchRate(Date inputDate) {
 			continue ;
 		}
 	}
-	if (closestLowerIndex != (size_t)-1) 
+	if (closestLowerIndex != (size_t)-1) {
 		return (savedRates[closestLowerIndex].value);
+	}
 	return (-1.0f);
 }
 
@@ -97,6 +113,12 @@ void	BitcoinExchange::convertRates(File<std::array<RateEntity, INPUT_LENGTH>> in
 	
 	i = 0;
 	while (i < count) {
+		if (inputs[i].error != SUCCESS) {
+			writeError(inputs[i]);
+			i++;
+			continue ;
+		}
+
 		std::cout << inputs[i].date.join() << "\t";
 
 		float inputRate = inputs[i].value;
@@ -109,6 +131,12 @@ void	BitcoinExchange::convertRates(File<std::array<RateEntity, INPUT_LENGTH>> in
 		float convertedRate = searchedRate * inputRate;
 		if (searchedRate > 0)
 			std::cout << C_BLUE << convertedRate << RESET_COLOR << std::endl;
+		else
+			std::cerr
+				<< C_RED
+				<< "ERROR: Value found was 0"
+				<< RESET_COLOR
+				<< std::endl;
 		i++;
 	}
 }

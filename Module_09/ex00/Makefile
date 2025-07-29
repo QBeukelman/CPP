@@ -6,7 +6,7 @@
 #    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/07/04 15:09:46 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/07/06 20:20:50 by quentinbeuk   ########   odam.nl          #
+#    Updated: 2025/07/29 16:23:17 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ NAME_EXECUTABLE = btc
 SOURCES						= main.cpp
 
 SOURCES_BTC					= BitcoinExchange.cpp \
-								Date.cpp
+								Date.cpp \
 
 INC 						= inc
 DIR_OBJ						= obj
@@ -37,7 +37,6 @@ DIR_OBJ						= obj
 # Directories
 DIR_SOURCES					= .
 DIR_SOURCES_BTC				= sources
-
 
 # Object files
 OBJ = $(addprefix $(DIR_OBJ)/, $(SOURCES:.cpp=.o)) \

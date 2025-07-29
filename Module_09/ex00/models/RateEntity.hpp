@@ -6,7 +6,7 @@
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/04 14:35:00 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/08 15:38:01 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/07/29 15:00:11 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,21 @@ enum ValueCheck {
 	INVALID_NEGATEVE
 };
 
+enum ParseError {
+	SUCCESS,
+	EMPTY_LINE,
+	INVALID_DATE,
+	MISSING_FIELD_DATE,
+	MISSING_FIELD_VALUE
+};
+
+const std::unordered_map<ParseError, std::string> parseErrorMessages = {
+	{ ParseError::EMPTY_LINE,    "ERROR: Line is empty" },
+	{ ParseError::INVALID_DATE,  "ERROR: Invalid date format" },
+	{ ParseError::MISSING_FIELD_DATE, "ERROR: Missing date field" },
+	{ ParseError::MISSING_FIELD_VALUE, "ERROR: Missing value field" },
+};
+
 template <typename T>
 struct ParsedResult {
 	T		data;
@@ -36,8 +51,9 @@ struct ParsedResult {
 };
 
 struct RateEntity {
-	Date	date;
-	float	value;
+	Date			date;
+	float			value;
+	ParseError		error;
 };
 
 template <size_t N>

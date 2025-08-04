@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/04 11:25:12 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/10 16:46:47 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 11:25:12 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/08/04 09:12:53 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // ! Merge Insert Sort (Ford-Johnson)
-// TODO: How to handle duplicates?
+
 /*
-	At worst:		O(n log n).
-	Linked list:	It does not rely on random access to elements.
-					With two sorted lists, the lowest element will always be
-					on the top of one of the two stacks.
+	At worst:		O(n log n)
 */
 
 #include "include/PmergeMe.hpp"

@@ -1,47 +1,49 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
-#                                                    +#+                       #
-#    Created: 2025/07/08 07:58:18 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/07/08 07:59:28 by quentinbeuk   ########   odam.nl          #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/07/08 07:58:18 by quentinbeuk       #+#    #+#              #
+#    Updated: 2025/08/04 09:15:53 by qbeukelm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-BOLD				:= \033[1m
-RED					:= \033[31;1m
-GREEN				:= \033[32;1m
-YELLOW				:= \033[33;1m
-BLUE				:= \033[34;1m
-RESET				:= \033[0m
+RED				:= \033[31;1m
+GREEN			:= \033[32;1m
+YELLOW			:= \033[33;1m
+BLUE			:= \033[34;1m
+RESET			:= \033[0m
 
 # Compiler
 CC = c++
-CFLAGS = -std=c++17 -Wall -Werror -Wextra
+CFLAGS = -std=c++17 -Wall -Werror -Wextra -MMD -MP
 
 # Targets
 NAME_EXECUTABLE = RPN
 
 # Sources
-SOURCES						= main.cpp
-
-SOURCES_RPN					= RPN.cpp \
-
-INC 						= inc
-DIR_OBJ						= obj
+SOURCES			= main.cpp
+SOURCES_RPN		= RPN.cpp
 
 # Directories
-DIR_SOURCES					= .
-DIR_SOURCES_RPN				= sources
+INC				= inc
+DIR_OBJ			= obj
+DIR_SOURCES		= .
+DIR_SOURCES_RPN	= sources
 
+# VPATH for source lookup
+VPATH = $(DIR_SOURCES):$(DIR_SOURCES_RPN)
 
 # Object files
 OBJ = $(addprefix $(DIR_OBJ)/, $(SOURCES:.cpp=.o)) \
-	$(addprefix $(DIR_OBJ)/, $(SOURCES_RPN:.cpp=.o)) \
+	$(addprefix $(DIR_OBJ)/, $(SOURCES_RPN:.cpp=.o))
 
+# Include dependency files
+-include $(OBJ:.o=.d)
+
+# Build target
 all: $(NAME_EXECUTABLE)
 
 $(NAME_EXECUTABLE): $(OBJ)
@@ -49,10 +51,8 @@ $(NAME_EXECUTABLE): $(OBJ)
 	@$(CC) $(OBJ) $(CFLAGS) -o $(NAME_EXECUTABLE)
 	@echo "$(GREEN)Compiled all!\n$(RESET)"
 
-$(DIR_OBJ)/%.o: $(DIR_SOURCES)/%.cpp | $(DIR_OBJ)
-	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
-
-$(DIR_OBJ)/%.o: $(DIR_SOURCES_RPN)/%.cpp | $(DIR_OBJ)
+# Compile rules
+$(DIR_OBJ)/%.o: %.cpp | $(DIR_OBJ)
 	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
 
 $(DIR_OBJ):
@@ -61,8 +61,6 @@ $(DIR_OBJ):
 clean:
 	@echo "$(BLUE)\nCleaning ...$(RESET)"
 	@$(RM) -rf $(DIR_OBJ)
-	@$(RM) -rf $(EXTRA_O)
-	@$(RM) -rf $(OBJS)
 	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"
 
 fclean: clean

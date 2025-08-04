@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   PmergeMe.hpp                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/09 08:46:40 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/10 15:18:14 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/09 08:46:40 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/08/04 09:11:01 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <list>
 #include <string>
 #include <algorithm>
+#include <vector>
 
 #include "colors.hpp"
 

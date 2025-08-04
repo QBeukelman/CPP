@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
-#                                                    +#+                       #
-#    Created: 2025/07/04 15:09:46 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/07/29 16:23:17 by quentinbeuk   ########   odam.nl          #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/07/04 15:09:46 by quentinbeuk       #+#    #+#              #
+#    Updated: 2025/08/04 09:23:12 by qbeukelm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RESET				:= \033[0m
 
 # Compiler
 CC = c++
-CFLAGS = -std=c++17 -Wall -Werror -Wextra
+CFLAGS = -std=c++17 -Wall -Werror -Wextra -MMD -MP
 
 # Targets
 NAME_EXECUTABLE = btc
@@ -40,7 +40,10 @@ DIR_SOURCES_BTC				= sources
 
 # Object files
 OBJ = $(addprefix $(DIR_OBJ)/, $(SOURCES:.cpp=.o)) \
-	$(addprefix $(DIR_OBJ)/, $(SOURCES_BTC:.cpp=.o)) \
+	  $(addprefix $(DIR_OBJ)/, $(SOURCES_BTC:.cpp=.o))
+
+# Dependency files
+-include $(OBJ:.o=.d)
 
 all: $(NAME_EXECUTABLE)
 

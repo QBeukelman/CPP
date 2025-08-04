@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   File.tpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/06 15:35:56 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/29 15:58:11 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   File.tpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/06 15:35:56 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/08/04 14:45:33 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@
 // Constructors
 // _____________________________________________________________________________
 template<typename T>
+File<T>::File() : data(std::array<RateEntity, ARRAY_LENGTH>()), count(0) {}
+
+template<typename T>
 File<T>::File(const std::string& fileName, std::function<ParsedResult<T>(std::istream&)> parser) {
 	try {
 		readData(fileName, parser);
-	} catch (FileException e) {
+	} catch (FileException& e) {
 		std::cerr
 			<< C_RED
 			<< e.what()
@@ -27,6 +30,21 @@ File<T>::File(const std::string& fileName, std::function<ParsedResult<T>(std::is
 			<< std::endl;
 	}
 }
+
+template<typename T>
+File<T>::File(const File<T>& other) : data(other.data), count(other.count) {}
+
+template<typename T>
+File<T>&	File<T>::operator=(const File<T>& other) {
+	if (this != &other) {
+		this->data = other.data;
+		this->count = other.count;	
+	}
+	return (*this);
+}
+
+template<typename T>
+File<T>::~File() {}
 
 
 // Members

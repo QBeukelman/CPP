@@ -6,7 +6,7 @@
 /*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 08:43:50 by quentinbeuk       #+#    #+#             */
-/*   Updated: 2025/08/04 09:21:08 by qbeukelm         ###   ########.fr       */
+/*   Updated: 2025/08/04 14:54:45 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,24 @@
 
 // Constructors
 // _____________________________________________________________________________
+RPN::RPN() : expression("") {}
 
 RPN::RPN(std::string expression) {
 	if (isValid(expression) == false)
 		throw InvalidExpressionException();
 	this->expression = expression;
 }
+
+RPN::RPN(const RPN& other) : expression(other.expression) {}
+
+RPN&	RPN::operator=(const RPN& other) {
+	if (this != &other) {
+		this->expression = other.expression;
+	}
+	return (*this);
+}
+
+RPN::~RPN() {}
 
 
 // Static Members

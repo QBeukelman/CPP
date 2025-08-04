@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   BitcoinExchange.hpp                                :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/04 14:02:09 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/29 16:00:01 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 14:02:09 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/08/04 14:28:52 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,13 @@ class BitcoinExchange {
 		File<std::array<RateEntity, ARRAY_LENGTH>>		rates;
 
 	public:
+		BitcoinExchange();
 		BitcoinExchange(File<std::array<RateEntity, ARRAY_LENGTH>> dataFile);
+		BitcoinExchange(const BitcoinExchange& other);
+		BitcoinExchange&	operator=(const BitcoinExchange& other);
+		~BitcoinExchange();
+
+		const File<std::array<RateEntity, ARRAY_LENGTH>>	getRates() const;
 
 		// Open input file, and parse dates and values.
 		File<std::array<RateEntity, INPUT_LENGTH>>	parseInput(const std::string& fileName);

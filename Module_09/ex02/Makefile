@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: quentinbeukelman <quentinbeukelman@stud      +#+                      #
-#                                                    +#+                       #
-#    Created: 2025/07/09 08:47:12 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/07/10 16:50:22 by quentinbeuk   ########   odam.nl          #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/07/09 08:47:12 by quentinbeuk       #+#    #+#              #
+#    Updated: 2025/08/04 09:24:10 by qbeukelm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RESET				:= \033[0m
 
 # Compiler
 CC = c++
-CFLAGS = -std=c++17 -Wall -Werror -Wextra
+CFLAGS = -std=c++17 -Wall -Werror -Wextra -MMD -MP
 
 # Targets
 NAME_EXECUTABLE			= PmergeMe
@@ -40,10 +40,12 @@ DIR_OBJ						= obj
 DIR_SOURCES					= .
 DIR_SOURCES_PMERGEME		= sources
 
-
 # Object files
 OBJ = $(addprefix $(DIR_OBJ)/, $(SOURCES:.cpp=.o)) \
 	$(addprefix $(DIR_OBJ)/, $(SOURCES_PMERGEME:.cpp=.o)) \
+
+# Dependency files
+-include $(OBJ:.o=.d)
 
 all: $(NAME_EXECUTABLE)
 

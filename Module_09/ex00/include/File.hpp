@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   File.hpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/04 13:46:18 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/29 16:20:58 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   File.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 13:46:18 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/08/04 09:08:16 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,6 @@ class File {
 			public:
 				virtual const char *what() const throw();
 		};
-};
-
-enum E {
-
 };
 
 #endif

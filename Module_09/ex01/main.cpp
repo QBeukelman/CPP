@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/04 11:24:46 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/08 14:46:43 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 11:24:46 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/08/04 09:17:19 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,48 @@
 	1. If operand, push to stack.
 	2. If operator, pop two operands and perform operation, push intermediate answer back.
 
-	./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
-	42
-
-	./RPN "7 7 * 7 -"
-	42
-
-	./RPN "1 2 * 2 / 2 * 2 4 - +"
-	0
 	
-	./RPN "(1 + 1)"
-	Error
+	! Valid test cases
+	
+	./RPN "3 4 +"
+	# 7
+
+	./RPN "5 1 2 + 4 * + 3 -"
+	# 14   (Equivalent to: 5 + ((1 + 2) * 4) - 3)
+
+	./RPN "10 2 8 * + 3 -"
+	# 23   (Equivalent to: 10 + 2 * 8 - 3)
+
+	./RPN "6 2 / 3 -"
+	# 0   (Equivalent to: (6 / 2) - 3)
+
+	./RPN "4 2 5 * + 1 3 2 * + /"
+	# 2   (Equivalent to: (4 + 2 * 5) / (1 + 3 * 2))
+
+	! Invalid test cases
+	./RPN "+"
+	# Error  (Not enough operands)
+
+	./RPN "1 +"
+	# Error  (Operator before enough operands)
+
+	./RPN "2 3"
+	# Error  (Missing operator)
+
+	./RPN "2 3 &"
+	# Error  (Invalid character/operator)
+
+	./RPN "4 0 /"
+	# Error  (Division by zero)
+
+	./RPN "10 5 - -"
+	# Error  (Too few operands for second minus)
+
+	./RPN "(2 3 +)"
+	# Error  (Parentheses are not allowed)
+
+	./RPN ""
+	# Error  (Empty input)
 */
 
 #include "include/RPN.hpp"

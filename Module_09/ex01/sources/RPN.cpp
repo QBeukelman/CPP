@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   RPN.cpp                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/08 08:43:50 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/08 14:46:07 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   RPN.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/08 08:43:50 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/08/04 09:21:08 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,24 @@ RPN::RPN(std::string expression) {
 
 // Static Members
 // _____________________________________________________________________________
-
-TokenType	tokenType(std::string token) {
-	// Is valid number
-	if (token.length() == 1 && std::isdigit(token[0]))
-		return (OPERAND);
-	if (token.length() == 2 && token[0] == '-' && std::isdigit(token[1]))
-		return (OPERAND);
-
-	// Is valid operator
-	if (token.length() == 1) {
-		if (token[0] == '+' || token[0] == '-'
-			|| token[0] == '*' || token[0] == '/')
-			return (OPERATOR);
+bool isInteger(const std::string& s) {
+	if (s.empty())
+		return (false);
+	size_t start = (s[0] == '-' || s[0] == '+') ? 1 : 0;
+	if (start == s.size())
+		return (false); // string was just '+' or '-'
+	for (size_t i = start; i < s.size(); ++i) {
+		if (!isdigit(s[i]))
+			return (false);
 	}
+	return (true);
+}
+
+TokenType	tokenType(const std::string& token) {
+	if (isInteger(token))
+		return (OPERAND);
+	if (token == "+" || token == "-" || token == "*" || token == "/")
+		return (OPERATOR);
 	return (INVALID);
 }
 

@@ -6,7 +6,7 @@
 /*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 11:11:17 by quentinbeuk       #+#    #+#             */
-/*   Updated: 2025/08/04 09:34:19 by qbeukelm         ###   ########.fr       */
+/*   Updated: 2025/08/04 14:42:09 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 	
 	Use three pointers for Binary Search:
 		u = upper
-		i = midpoint index i = (l + u) / 2
+		i = midpoint index i = l + (u - l) / 2
 		l = lower
 
 	1. File class for open & read.

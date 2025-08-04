@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   RPN.hpp                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/08 08:43:55 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/08 14:01:19 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/08 08:43:55 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/08/04 14:51:57 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ class RPN {
 		std::string			expression;
 
 	public:
-		RPN() = delete;
+		RPN();
 		RPN(std::string expression);
+		RPN(const RPN& other);
+		RPN&	operator=(const RPN& other);
+		~RPN();
 
 		bool			isValid(std::string expression);
 		long long		evaluate();

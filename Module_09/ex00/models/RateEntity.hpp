@@ -6,7 +6,7 @@
 /*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 14:35:00 by quentinbeuk       #+#    #+#             */
-/*   Updated: 2025/08/04 09:23:52 by qbeukelm         ###   ########.fr       */
+/*   Updated: 2025/08/04 14:46:11 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ enum ParseError {
 };
 
 const std::unordered_map<ParseError, std::string> parseErrorMessages = {
-	{ ParseError::EMPTY_LINE,    "ERROR: Line is empty" },
-	{ ParseError::INVALID_DATE,  "ERROR: Invalid date format" },
-	{ ParseError::MISSING_FIELD_DATE, "ERROR: Missing date field" },
-	{ ParseError::MISSING_FIELD_VALUE, "ERROR: Missing value field" },
+	{ ParseError::EMPTY_LINE,    "ERROR: Line is empty." },
+	{ ParseError::INVALID_DATE,  "ERROR: Invalid date format." },
+	{ ParseError::MISSING_FIELD_DATE, "ERROR: Missing date field." },
+	{ ParseError::MISSING_FIELD_VALUE, "ERROR: Missing value field." },
 };
 
 template <typename T>

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   BitcoinExchange.cpp                                :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/06 15:59:17 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/29 16:07:08 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/06 15:59:17 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/08/04 14:48:51 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,22 @@
 
 // Constructors
 // _____________________________________________________________________________
+BitcoinExchange::BitcoinExchange() : rates(File<std::array<RateEntity, ARRAY_LENGTH>>()) {}
+
 BitcoinExchange::BitcoinExchange(File<std::array<RateEntity, ARRAY_LENGTH>> dataFile)
 	: rates(dataFile) {}
 
-File<std::array<RateEntity, INPUT_LENGTH>>	BitcoinExchange::parseInput(const std::string& fileName) {
-	auto parserFunction = [](std::istream& in) {
-		return (parseInputFile<INPUT_LENGTH>(in));
-	};
-	File<std::array<RateEntity, INPUT_LENGTH>> file(fileName, parserFunction);
-	return (file);
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& other) : rates(other.rates) {}
+
+BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange& other) {
+	if (this != & other) {
+		this->rates = other.rates;
+	}
+	return (*this);
 }
+
+BitcoinExchange::~BitcoinExchange() {}
+
 
 // Static Members
 // _____________________________________________________________________________
@@ -32,13 +38,13 @@ size_t	getMidpoint(size_t	l, size_t u) {
 }
 
 ValueCheck	isValidValue(float value) {
-	if (std::isnan(value) || std::isinf(value) || value >= static_cast<float>(INT_MAX)) {
-		std::cerr << C_RED << "ERROR: value too large." << RESET_COLOR << std::endl;
-		return (INVALID_TOO_HIGH);
-	}
 	if (value < 0.0f) {
 		std::cerr << C_RED << "ERROR: not a positive number." << RESET_COLOR << std::endl;
 		return (INVALID_NEGATEVE);
+	}
+	if (value > 1000) {
+		std::cerr << C_RED << "ERROR: input value greater that 1000 limit." << RESET_COLOR << std::endl;
+		return (INVALID_TOO_HIGH);
 	}
 	return (VALID);
 }
@@ -60,6 +66,18 @@ static void		writeError(RateEntity entity) {
 
 // Public Members
 // _____________________________________________________________________________
+File<std::array<RateEntity, INPUT_LENGTH>>	BitcoinExchange::parseInput(const std::string& fileName) {
+	auto parserFunction = [](std::istream& in) {
+		return (parseInputFile<INPUT_LENGTH>(in));
+	};
+	File<std::array<RateEntity, INPUT_LENGTH>> file(fileName, parserFunction);
+	return (file);
+}
+
+const File<std::array<RateEntity, ARRAY_LENGTH>>	BitcoinExchange::getRates() const {
+	return (this->rates);
+}
+
 /*
 	l = lower
 	i = midpoint index i = l + (u - l) / 2

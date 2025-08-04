@@ -6,7 +6,7 @@
 /*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 11:25:12 by quentinbeuk       #+#    #+#             */
-/*   Updated: 2025/08/04 09:36:26 by qbeukelm         ###   ########.fr       */
+/*   Updated: 2025/08/04 14:50:04 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 
 /*
 	At worst:		O(n log n)
+
+	- Use Canonacal form.
+	- Use reference for std::exception.
+	- Use limit of 1000 for look-up in btc.
+
+	- Remove makefile dependency check.
+	
+	- Use deque for 02.
+	- Add Jackobshal sequence.
 */
 
 #include "include/PmergeMe.hpp"

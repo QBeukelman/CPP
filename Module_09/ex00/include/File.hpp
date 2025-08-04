@@ -6,7 +6,7 @@
 /*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 13:46:18 by quentinbeuk       #+#    #+#             */
-/*   Updated: 2025/08/04 09:08:16 by qbeukelm         ###   ########.fr       */
+/*   Updated: 2025/08/04 14:37:09 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ class File {
 		size_t		count;
 
 	public:
+		File();
 		File(const std::string& fileName, std::function<ParsedResult<T>(std::istream&)> parser);
+		File(const File& other);
+		File&	operator=(const File& other);
+		~File();
 
 		void		readData(const std::string& fileName, std::function<ParsedResult<T>(std::istream&)> parser);
 		const T&	getData() const;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/04 11:11:17 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/29 16:09:03 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/04 11:11:17 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/08/04 09:34:19 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,6 @@
 		b) format checker.
 
 	3. Binary search.
-*/
-
-// TODO
-/*
-	Invalid input:
-		✅ Invalid date
-		✅ Empty row
-		✅ Empty file
-		✅ File permissions
-
-	Classes:
-		✅ Free in copy constructor
-
-	Look-up
-		✅ Date not found -> Use next lowest
-
-	Makefile
-		1. Dependency on .tpp
-		2. Dependency on .hpp
 */
 
 #include "include/colors.hpp"

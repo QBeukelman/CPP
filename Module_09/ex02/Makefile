@@ -6,7 +6,7 @@
 #    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/09 08:47:12 by quentinbeuk       #+#    #+#              #
-#    Updated: 2025/08/04 09:24:10 by qbeukelm         ###   ########.fr        #
+#    Updated: 2025/08/04 09:37:09 by qbeukelm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,7 @@ clean:
 	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"
 
 fclean: clean
-	@$(RM) -f $(NAME_EXECUTABLE) $(NAME_NUMBER_GENERATOR)
+	@$(RM) -f $(NAME_EXECUTABLE) $(NAME_NUMBER_GENERATOR) generator.d
 
 re: fclean all
 

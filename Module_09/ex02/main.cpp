@@ -6,7 +6,7 @@
 /*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 11:25:12 by quentinbeuk       #+#    #+#             */
-/*   Updated: 2025/08/04 09:12:53 by qbeukelm         ###   ########.fr       */
+/*   Updated: 2025/08/04 09:36:26 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,6 @@ int main(int argc, char** argv) {
 	write_divider();
 	evaluateSequence(inputsList);
 	write_divider();
-	
+
 	return (1);
 }

@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/07/09 08:47:12 by quentinbeuk       #+#    #+#              #
-#    Updated: 2025/08/04 09:37:09 by qbeukelm         ###   ########.fr        #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: qbeukelm <qbeukelm@student.42.fr>            +#+                      #
+#                                                    +#+                       #
+#    Created: 2025/07/09 08:47:12 by quentinbeuk   #+#    #+#                  #
+#    Updated: 2025/08/05 10:11:43 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RESET				:= \033[0m
 
 # Compiler
 CC = c++
-CFLAGS = -std=c++17 -Wall -Werror -Wextra -MMD -MP
+CFLAGS = -std=c++17 -Wall -Werror -Wextra
 
 # Targets
 NAME_EXECUTABLE			= PmergeMe
@@ -30,7 +30,7 @@ NAME_NUMBER_GENERATOR	= generator
 SOURCES						= main.cpp
 
 SOURCES_PMERGEME			= PmergeMe.cpp \
-								PmergeMeList.cpp \
+								PmergeMeDeque.cpp \
 								writer.cpp \
 
 INC 						= inc
@@ -43,9 +43,6 @@ DIR_SOURCES_PMERGEME		= sources
 # Object files
 OBJ = $(addprefix $(DIR_OBJ)/, $(SOURCES:.cpp=.o)) \
 	$(addprefix $(DIR_OBJ)/, $(SOURCES_PMERGEME:.cpp=.o)) \
-
-# Dependency files
--include $(OBJ:.o=.d)
 
 all: $(NAME_EXECUTABLE)
 

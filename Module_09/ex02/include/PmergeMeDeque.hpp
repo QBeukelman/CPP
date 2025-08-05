@@ -1,50 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   PmergeMeList.hpp                                   :+:    :+:            */
+/*   PmergeMeDeque.hpp                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/09 08:46:40 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/10 15:18:09 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/08/05 09:25:02 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PMERGEMELIST_HPP
-#define PMERGEMELIST_HPP
+#ifndef PMERGEMEDEQUE_HPP
+#define PMERGEMEDEQUE_HPP
 
 #include <iostream>
-#include <list>
+#include <deque>
 #include <string>
 #include <algorithm>
 
 #include "colors.hpp"
 
-class PmergeMeList {
+class PmergeMeDeque {
 	private:
 		// First Step Helpers
-		void	pairAndSplit(const std::list<int>& inputs,
-								std::list<int>& minima,
-								std::list<int>& maxima);
+		void	pairAndSplit(const std::deque<int>& inputs,
+								std::deque<int>& minima,
+								std::deque<int>& maxima);
 		
 		// Internal Recursive Sort Function
-		void fordJohnsonSort(std::list<int>& sequence);
+		void fordJohnsonSort(std::deque<int>& sequence);
 
 		// Insertion Helper
-		void insertMinima(std::list<int>& sorted,
-							const std::list<int>& minima);
+		void insertMinima(std::deque<int>& sorted,
+							const std::deque<int>& minima);
 
 		// Binary Insertion Utility
-		std::list<int>::const_iterator linearInsertPosition(const std::list<int>& sorted, int value);
+		std::deque<int>::const_iterator		binaryInsertPosition(const std::deque<int>& sorted, int value);
+		std::deque<size_t>					generateJacobsthalIndices(size_t n);
 
 
 	public:
-		PmergeMeList();
-		~PmergeMeList();
+		PmergeMeDeque();
+		PmergeMeDeque(const PmergeMeDeque& other);
+		PmergeMeDeque&	operator=(const PmergeMeDeque& other);
+		~PmergeMeDeque();
 		
-		void	sort(std::list<int>& inputs);
-		void	printContainer(std::string name, const std::list<int> container);
-		bool	isSorted(const std::list<int> sequence);
+		void	sort(std::deque<int>& inputs);
+		void	printContainer(std::string name, const std::deque<int> container);
+		bool	isSorted(const std::deque<int> sequence);
 };
 
 #endif

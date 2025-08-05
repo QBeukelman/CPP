@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 08:46:40 by quentinbeuk       #+#    #+#             */
-/*   Updated: 2025/08/04 09:11:01 by qbeukelm         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   PmergeMe.hpp                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/07/09 08:46:40 by quentinbeuk   #+#    #+#                 */
+/*   Updated: 2025/08/05 09:21:09 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,14 @@ class PmergeMe {
 							const std::vector<int>& minima);
 
 		// Binary Insertion Utility
-		size_t binaryInsertPosition(const std::vector<int>& sorted, int value);
+		std::vector<int>::iterator		binaryInsertPosition(std::vector<int>& sorted, int value);
+		std::vector<size_t>				generateJacobsthalIndices(size_t n);
 
 
 	public:
 		PmergeMe();
+		PmergeMe(const PmergeMe& other);
+		PmergeMe&	operator=(const PmergeMe& other);
 		~PmergeMe();
 		
 		void	sort(std::vector<int>& inputs);

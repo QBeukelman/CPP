@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/04 11:11:17 by quentinbeuk       #+#    #+#             */
-/*   Updated: 2025/08/04 14:42:09 by qbeukelm         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   main.cpp                                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/07/04 11:11:17 by quentinbeuk   #+#    #+#                 */
+/*   Updated: 2025/08/05 10:00:48 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ! BTC Exchange
-
 /*
-	Use Array for random access, and fixed size at runtime.
-	Sort dates.
-	
-	Use three pointers for Binary Search:
-		u = upper
-		i = midpoint index i = l + (u - l) / 2
-		l = lower
+	----------------------------------------------------------------------------
+	🔧 Example Use Case:
+	----------------------------------------------------------------------------
 
-	1. File class for open & read.
+	Input file line:
+		2014-01-15 | 3.5
 
-	2. Date struct with:	
-		a) == opperator.
-		b) format checker.
+	CSV file contains:
+		...
+		2014-01-14, 850.50
+		2014-01-15, 860.00
+		2014-01-16, 870.25
+		...
 
-	3. Binary search.
+	Binary search finds 2014-01-15 with rate 860.00
+	Output:
+		2014-01-15 => 3.5 = 3010.00
 */
 
 #include "include/colors.hpp"

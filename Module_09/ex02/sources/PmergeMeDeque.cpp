@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   PmergeMe.cpp                                       :+:    :+:            */
+/*   PmergeMeDeque.cpp                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/09 08:46:48 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/08/05 09:24:23 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/08/05 10:15:24 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/PmergeMe.hpp"
+#include "../include/PmergeMeDeque.hpp"
 
 // Constructors
 // _____________________________________________________________________________
 // Default constructor
-PmergeMe::PmergeMe() {}
+PmergeMeDeque::PmergeMeDeque() {}
 
 // Copy constructor
-PmergeMe::PmergeMe(const PmergeMe& other) {
+PmergeMeDeque::PmergeMeDeque(const PmergeMeDeque& other) {
 	(void)other;
 }
 
 // Assignment operator
-PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
+PmergeMeDeque& PmergeMeDeque::operator=(const PmergeMeDeque& other) {
 	if (this != &other) {}
 	return *this;
 }
 
 // Destructor
-PmergeMe::~PmergeMe() {}
+PmergeMeDeque::~PmergeMeDeque() {}
 
 
 // Public Members
@@ -41,9 +41,9 @@ PmergeMe::~PmergeMe() {}
 	2. Sort Maxima recursively using fordJohnsonSort()
 	3. Insert Minima into Maxima using Binary Search (tournament tree)
 */
-void	PmergeMe::sort(std::vector<int>& inputs) {
-	std::vector<int>	minima;
-	std::vector<int>	maxima;
+void	PmergeMeDeque::sort(std::deque<int>& inputs) {
+	std::deque<int>	minima;
+	std::deque<int>	maxima;
 
 	pairAndSplit(inputs, minima, maxima);
 	fordJohnsonSort(maxima);
@@ -52,7 +52,8 @@ void	PmergeMe::sort(std::vector<int>& inputs) {
 	inputs = maxima;
 }
 
-void	PmergeMe::printContainer(std::string name, const std::vector<int> container) {
+
+void	PmergeMeDeque::printContainer(std::string name, const std::deque<int> container) {
 	std::cout << name << ": \t";
 	for (const auto& item : container) {
 		std::cout << item << " ";
@@ -60,19 +61,25 @@ void	PmergeMe::printContainer(std::string name, const std::vector<int> container
 	std::cout << std::endl;
 }
 
-bool	PmergeMe::isSorted(const std::vector<int> sequence) {
-	for (size_t i = 0; i < (sequence.size() - 1); i++) {
-		if (sequence[i] > sequence[i + 1]) {
+bool	PmergeMeDeque::isSorted(const std::deque<int> sequence) {
+	std::deque<int>::const_iterator	it = sequence.begin();
+	std::deque<int>::const_iterator	next = it;
+	next++;
+	
+	while (next != sequence.end()) {
+		if (*it > *next) {
 			std::cerr
 				<< C_RED
 				<< "Failed at: v[i] "
-				<< sequence[i]
+				<< *it
 				<< " > v[i + 1] "
-				<< sequence[i + 1]
+				<< *next
 				<< RESET_COLOR
 				<< std::endl;
 			return (false);
 		}
+		it++;
+		next++;
 	}
 	return (true);
 }
@@ -88,22 +95,28 @@ bool	PmergeMe::isSorted(const std::vector<int> sequence) {
 
 	If input size is odd, unpaired element is added to `maxima`.
 */
-void	PmergeMe::pairAndSplit(const std::vector<int>& inputs, std::vector<int>& minima, std::vector<int>& maxima) {
-	size_t	i;
+void	PmergeMeDeque::pairAndSplit(const std::deque<int>& inputs, std::deque<int>& minima, std::deque<int>& maxima) {
+	std::deque<int>::const_iterator		it = inputs.begin();
+	
+	while (it != inputs.end()) {
+		std::deque<int>::const_iterator	next = it;
+		next++;
 
-	i = 0;
-	while (i + 1 < inputs.size()) {
-		if (inputs[i] < inputs[i + 1]) {
-			minima.push_back(inputs[i]);
-			maxima.push_back(inputs[i + 1]);
-		} else {
-			minima.push_back(inputs[i + 1]);
-			maxima.push_back(inputs[i]);
+		// If list contains odd number
+		if (next == inputs.end()) {
+			maxima.push_back(*it);
+			break ;
 		}
-		i += 2;
+		
+		if (*it < *next) {
+			minima.push_back(*it);
+			maxima.push_back(*next);		
+		} else {
+			minima.push_back(*next);
+			maxima.push_back(*it);
+		}
+		std::advance(it, 2);
 	}
-	if (i < inputs.size())
-		maxima.push_back(inputs[i]);
 }
 
 /*
@@ -116,12 +129,12 @@ void	PmergeMe::pairAndSplit(const std::vector<int>& inputs, std::vector<int>& mi
 
 	Final forted sequence is written back into the input sequence.
 */
-void	PmergeMe::fordJohnsonSort(std::vector<int>& sequence) {
+void	PmergeMeDeque::fordJohnsonSort(std::deque<int>& sequence) {
 	if (sequence.size() <= 1)
 		return ;
 
-	std::vector<int>	minima;
-	std::vector<int>	maxima;
+	std::deque<int>	minima;
+	std::deque<int>	maxima;
 
 	// 1: Pair and split
 	pairAndSplit(sequence, minima, maxima);
@@ -131,10 +144,9 @@ void	PmergeMe::fordJohnsonSort(std::vector<int>& sequence) {
 
 	// 3: Insert minima into the sorted maxima
 	insertMinima(maxima, minima);
-	
+
 	sequence = maxima;
 }
-
 
 /*
 	Step 3.1: Generates a sequence of indices based on the Jacobsthal number sequence
@@ -154,19 +166,18 @@ void	PmergeMe::fordJohnsonSort(std::vector<int>& sequence) {
 		n – total number of minima elements
 
 	Returns:
-		A vector of `n` indices representing the order in which elements 
+		A deque of `n` indices representing the order in which elements 
 		should be inserted, starting with Jacobsthal indices, followed 
 		by any remaining indices in increasing order.
 */
-std::vector<size_t>		PmergeMe::generateJacobsthalIndices(size_t n) {
-	std::vector<size_t> sequence;
-	size_t				j1 = 1, j2 = 0;
+std::deque<size_t> PmergeMeDeque::generateJacobsthalIndices(size_t n) {
+	std::deque<size_t>	sequence;
+	size_t 				j1 = 1, j2 = 0;
 
 	if (n == 0)
 		return (sequence);
 
-	// Start with Jacobsthal(1) = 1
-	sequence.push_back(1);
+	sequence.push_back(0);  // J(0) = 0
 
 	while (true) {
 		size_t next = j1 + 2 * j2;
@@ -177,12 +188,11 @@ std::vector<size_t>		PmergeMe::generateJacobsthalIndices(size_t n) {
 		j1 = next;
 	}
 
-	// Add remaining indices not already included
-	std::vector<size_t>		result;
+	// Fill in missing indices not covered by the Jacobsthal sequence
+	std::deque<size_t>		result;
 	std::vector<bool>		seen(n, false);
-
 	for (size_t idx : sequence) {
-		if (idx < n && !seen[idx]) {
+		if (!seen[idx]) {
 			result.push_back(idx);
 			seen[idx] = true;
 		}
@@ -200,12 +210,12 @@ std::vector<size_t>		PmergeMe::generateJacobsthalIndices(size_t n) {
 	- Find the position using binary search.
 	- Insert at calculated position to maintain sorted order.
 */
-void	PmergeMe::insertMinima(std::vector<int>& sorted, const std::vector<int>& minima) {
-	std::vector<size_t>		insertionOrder = generateJacobsthalIndices(minima.size());
+void PmergeMeDeque::insertMinima(std::deque<int>& sorted, const std::deque<int>& minima) {
+	std::deque<size_t>	insertionOrder = generateJacobsthalIndices(minima.size());
 
 	for (size_t i : insertionOrder) {
 		int value = minima[i];
-		std::vector<int>::iterator pos = binaryInsertPosition(sorted, value);
+		std::deque<int>::const_iterator pos = binaryInsertPosition(sorted, value);
 		sorted.insert(pos, value);
 	}
 }
@@ -219,6 +229,6 @@ void	PmergeMe::insertMinima(std::vector<int>& sorted, const std::vector<int>& mi
 	Returns:
 		Iterator pointing to the correct insert position in `sorted`.
 */
-std::vector<int>::iterator	PmergeMe::binaryInsertPosition(std::vector<int>& sorted, int value) {
+std::deque<int>::const_iterator		PmergeMeDeque::binaryInsertPosition(const std::deque<int>& sorted, int value) {
 	return (std::lower_bound(sorted.begin(), sorted.end(), value));
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/06 15:59:17 by quentinbeuk       #+#    #+#             */
-/*   Updated: 2025/08/04 14:48:51 by qbeukelm         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   BitcoinExchange.cpp                                :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/07/06 15:59:17 by quentinbeuk   #+#    #+#                 */
+/*   Updated: 2025/08/05 09:43:58 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ size_t	getMidpoint(size_t	l, size_t u) {
 
 ValueCheck	isValidValue(float value) {
 	if (value < 0.0f) {
-		std::cerr << C_RED << "ERROR: not a positive number." << RESET_COLOR << std::endl;
+		std::cerr << C_RED << "ERROR: Not a positive number." << RESET_COLOR << std::endl;
 		return (INVALID_NEGATEVE);
 	}
 	if (value > 1000) {
-		std::cerr << C_RED << "ERROR: input value greater that 1000 limit." << RESET_COLOR << std::endl;
+		std::cerr << C_RED << "ERROR: Input value greater that 1000 limit." << RESET_COLOR << std::endl;
 		return (INVALID_TOO_HIGH);
 	}
 	return (VALID);
@@ -147,14 +147,14 @@ void	BitcoinExchange::convertRates(File<std::array<RateEntity, INPUT_LENGTH>> in
 	
 		float searchedRate = searchRate(inputs[i].date);
 		float convertedRate = searchedRate * inputRate;
-		if (searchedRate > 0)
-			std::cout << C_BLUE << convertedRate << RESET_COLOR << std::endl;
-		else
-			std::cerr
-				<< C_RED
-				<< "ERROR: Value found was 0"
-				<< RESET_COLOR
-				<< std::endl;
+
+		std::cout
+			<< C_BLUE
+			<< "€ "
+			<< convertedRate
+			<< RESET_COLOR
+			<< std::endl;
+		
 		i++;
 	}
 }

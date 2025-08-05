@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/07/08 07:58:18 by quentinbeuk       #+#    #+#              #
-#    Updated: 2025/08/04 09:15:53 by qbeukelm         ###   ########.fr        #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: qbeukelm <qbeukelm@student.42.fr>            +#+                      #
+#                                                    +#+                       #
+#    Created: 2025/07/08 07:58:18 by quentinbeuk   #+#    #+#                  #
+#    Updated: 2025/08/05 09:27:20 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ RESET			:= \033[0m
 
 # Compiler
 CC = c++
-CFLAGS = -std=c++17 -Wall -Werror -Wextra -MMD -MP
+CFLAGS = -std=c++17 -Wall -Werror -Wextra
 
 # Targets
 NAME_EXECUTABLE = RPN
@@ -39,9 +39,6 @@ VPATH = $(DIR_SOURCES):$(DIR_SOURCES_RPN)
 # Object files
 OBJ = $(addprefix $(DIR_OBJ)/, $(SOURCES:.cpp=.o)) \
 	$(addprefix $(DIR_OBJ)/, $(SOURCES_RPN:.cpp=.o))
-
-# Include dependency files
--include $(OBJ:.o=.d)
 
 # Build target
 all: $(NAME_EXECUTABLE)

@@ -6,7 +6,7 @@
 /*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/06 20:03:33 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/07/29 15:52:04 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/08/05 09:33:28 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,23 @@ ParsedResult<std::array<RateEntity, N>> parse(std::istream& in, char delimiter) 
 			continue ;
 		}
 		
-		float	value = std::stof(valueStr); // ! Validate float
+		float value = 0;
+		try {
+			value = std::stof(valueStr);
+		} catch (const std::invalid_argument& e) {
+			std::cerr
+				<< C_RED
+				<< "ERROR: Invalid input: not a number."
+				<< RESET_COLOR
+				<< std::endl;
+		} catch (const std::out_of_range& e) {
+			std::cerr
+				<< C_RED
+				<< "ERROR: Input out of float range."
+				<< RESET_COLOR
+				<< std::endl;
+		}
+
 		entity = {date, value, SUCCESS};
 		rateEntities[i] = entity;
 		i++;

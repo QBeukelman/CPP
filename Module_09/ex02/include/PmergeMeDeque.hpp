@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   PmergeMeDeque.hpp                                  :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: quentinbeukelman <quentinbeukelman@stud      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/07/09 08:46:40 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/08/05 09:25:02 by quentinbeuk   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   PmergeMeDeque.hpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/09 08:46:40 by quentinbeuk       #+#    #+#             */
+/*   Updated: 2025/08/06 09:12:48 by qbeukelm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <deque>
 #include <string>
 #include <algorithm>
+#include <vector>
 
 #include "colors.hpp"
 

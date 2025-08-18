@@ -6,7 +6,7 @@
 /*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/06 20:03:33 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/08/18 14:21:52 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/08/18 14:56:28 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ ParsedResult<std::array<RateEntity, N>> parse(std::istream& in, char delimiter) 
 			continue ;
 		}
 		
+		// Date
 		Date date = {};
 		if (sscanf(dateStr.c_str(), "%d-%d-%d", &date.year, &date.month, &date.day) != 3 || !isValidDate(date)) {
 			entity.error = INVALID_DATE;
@@ -116,6 +117,7 @@ ParsedResult<std::array<RateEntity, N>> parse(std::istream& in, char delimiter) 
 			continue ;
 		}
 		
+		// Value
 		float value = 0;
 		if (isValidNumericString(valueStr)) {
 			try {

@@ -6,7 +6,7 @@
 /*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/06 15:59:17 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/08/05 09:43:58 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/08/18 15:03:08 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ float	BitcoinExchange::searchRate(Date inputDate) {
 
 void	BitcoinExchange::convertRates(File<std::array<RateEntity, INPUT_LENGTH>> inputFile) {
 	auto		inputs = inputFile.getData();
+	auto		savedRates = rates.getData();
 	size_t		count = inputFile.getCount();
 	size_t		i;
 	
@@ -146,8 +147,11 @@ void	BitcoinExchange::convertRates(File<std::array<RateEntity, INPUT_LENGTH>> in
 		}
 	
 		float searchedRate = searchRate(inputs[i].date);
-		float convertedRate = searchedRate * inputRate;
+		if (searchedRate < 0) {
+			searchedRate = savedRates[0].value; // Invalid index, use first
+		}
 
+		float convertedRate = searchedRate * inputRate;
 		std::cout
 			<< C_BLUE
 			<< "€ "

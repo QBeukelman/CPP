@@ -6,7 +6,7 @@
 /*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/04 11:24:46 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/08/05 10:10:58 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/08/18 15:06:28 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,9 @@ int	main(int argc, char **argv) {
 	try {
 		RPN rpn = RPN(expression);
 		std::cout
-			<< "\n"
 			<< C_BLUE
 			<< rpn.evaluate()
 			<< RESET_COLOR
-			<< "\n"
 			<< std::endl;
 	} catch (std::exception& e) {
 		std::cerr << C_RED << "Caught Exception: " << e.what() << RESET_COLOR << std::endl;

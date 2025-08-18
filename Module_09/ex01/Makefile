@@ -6,7 +6,7 @@
 #    By: qbeukelm <qbeukelm@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/07/08 07:58:18 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/08/05 09:27:20 by quentinbeuk   ########   odam.nl          #
+#    Updated: 2025/08/18 13:43:40 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,56 +17,46 @@ BLUE			:= \033[34;1m
 RESET			:= \033[0m
 
 # Compiler
-CC = c++
-CFLAGS = -std=c++17 -Wall -Werror -Wextra
+CXX       := c++
+CXXFLAGS  := -std=c++17 -Wall -Werror -Wextra -MMD -MP -Iinc
 
-# Targets
-NAME_EXECUTABLE = RPN
+# Target
+NAME      := RPN
+
+# Dirs
+DIR_OBJ   := obj
 
 # Sources
-SOURCES			= main.cpp
-SOURCES_RPN		= RPN.cpp
+SOURCES := \
+main.cpp \
+sources/RPN.cpp \
 
-# Directories
-INC				= inc
-DIR_OBJ			= obj
-DIR_SOURCES		= .
-DIR_SOURCES_RPN	= sources
+OBJECTS := $(patsubst %.cpp,$(DIR_OBJ)/%.o,$(SOURCES))
+DEPENDS := $(OBJECTS:.o=.d)
 
-# VPATH for source lookup
-VPATH = $(DIR_SOURCES):$(DIR_SOURCES_RPN)
+all: $(NAME)
 
-# Object files
-OBJ = $(addprefix $(DIR_OBJ)/, $(SOURCES:.cpp=.o)) \
-	$(addprefix $(DIR_OBJ)/, $(SOURCES_RPN:.cpp=.o))
+# Link
+$(NAME): $(OBJECTS)
+	@echo "$(BLUE)\nLinking $(NAME)...$(RESET)"
+	@$(CXX) $(OBJECTS) -o $@
+	@echo "$(GREEN)\nDone\n$(RESET)"
 
-# Build target
-all: $(NAME_EXECUTABLE)
-
-$(NAME_EXECUTABLE): $(OBJ)
-	@echo "$(BLUE)\nMaking ...\n$(RESET)"
-	@$(CC) $(OBJ) $(CFLAGS) -o $(NAME_EXECUTABLE)
-	@echo "$(GREEN)Compiled all!\n$(RESET)"
-
-# Compile rules
-$(DIR_OBJ)/%.o: %.cpp | $(DIR_OBJ)
-	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
-
-$(DIR_OBJ):
-	@mkdir -p $@
+# Compile
+$(DIR_OBJ)/%.o: %.cpp
+	@mkdir -p $(dir $@)
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	@echo "$(BLUE)\nCleaning ...$(RESET)"
-	@$(RM) -rf $(DIR_OBJ)
+	@rm -rf $(DIR_OBJ)
 	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"
 
 fclean: clean
-	@$(RM) -f $(NAME_EXECUTABLE)
+	@rm -f $(NAME)
 
 re: fclean all
 
-valgrind: $(NAME_EXECUTABLE)
-	@echo "$(YELLOW)Running Valgrind...$(RESET)"
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME_EXECUTABLE)
+-include $(DEPENDS)
 
-.PHONY: all clean fclean re valgrind
+.PHONY: all clean fclean re

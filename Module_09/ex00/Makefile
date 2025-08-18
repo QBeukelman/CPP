@@ -6,7 +6,7 @@
 #    By: qbeukelm <qbeukelm@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/07/04 15:09:46 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/08/05 09:27:33 by quentinbeuk   ########   odam.nl          #
+#    Updated: 2025/08/18 13:41:24 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,59 +19,47 @@ BLUE				:= \033[34;1m
 RESET				:= \033[0m
 
 # Compiler
-CC = c++
-CFLAGS = -std=c++17 -Wall -Werror -Wextra
+CXX       := c++
+CXXFLAGS  := -std=c++17 -Wall -Werror -Wextra -MMD -MP -Iinc
 
-# Targets
-NAME_EXECUTABLE = btc
+# Target
+NAME      := btc
+
+# Dirs
+DIR_OBJ   := obj
 
 # Sources
-SOURCES						= main.cpp
+SOURCES := \
+main.cpp \
+sources/BitcoinExchange.cpp \
+sources/Date.cpp \
 
-SOURCES_BTC					= BitcoinExchange.cpp \
-								Date.cpp \
+OBJECTS := $(patsubst %.cpp,$(DIR_OBJ)/%.o,$(SOURCES))
+DEPENDS := $(OBJECTS:.o=.d)
 
-INC 						= inc
-DIR_OBJ						= obj
+all: $(NAME)
 
-# Directories
-DIR_SOURCES					= .
-DIR_SOURCES_BTC				= sources
+# Link
+$(NAME): $(OBJECTS)
+	@echo "$(BLUE)\nLinking $(NAME)...$(RESET)"
+	@$(CXX) $(OBJECTS) -o $@
+	@echo "$(GREEN)\nDone\n$(RESET)"
 
-# Object files
-OBJ = $(addprefix $(DIR_OBJ)/, $(SOURCES:.cpp=.o)) \
-	  $(addprefix $(DIR_OBJ)/, $(SOURCES_BTC:.cpp=.o))
-
-all: $(NAME_EXECUTABLE)
-
-$(NAME_EXECUTABLE): $(OBJ)
-	@echo "$(BLUE)\nMaking ...\n$(RESET)"
-	@$(CC) $(OBJ) $(CFLAGS) -o $(NAME_EXECUTABLE)
-	@echo "$(GREEN)Compiled all!\n$(RESET)"
-
-$(DIR_OBJ)/%.o: $(DIR_SOURCES)/%.cpp | $(DIR_OBJ)
-	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
-
-$(DIR_OBJ)/%.o: $(DIR_SOURCES_BTC)/%.cpp | $(DIR_OBJ)
-	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
-
-$(DIR_OBJ):
-	@mkdir -p $@
+# Compile
+$(DIR_OBJ)/%.o: %.cpp
+	@mkdir -p $(dir $@)
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	@echo "$(BLUE)\nCleaning ...$(RESET)"
-	@$(RM) -rf $(DIR_OBJ)
-	@$(RM) -rf $(EXTRA_O)
-	@$(RM) -rf $(OBJS)
+	@rm -rf $(DIR_OBJ)
 	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"
 
 fclean: clean
-	@$(RM) -f $(NAME_EXECUTABLE)
+	@rm -f $(NAME)
 
 re: fclean all
 
-valgrind: $(NAME_EXECUTABLE)
-	@echo "$(YELLOW)Running Valgrind...$(RESET)"
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME_EXECUTABLE)
+-include $(DEPENDS)
 
-.PHONY: all clean fclean re valgrind
+.PHONY: all clean fclean re

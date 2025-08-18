@@ -6,7 +6,7 @@
 #    By: qbeukelm <qbeukelm@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/07/09 08:47:12 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/08/05 10:11:43 by quentinbeuk   ########   odam.nl          #
+#    Updated: 2025/08/18 13:59:41 by quentinbeuk   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,64 +19,58 @@ BLUE				:= \033[34;1m
 RESET				:= \033[0m
 
 # Compiler
-CC = c++
-CFLAGS = -std=c++17 -Wall -Werror -Wextra
+CXX       := c++
+CXXFLAGS  := -std=c++17 -Wall -Werror -Wextra -MMD -MP -Iinc
 
 # Targets
-NAME_EXECUTABLE			= PmergeMe
-NAME_NUMBER_GENERATOR	= generator
+NAME                  := PmergeMe
+NAME_NUMBER_GENERATOR := generator
 
-# Sources
-SOURCES						= main.cpp
+# Dirs
+DIR_OBJ := obj
 
-SOURCES_PMERGEME			= PmergeMe.cpp \
-								PmergeMeDeque.cpp \
-								writer.cpp \
+# ---- Explicit sources for each executable ----
+SRCS_MAIN := \
+main.cpp \
+sources/PmergeMe.cpp \
+sources/PmergeMeDeque.cpp \
+sources/writer.cpp
 
-INC 						= inc
-DIR_OBJ						= obj
+SRCS_GEN := \
+sources/generator.cpp
 
-# Directories
-DIR_SOURCES					= .
-DIR_SOURCES_PMERGEME		= sources
+# Objects/Deps
+OBJS_MAIN := $(patsubst %.cpp,$(DIR_OBJ)/%.o,$(SRCS_MAIN))
+OBJS_GEN  := $(patsubst %.cpp,$(DIR_OBJ)/%.o,$(SRCS_GEN))
 
-# Object files
-OBJ = $(addprefix $(DIR_OBJ)/, $(SOURCES:.cpp=.o)) \
-	$(addprefix $(DIR_OBJ)/, $(SOURCES_PMERGEME:.cpp=.o)) \
+DEPS := $(OBJS_MAIN:.o=.d) $(OBJS_GEN:.o=.d)
 
-all: $(NAME_EXECUTABLE)
+all: $(NAME)
 
-$(NAME_EXECUTABLE): $(OBJ)
-	@echo "$(BLUE)\nMaking ...\n$(RESET)"
-	@$(CC) $(OBJ) $(CFLAGS) -o $(NAME_EXECUTABLE)
-	@echo "$(GREEN)Compiled all!\n$(RESET)"
+# Link
+$(NAME): $(OBJS_MAIN)
+	@$(CXX) $(OBJS_MAIN) -o $@
 
-$(DIR_OBJ)/%.o: $(DIR_SOURCES)/%.cpp | $(DIR_OBJ)
-	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
+$(NAME_NUMBER_GENERATOR): $(OBJS_GEN)
+	@$(CXX) $(OBJS_GEN) -o $@
 
-$(DIR_OBJ)/%.o: $(DIR_SOURCES_PMERGEME)/%.cpp | $(DIR_OBJ)
-	@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
+# Compile
+$(DIR_OBJ)/%.o: %.cpp
+	@mkdir -p $(dir $@)
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(DIR_OBJ):
-	@mkdir -p $@
-
-make generator:
-	@$(CC) $(CFLAGS) -o $(NAME_NUMBER_GENERATOR) sources/generator.cpp
+# Build generator
+generator-build: $(NAME_NUMBER_GENERATOR)
 
 clean:
-	@echo "$(BLUE)\nCleaning ...$(RESET)"
-	@$(RM) -rf $(DIR_OBJ)
-	@$(RM) -rf $(EXTRA_O)
-	@$(RM) -rf $(OBJS)
-	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"
+	@rm -rf $(DIR_OBJ)
+	@rm -f $(NAME_NUMBER_GENERATOR)
 
 fclean: clean
-	@$(RM) -f $(NAME_EXECUTABLE) $(NAME_NUMBER_GENERATOR) generator.d
+	@rm -f $(NAME)
 
 re: fclean all
 
-valgrind: $(NAME_EXECUTABLE)
-	@echo "$(YELLOW)Running Valgrind...$(RESET)"
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME_EXECUTABLE)
+-include $(DEPS)
 
-.PHONY: all clean fclean re valgrind
+.PHONY: all clean fclean re generator-build

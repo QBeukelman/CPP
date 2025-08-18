@@ -6,7 +6,7 @@
 /*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/06 20:03:33 by quentinbeuk   #+#    #+#                 */
-/*   Updated: 2025/08/05 09:33:28 by quentinbeuk   ########   odam.nl         */
+/*   Updated: 2025/08/18 14:21:52 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,43 @@ static bool isValidDate(const Date& date) {
 	if (date.day < 1 || date.day > 31)
 		return (false);
 	return (true);
+}
+
+static bool	isValidNumericString(const std::string& s) {
+	if (s.empty())
+		return (false);
+
+	bool	seenDecimal = false;
+	bool	seenDidgit = false;
+
+	for (size_t i = 0; i < s.size(); i++) {
+		char c = s[i];
+
+		if (c == ' ')
+			continue ;
+
+		// Minus only in beginning
+		if (c == '-') {
+			if (i > 1)
+				return (false);
+		}
+
+		// Only one decmial
+		else if (c == '.') {
+			if (seenDecimal)
+				return (false);
+			seenDecimal = true;
+		}
+
+		// At least one digit
+		else if (std::isdigit(static_cast<unsigned char>(c))) {
+			seenDidgit = true;
+		}
+
+		else	
+			return (false);
+	}
+	return (seenDidgit);
 }
 
 template <size_t N>
@@ -80,20 +117,28 @@ ParsedResult<std::array<RateEntity, N>> parse(std::istream& in, char delimiter) 
 		}
 		
 		float value = 0;
-		try {
-			value = std::stof(valueStr);
-		} catch (const std::invalid_argument& e) {
-			std::cerr
-				<< C_RED
-				<< "ERROR: Invalid input: not a number."
-				<< RESET_COLOR
-				<< std::endl;
-		} catch (const std::out_of_range& e) {
-			std::cerr
-				<< C_RED
-				<< "ERROR: Input out of float range."
-				<< RESET_COLOR
-				<< std::endl;
+		if (isValidNumericString(valueStr)) {
+			try {
+				value = std::stof(valueStr);
+			} catch (const std::invalid_argument& e) {
+				std::cerr
+					<< C_RED
+					<< "ERROR: Invalid input: not a number."
+					<< RESET_COLOR
+					<< std::endl;
+			} catch (const std::out_of_range& e) {
+				std::cerr
+					<< C_RED
+					<< "ERROR: Input out of float range."
+					<< RESET_COLOR
+					<< std::endl;
+			}
+		} else {
+			entity.error = INVALID_VALUE;
+			entity.date = date;
+			rateEntities[i] = entity;
+			i++;
+			continue ;
 		}
 
 		entity = {date, value, SUCCESS};

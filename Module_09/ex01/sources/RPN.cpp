@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   RPN.cpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/08 08:43:50 by quentinbeuk       #+#    #+#             */
-/*   Updated: 2025/08/04 14:54:45 by qbeukelm         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   RPN.cpp                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: qbeukelm <qbeukelm@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2025/07/08 08:43:50 by quentinbeuk   #+#    #+#                 */
+/*   Updated: 2025/08/18 14:44:44 by quentinbeuk   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		applyArithmetic(char op, int a, int b) {
 		case '-': return (b - a);
 		case '*': return (a * b);
 		case '/':
-			if (b == 0) throw std::runtime_error("Divistion by 0");
+			if (a == 0) throw std::runtime_error("Divistion by 0");
 			return (b / a);
 		default:
 			throw std::runtime_error("Unkown operator");

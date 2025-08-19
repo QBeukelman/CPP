@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: qbeukelm <qbeukelm@student.42.fr>            +#+                      #
-#                                                    +#+                       #
-#    Created: 2025/07/09 08:47:12 by quentinbeuk   #+#    #+#                  #
-#    Updated: 2025/08/18 13:59:41 by quentinbeuk   ########   odam.nl          #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: qbeukelm <qbeukelm@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/07/09 08:47:12 by quentinbeuk       #+#    #+#              #
+#    Updated: 2025/08/19 09:41:42 by qbeukelm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,9 @@ all: $(NAME)
 
 # Link
 $(NAME): $(OBJS_MAIN)
+	@echo "$(BLUE)\nLinking $(NAME)...$(RESET)"
 	@$(CXX) $(OBJS_MAIN) -o $@
+	@echo "$(GREEN)\nDone\n$(RESET)"
 
 $(NAME_NUMBER_GENERATOR): $(OBJS_GEN)
 	@$(CXX) $(OBJS_GEN) -o $@
@@ -63,8 +65,10 @@ $(DIR_OBJ)/%.o: %.cpp
 generator-build: $(NAME_NUMBER_GENERATOR)
 
 clean:
+	@echo "$(BLUE)\nCleaning ...$(RESET)"
 	@rm -rf $(DIR_OBJ)
-	@rm -f $(NAME_NUMBER_GENERATOR)
+	@rm -rf $(NAME_NUMBER_GENERATOR)
+	@echo "$(GREEN)$(BOLD)\nAll clean!\n$(RESET)"
 
 fclean: clean
 	@rm -f $(NAME)
